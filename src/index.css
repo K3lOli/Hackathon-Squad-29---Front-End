@@ -3,9 +3,10 @@
   margin:0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  background-color: white;
 }
-
-:root{
+:root {
+  /* guia de cores */
   --color-principal-gradient: linear-gradient(315deg, rgba(255,85,34,1) 0%, rgba(255,136,51,1) 100%);
 
   --color-principal-70: #EDEFF2;
@@ -66,11 +67,52 @@
   --color-info-110: #183594;
   --color-info-120: #0F2477;
   --color-info-130: #091862;
-  
+  /* 
+  ---------------------------------------
+  guia de tamanho de botões 
+  */
   --button-padding-large: 8px 22px;
   --button-padding-medium: 6px 16px;
   --button-padding-small: 4px 10px;
+  /* 
+  ---------------------------------------
+  guia de espaçamentos 
+  */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 6px;
+  --space-4: 8px;
+  --space-5: 10px;
+  --space-6: 12px;
+  --space-7: 14px;
+  --space-8: 16px;
+  --space-9: 18px;
+  --space-10: 20px;
+  --space-11: 22px;
+  --space-12: 24px;
+  --space-13: 26px;
+  --space-14: 28px;
+  --space-15: 30px;
+  --space-16: 32px;
+  --space-17: 34px;
+  --space-18: 36px;
+  --space-19: 38px;
+  --space-20: 40px;
+  --space-21: 42px;
+  --space-22: 44px;
+  --space-23: 46px;
+  --space-24: 48px;
+  --space-25: 50px;
+  --space-26: 52px;
+  --space-27: 54px;
+  --space-28: 56px;
+  --space-29: 58px;
+  --space-30: 60px;
 }
+  /* 
+  ---------------------------------------
+  guia do tamanhos da fonte
+  */
 h1{
   font-size: 96px;
   font-weight: 300;
@@ -126,4 +168,18 @@ h6{
 .button-font{
   font-size: 15px;
   font-weight: 500;
+}
+  /* 
+  ---------------------------------------
+  comportamento por tamanho de tela
+  */
+@media all and (min-width: 360px) {
+  *{
+    padding: 0 var(--space-16);
+  }
+}
+@media all and (max-width: 360px) {
+  *{
+    padding: 0 var(--space-12);
+  }
 }

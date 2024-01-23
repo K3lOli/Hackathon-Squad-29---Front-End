@@ -1,0 +1,7 @@
+@import '../../index.css';
+
+h1{
+    background-color: var(--color-principal-70);
+    width: 100%;
+    height: 100%;
+}

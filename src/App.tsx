@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-function App() {
-    return <></>;
-=======
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Router";
 
@@ -11,7 +7,6 @@ function App() {
             <Router />
         </BrowserRouter>
     );
->>>>>>> main
 }
 
 export default App;
