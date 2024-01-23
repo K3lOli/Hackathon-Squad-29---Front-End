@@ -1,0 +1,28 @@
+@import '../../../index.css';
+
+.containerGoogleButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    hidth: min-content;
+    gap: var(--space-3);
+    border-radius: 2px;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.17), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+    padding: 11px 8px;
+}
+
+.bntGoogle{
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: max-content;
+    display: inline-block;
+    background: none;
+    color: var(--color-neutral-100);
+    border-button: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
