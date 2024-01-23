@@ -1,0 +1,17 @@
+@import '../../../index.css';
+
+.bnt2{
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: max-content;
+    display: inline-block;
+    background: none;
+    color: var(--color-neutral-100);
+    border-button: none;
+    border: none;
+    border-radius: 4px;
+    padding: var(--button-padding-large);
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
