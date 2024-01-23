@@ -3,7 +3,6 @@
   margin:0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  background-color: white;
 }
 :root {
   /* guia de cores */
@@ -168,18 +167,4 @@ h6{
 .button-font{
   font-size: 15px;
   font-weight: 500;
-}
-  /* 
-  ---------------------------------------
-  comportamento por tamanho de tela
-  */
-@media all and (min-width: 360px) {
-  *{
-    padding: 0 var(--space-16);
-  }
-}
-@media all and (max-width: 360px) {
-  *{
-    padding: 0 var(--space-12);
-  }
 }

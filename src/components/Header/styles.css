@@ -1,0 +1,82 @@
+header {
+    background-color: var(--color-principal-100);
+}
+
+.header {
+    display: flex;
+    height: 73px;
+    padding: 1rem 1.87rem;
+    justify-content: space-between;
+}
+
+.header--content {
+    display: flex;
+    max-width: 1216px;
+    height: 41px;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.menu-esq-content {
+    display: flex;
+    width: 712px;
+    align-items: center;
+    margin: auto;
+    gap: 6.25rem;
+}
+
+.logo--orange {
+    width: 111px;
+    height: 41px;
+}
+
+.nav--container {
+    display: flex;
+    height: 41px;
+    align-items: flex-start;
+}
+
+.nav--content {
+    color: var(--color-neutral-60);
+    font-size:  1.25rem;
+    font-weight: 500;
+    line-height:  1.25rem; /* 100% */
+    letter-spacing: 0.15px;
+    cursor: pointer;
+}
+
+.nav--list {
+    display: flex;
+    align-items: flex-start;
+    list-style-type: none;
+    padding: 0.5rem 0;
+    gap: 2rem;
+    height: 41px;
+}
+
+.menu-dir-content {
+    display: flex;
+    width: 96px;
+    height: 41px;
+    padding: var(--none, 0px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--2, 1rem);
+    flex-shrink: 0;
+}
+
+.perfil-foto {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 300px;
+    cursor: pointer;
+}
+
+.botao-notificacao {
+    cursor: pointer;
+}
