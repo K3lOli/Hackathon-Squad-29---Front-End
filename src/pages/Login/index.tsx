@@ -1,26 +1,40 @@
 import "./styles.css";
-import imagem from "./img_login.png";
-import logoGoogle from "./logoGoogle.png";
+import "../../index.css";
+import { ButtonWithContainer } from "./../../components/Buttons/ButtonWithContainer/index";
+import { ButtonWithoutContainer } from "../../components/Buttons/ButtonWithoutContainer";
+import { GoogleButton } from "../../components/Buttons/GoogleButton";
+import { CustomInput } from "../../components/Input";
+import imglogin from "../../assets/img_login.png";
 
 export function Login() {
     return (
         <div className="container">
-            <h3 className="cabecalho">Entre no Orange Portfólio</h3>
-            <img className="imagem" src={imagem} alt="Foto à esquerda" />
-            <button className="botaoGoogle">
-                <img src={logoGoogle} alt="Logo da google" />
-                Entrar com google
-            </button>
-
-            <div className="divformulario"></div>
-            <form className="formularioLogin">
-                <label>Email-address</label>
-                <input type="email" name="email" required />
-                <label>Password</label>
-                <input type="password" name="senha" required />
-            </form>
-            <button className="botaoEntrar">Entrar</button>
-            <a href="cadastre-se.txt">Cadastre-se</a>
+            <div className="imgLogin">
+                <img src={imglogin} alt="" />
+            </div>
+            <div className="formContainer">
+                <h3>Entre no Orange Portifólio</h3>
+                <GoogleButton>Entrar com Google</GoogleButton>
+                <form>
+                    <h5>Faça login com email</h5>
+                    <div className="inputContainer">
+                        <CustomInput labelName={"Email Adress"}>
+                            <input type="email" id="email" name="email" />
+                        </CustomInput>
+                        <CustomInput labelName={"Password"}>
+                            <input type="password" />
+                        </CustomInput>
+                    </div>
+                    <div className="buttonsContainer">
+                        <ButtonWithContainer largura={"100%"}>
+                            Entrar
+                        </ButtonWithContainer>
+                        <ButtonWithoutContainer>
+                            Cadastre-se
+                        </ButtonWithoutContainer>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

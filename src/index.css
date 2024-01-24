@@ -6,7 +6,7 @@
 }
 :root {
   /* guia de cores */
-  --color-principal-gradient: linear-gradient(315deg, rgba(255,85,34,1) 0%, rgba(255,136,51,1) 100%);
+  --color-principal-gradient: linear-gradient(315deg, rgba(255,85,34,1) 10%, rgba(255,136,51,1) 100%);
 
   --color-principal-70: #EDEFF2;
   --color-principal-80: #444466;
