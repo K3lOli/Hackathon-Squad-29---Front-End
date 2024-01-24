@@ -1,0 +1,38 @@
+import { CardPerfil } from "../../components/CardPerfil";
+import { Header } from "../../components/Header";
+import "./styles.css";
+
+export function MeuPortfolio() {
+    return (
+        <div>
+            <Header />
+            <CardPerfil />
+
+            <section className="secaoProjetos">
+                <div className="meusProjetosDiv">
+                    <h6>Meus projetos</h6>
+                    <input type="text" placeholder="Buscar tags" />
+                </div>
+
+                <div className="adicionarProjetos">
+                    <div className="projetoBox">
+                        <div className="projetoBoxConteudo">
+                            <img
+                                src="../../../public/collections.svg"
+                                alt="Project Collections Logo"
+                            />
+                            <p className="body-1">
+                                Adicione seu primeiro projeto
+                            </p>
+                            <p className="body-2">
+                                Compartilhe seu talento com milhares de pessoas
+                            </p>
+                        </div>
+                    </div>
+                    <div className="projetoBox"></div>
+                    <div className="projetoBox"></div>
+                </div>
+            </section>
+        </div>
+    );
+}

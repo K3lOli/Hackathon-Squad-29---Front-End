@@ -1,0 +1,53 @@
+.secaoProjetos {
+    max-width: 1216px;
+    margin: 56px auto;
+}
+
+.meusProjetosDiv h6 {
+    margin-bottom: 16px;
+}
+
+.meusProjetosDiv input {
+    max-width: 513px;
+}
+
+.adicionarProjetos {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.projetoBox {
+    border-radius: var(--borderRadius, 4px);
+    background: rgba(230, 233, 242, 0.20);
+    width: 390px;
+    height: 258px;
+}
+
+.projetoBox:first-child {
+    border-radius: var(--borderRadius, 4px);
+    background: var(--Neutral-Colors-Neutral-70, #E6E9F2);
+}
+
+.projetoBoxConteudo {
+    padding: 68px 60px;
+}
+
+.projetoBox img {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 16px;
+    margin-left: 110px;
+    cursor: pointer;
+}
+
+.body-1 {
+    color: var(--Neutral-Colors-Neutral-120);
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.body-2 {
+    color: var(--Neutral-Colors-Neutral-120);
+    cursor: pointer;
+}
