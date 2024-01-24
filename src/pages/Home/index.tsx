@@ -1,5 +1,9 @@
-// import { Header } from "../../components/Header";
+import { Header } from "../../components/Header";
 
 export function Home() {
-    return <div>Home</div>;
+    return (
+        <div>
+            <Header />
+        </div>
+    );
 }
