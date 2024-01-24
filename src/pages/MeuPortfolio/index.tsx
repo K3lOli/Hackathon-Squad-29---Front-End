@@ -1,10 +1,15 @@
 import { CardPerfil } from "../../components/CardPerfil";
+import { Head } from "../../components/Head";
 import { Header } from "../../components/Header";
 import "./styles.css";
 
 export function MeuPortfolio() {
     return (
         <div>
+            <Head
+                title="Meu Portfólio"
+                description="Página do meu portfólio."
+            />
             <Header />
             <CardPerfil />
 
