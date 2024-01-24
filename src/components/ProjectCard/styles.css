@@ -1,0 +1,40 @@
+@import '../../index.css';
+
+.cardProjetos{
+    display: flex;
+    width: 389px;
+    height: 290px;
+    padding: var(--none, 0px);
+    /* background-color: gray; */
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border-radius: 4px;
+    gap: var(--1, 8px);
+    flex-shrink: 0;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+.imgProjeto{
+    width: 389px;
+    height: 258px;
+    flex-shrink: 0;
+    background-color: gray;
+    border-radius: 4px;
+}
+.imgUsuario{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: gray;
+    overflow: hidden;
+}
+p{
+    color: var(--color-neutral-110);
+}
+.infUsuario{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

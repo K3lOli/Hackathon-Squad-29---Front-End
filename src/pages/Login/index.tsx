@@ -28,8 +28,8 @@ export function Login() {
                     </div>
                     <div className="buttonsContainer">
                         <Link to="/home" className="link">
-                            <ButtonWithContainer largura={"100%"}>
-                                adicionar projeto
+                            <ButtonWithContainer largura={"100%"} color="white">
+                                Entrar
                             </ButtonWithContainer>
                         </Link>
                         <ButtonWithoutContainer>
