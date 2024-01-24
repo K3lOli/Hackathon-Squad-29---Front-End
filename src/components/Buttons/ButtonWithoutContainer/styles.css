@@ -10,7 +10,7 @@
     border-button: none;
     border: none;
     border-radius: 4px;
-    padding: var(--button-padding-large);
+    padding: 8px 0px;
     cursor: pointer;
     position: relative;
     display: inline-block;

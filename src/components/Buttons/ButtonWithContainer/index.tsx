@@ -9,7 +9,11 @@ interface ButtonProps {
 export function ButtonWithContainer({ children, largura }: ButtonProps) {
     return (
         <>
-            <button className="bnt button-font" style={{ width: `${largura}` }}>
+            <button
+                type="submit"
+                className="bnt button-font"
+                style={{ width: `${largura}` }}
+            >
                 <p>{children}</p>
             </button>
         </>
