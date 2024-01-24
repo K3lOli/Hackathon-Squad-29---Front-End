@@ -1,7 +1,129 @@
 @import '../../index.css';
 
+
+.container{
+    width: 100%;
+    max-width: 80rem;     
+    height: auto;  
+    border-radius: var(--none, 0px);
+
+    background: #FFF; 
+}
+body {
+    width: 100%; /* Utilizando porcentagem para tornar a largura responsiva */
+    max-width: 1280px; /* Definindo uma largura máxima para evitar que o conteúdo se estenda demais em telas grandes */
+    height: auto; /* Adapta a altura automaticamente conforme a largura */
+  }
 h1{
     background-color: var(--color-principal-70);
     width: 100%;
     height: 100%;
+}
+.cabecalho{
+    color: var(--Color-Brand-Primaria-Primary-90, var(--Color-Brand-Primria-Primary-90, #224));
+    text-align: center;
+    /* [Orange P] Style Guide/H3 */
+    font-family: Roboto;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.5rem; /* 83.333% */
+}
+.imagem{
+    width: 100%;
+    height: auto;
+    max-width: 32.8125rem;
+    flex-shrink: 0;
+
+}
+.botaoGoogle{
+    display: flex;
+    padding: 0.6875rem var(--1, 0.5rem);
+
+    align-items: flex-start;
+    gap: var(--3, 24px);
+    cursor: pointer;
+    border-radius: 2px;
+    background: #FFF;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.17), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+}
+
+.botaoGoogle img{
+    width: 18px;
+    height: 18px;
+}
+
+.formularioLogin{
+    display: flex;
+width: 517px;
+height: 234px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 16px;
+flex-shrink: 0;
+}
+
+.divformulario p{
+    color: var(--Neutral-Colors-Neutral-110, #515255);
+/* [Orange P] Style Guide/H5 */
+font-family: Roboto;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 100% */
+
+}
+
+.formularioLogin label{
+    color: var(--Neutral-Colors-Neutral-110, #515255);
+    /* [Orange P] Style Guide/Caption */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+    letter-spacing: 0.4px;
+}
+
+.formularioLogin input{
+    display: flex;
+    min-width: var(--3, 24px);
+
+    border-radius: var(--none, 0px);
+    min-height: var(--3, 24px);
+
+    padding: var(--2, 16px) var(--none, 0px);
+
+    align-items: center;
+    gap: var(--none, 0px);
+
+    align-self: stretch;
+}
+
+.botaoEntrar{
+    display: flex;
+    width: 517px;
+    height: 42px;
+    padding: 8px 22px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    border-radius: var(--borderRadius, 4px);
+    background: var(--Color-Brand-Secundria-Secondary-100, #F52);
+
+    /* elevation/2 */
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.divformulario a{
+    color: var(--Neutral-Colors-Neutral-100, #818388);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 100% */
+    letter-spacing: 0.15px;
 }
