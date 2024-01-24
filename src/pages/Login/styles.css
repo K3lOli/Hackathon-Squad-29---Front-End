@@ -39,7 +39,9 @@ h5{
     color: var(--color-neutral-110)
 }
 h3{
-    color: var(--color-principal-90)
+    color: var(--color-principal-90);
+    display: inline-block;
+    text-align: center;
 }
 form{
     display: flex;
@@ -51,4 +53,10 @@ form{
     align-items: start;
     gap: 18px;
     flex-shrink: 0;
+}
+.link{
+    width: 100%;
+}
+p{
+    color: black;
 }

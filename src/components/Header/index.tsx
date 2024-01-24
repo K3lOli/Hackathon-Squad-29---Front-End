@@ -1,6 +1,7 @@
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import fotoPerfil from "../../../public/foto-perfil.png";
 import notificacao from "../../../public/botao-notificacao.svg";
+import { Link } from "react-router-dom";
 
 import "./styles.css";
 
@@ -20,7 +21,9 @@ export function Header() {
                         <nav className="nav--content">
                             <ul className="nav--list">
                                 <li>Meus projetos</li>
-                                <li>Descobrir</li>
+                                <Link to="/descobrir">
+                                    <li>Descobrir</li>
+                                </Link>
                             </ul>
                         </nav>
                     </div>

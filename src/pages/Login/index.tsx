@@ -5,6 +5,7 @@ import { ButtonWithoutContainer } from "../../components/Buttons/ButtonWithoutCo
 import { GoogleButton } from "../../components/Buttons/GoogleButton";
 import { CustomInput } from "../../components/Input";
 import imglogin from "../../assets/img_login.png";
+import { Link } from "react-router-dom";
 
 export function Login() {
     return (
@@ -26,9 +27,11 @@ export function Login() {
                         </CustomInput>
                     </div>
                     <div className="buttonsContainer">
-                        <ButtonWithContainer largura={"100%"}>
-                            Entrar
-                        </ButtonWithContainer>
+                        <Link to="/home" className="link">
+                            <ButtonWithContainer largura={"100%"}>
+                                adicionar projeto
+                            </ButtonWithContainer>
+                        </Link>
                         <ButtonWithoutContainer>
                             Cadastre-se
                         </ButtonWithoutContainer>

@@ -1,0 +1,23 @@
+.containerDescobrir{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 0px 30px
+}
+a{
+    width: 100%;
+}
+h4{
+    width: 744px;
+    color: var(--color-principal-90);
+    letter-spacing: 0.25px;
+    text-align: center;
+    margin-top: 112px;
+    margin-bottom: 40px;
+}
+input{
+    margin
+    width: 723px;
+}
