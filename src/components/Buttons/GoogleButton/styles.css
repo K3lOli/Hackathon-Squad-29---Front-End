@@ -1,0 +1,40 @@
+@import '../../../index.css';
+
+.bntGoogle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    hidth: min-content;
+    gap: var(--space-3);
+    border-radius: 2px;
+    border:  0.5px solid transparent;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.17), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+    padding: 11px 8px;
+    cursor: pointer;
+    color: var(--color-neutral-100);
+}
+.bntGoogle:hover{
+    border:  0.5px solid #4285F4;
+}
+.bntGoogle:focus{
+    background: #EEE;
+    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.17), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
+}
+.mainBox{
+    padding: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    hidth: min-content;
+    gap: var(--space-3);
+    background: none;
+}
+.mainBox:hover{
+    background: rgba(66, 133, 244, 0.10);;
+}
+
+.iconGoogle:focus{
+    color: #EEE;
+}
