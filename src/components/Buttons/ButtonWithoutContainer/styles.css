@@ -15,3 +15,7 @@
     position: relative;
     display: inline-block;
 }
+
+.bnt2:hover{
+    color: var(--color-info-100);
+}

@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .inputContainer{
     width: 100%;
     display: flex;
@@ -6,23 +9,29 @@
     justify-content: center;
     position: relative;
 }
-.customInput{
+input{
     width: 100%;
     color: var(--Neutral-Colors-Neutral-120, #303133);
-    font-feature-settings: 'clig' off, 'liga' off;
-    /* [Orange P] Style Guide/Label */
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px; /* 150% */
     letter-spacing: 0.15px;
-    border-radius: var(--borderRadius, 4px);
-    border: 1px solid rgba(0, 0, 0, 0.23);
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.23);
     display: flex;
     padding: 16px 12px;
     align-items: flex-start;
-    gap: var(--none, 0px);
     align-self: stretch;
+    box-sizing: border-box;
+}
+input:hover{
+    border: 2px solid var(--color-neutral-110);
+    cursor: pointer;
+}
+input:focus{
+    border: 2px solid var(--color-info-100);
+    cursor: pointer;
 }
 span{
     position: absolute;
