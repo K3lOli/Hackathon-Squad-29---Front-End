@@ -43,4 +43,5 @@ span{
     line-height: 16px; /* 133.333% */
     letter-spacing: 0.4px;
     color: var(--color-neutral-110);
+    background: white;
 }
