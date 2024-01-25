@@ -11,7 +11,7 @@ export function Router() {
                 <Route path="/" element={<Login />}></Route>
                 <Route path="/cadastro" element={<Cadastro />}></Route>
                 <Route path="/descobrir" element={<Descobrir />}></Route>
-                <Route path="/home" element={<MeuPortfolio />}></Route>
+                <Route path="/meuportfolio" element={<MeuPortfolio />}></Route>
             </Routes>
         </div>
     );

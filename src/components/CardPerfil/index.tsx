@@ -8,7 +8,10 @@ export function CardPerfil() {
             <div className="conteudoTexto">
                 <h5>Camila Soares</h5>
                 <p className="subtitle-1">Brasil</p>
-                <ButtonWithContainerGray largura="203px">
+                <ButtonWithContainerGray
+                    largura="203px"
+                    color="rgba(0, 0, 0, 0.38)"
+                >
                     ADICIONAR PROJETO
                 </ButtonWithContainerGray>
             </div>
