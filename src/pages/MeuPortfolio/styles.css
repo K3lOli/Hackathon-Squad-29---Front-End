@@ -1,3 +1,5 @@
+@import "../../index.css";
+
 .secaoProjetos {
     max-width: 1216px;
     margin: 56px auto;
@@ -15,6 +17,7 @@
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
 }
 
 .projetoBox {
