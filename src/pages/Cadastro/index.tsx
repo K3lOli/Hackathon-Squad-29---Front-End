@@ -1,5 +1,4 @@
 import "./styles.css";
-import "../../index.css";
 import "../Login/styles.css";
 import { CustomInput } from "../../components/Input/index";
 import imgRegister from "../../../public/imagem-pagina-registro.png";
@@ -15,23 +14,23 @@ export function Cadastro() {
                 <h3 className="register-title">Cadastre-se</h3>
                 <form>
                     <div className="container--nome-sobrenome">
-                        <CustomInput labelName="Nome">
+                        <CustomInput labelName="Nome *">
                             <input type="text" />
                         </CustomInput>
                         <CustomInput>
                             <input type="text" placeholder="Sobrenome *" />
                         </CustomInput>
                     </div>
-                    <div className="inputContainer">
+                    <div className="inputContainer register">
                         <CustomInput labelName="Email Address">
                             <input type="email" id="email" name="email" />
                         </CustomInput>
                         <CustomInput labelName="Password">
-                            <input type="password" />
+                            <input className="password" type="password" />
                         </CustomInput>
                         <div className="buttonsContainer">
                             <ButtonWithContainer largura={"100%"}>
-                                Cadastre-se
+                                Cadastrar
                             </ButtonWithContainer>
                         </div>
                     </div>
