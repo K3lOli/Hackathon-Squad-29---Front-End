@@ -7,6 +7,7 @@
 
 .meusProjetosDiv h6 {
     margin-bottom: 16px;
+    color: var(--color-neutral-130-opacity);
 }
 
 .meusProjetosDiv input {
@@ -21,15 +22,14 @@
 }
 
 .projetoBox {
-    border-radius: var(--borderRadius, 4px);
+    border-radius: 4px;
     background: rgba(230, 233, 242, 0.20);
     width: 390px;
     height: 258px;
 }
 
 .projetoBox:first-child {
-    border-radius: var(--borderRadius, 4px);
-    background: var(--Neutral-Colors-Neutral-70, #E6E9F2);
+    background: var(--color-neutral-70);
 }
 
 .projetoBoxConteudo {
@@ -45,12 +45,13 @@
 }
 
 .body-1 {
-    color: var(--Neutral-Colors-Neutral-120);
+    color: var(--color-neutral-120-opacity);
     margin-bottom: 16px;
     cursor: pointer;
 }
 
 .body-2 {
-    color: var(--Neutral-Colors-Neutral-120);
+    color: var(--color-neutral-120-opacity);
     cursor: pointer;
+    white-space: wrap;
 }
