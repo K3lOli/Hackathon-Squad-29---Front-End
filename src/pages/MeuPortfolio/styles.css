@@ -41,17 +41,74 @@
     height: 46px;
     margin-bottom: 16px;
     margin-left: 110px;
-    cursor: pointer;
 }
 
 .body-1 {
     color: var(--color-neutral-120-opacity);
     margin-bottom: 16px;
-    cursor: pointer;
 }
 
 .body-2 {
     color: var(--color-neutral-120-opacity);
-    cursor: pointer;
     white-space: wrap;
+}
+
+@media screen and (max-width: 1440px) {
+    .secaoProjetos {
+        max-width: 1116px;
+    }
+
+    .projetoBox {
+        width: 350px;
+    }
+
+    .projetoBoxConteudo {
+        padding: 68px 42px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .secaoProjetos {
+        max-width: 916px;
+    }
+
+    .projetoBox {
+        width: 285px;
+    }
+
+    .projetoBoxConteudo {
+        padding: 68px 21px;
+    }
+
+    .projetoBox img {
+        margin-left: 98px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .meusProjetosDiv {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .secaoProjetos {
+        max-width: 716px;
+    }
+
+    .adicionarProjetos {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .projetoBox {
+        width: 500px;
+    }
+
+    .projetoBoxConteudo {
+        padding: 68px 118px;
+    }
+
+    .projetoBox img {
+        margin-left: 110px;
+    }
 }
