@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container--register{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container--nome-sobrenome {
+    display: flex;
+    height: 56px;
+    align-items: flex-start;
+    align-self: stretch;
+    gap: 1rem;
+}
+
+.register {
+    position: relative;
+}
+
+.register::after {
+    background: url(../../../public/icon-visibility.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    bottom: 73px;
+    right: 12px;
+    cursor: pointer;
+}
+
+/* .icon-visibility {
+    /* position: absolute; */
+    /* margin: 0 12px 0 481px; */
+
+.imgRegister {
+    height: 100%;
+}
+
+.register-title {
+    font-size: 3rem;
+    line-height: 3rem;
+    font-weight: 400;
+    margin: 16px 0;
+}
+
+.buttonsContainer {
+    background-color: var( --color-secondary-100);
+}
+
+@media screen and (max-width: 1050px) {
+   
+    .imgRegister{
+       display: none;
+    }
+   .formContainer {
+       gap: 2rem;
+   }
+
+  
+}
+@media screen and (max-width: 750px) {
+
+   .formContainer {
+       display: flex;
+       flex-direction: column; 
+       gap: 2rem;
+
+   }
+
+   .container--nome-sobrenome {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+   }
+
+    .icon-visibility {
+        position: absolute;
+        /* margin: 0 8px 0 0; */
+    }
+
+    .register-title {
+        font-size: 3rem;
+    }
+
+
+}
+@media screen and (min-width: 455px) and (max-width: 750px) { 
+
+   .formContainer {
+       gap: 2rem;
+
+   }
+   .formContainer h3{
+       font-size: 2rem; 
+       
+      }
+   form{
+       width: 312px;
+       height: 271px;
+       padding-bottom: 3px;
+
+      }
+
+    .register-title {
+        font-size: 3rem;
+    }
+
+}
+@media screen and (min-width: 360px)and (max-width:450px)  {
+  
+   .formContainer {
+       display: flex;
+       flex-direction: column;
+       width: 100%;
+       justify-content: center;
+       align-items: center;
+       gap: 3rem;
+
+   }
+  .formContainer h3{
+   font-size: 1.5rem; 
+   
+  }
+   
+  form{
+   display: flex;
+   width: 312px;
+   height: 271px;
+   padding-bottom: 3px;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   gap: 18px;
+   flex-shrink: 0;
+  }
+
+  .register-title {
+    font-size: 3rem;
+}
+
+
+}
