@@ -27,7 +27,7 @@ input{
     /* hidth: 100%; */
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 2rem;
 }
 .buttonsContainer{
     width: 100%;
@@ -59,4 +59,71 @@ form{
 }
 p{
     color: black;
+}
+
+@media screen and (max-width: 1050px) {
+   
+     .imgLogin{
+        display: none;
+     }
+    .formContainer {
+        gap: 2rem;
+    }
+
+   
+}
+@media screen and (max-width: 750px) {
+
+    .formContainer {
+        gap: 2rem;
+
+    }
+
+}
+@media screen and (min-width: 455px) and (max-width: 750px) { 
+
+    .formContainer {
+        gap: 2rem;
+
+    }
+    .formContainer h3{
+        font-size: 2rem; 
+        
+       }
+    form{
+        width: 312px;
+        height: 271px;
+        padding-bottom: 3px;
+
+       }
+
+}
+@media screen and (min-width: 360px)and (max-width:450px)  {
+   
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+
+    }
+   .formContainer h3{
+    font-size: 1.5rem; 
+    
+   }
+    
+   form{
+    display: flex;
+    width: 312px;
+    height: 271px;
+    padding-bottom: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 18px;
+    flex-shrink: 0;
+   }
+
 }
