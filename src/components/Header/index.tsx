@@ -2,10 +2,12 @@ import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import fotoPerfil from "../../../public/foto-perfil.png";
 import notificacao from "../../../public/botao-notificacao.svg";
 import { Link } from "react-router-dom";
-
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
 import "./styles.css";
 
 export function Header() {
+    const img = useSelector((state: RootState) => state.login[0].img);
     return (
         <header className="header">
             <div className="header--content">
@@ -33,7 +35,7 @@ export function Header() {
                 <div>
                     <div className="menu-dir-content">
                         <img
-                            src={fotoPerfil}
+                            src={`${img}`}
                             alt="Foto de perfil"
                             className="perfil-foto"
                         />

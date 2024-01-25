@@ -7,6 +7,8 @@ interface ButtonProps {
     background?: string;
     color?: string;
     padding?: string;
+    submit?: React.MouseEventHandler<HTMLButtonElement>;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export function ButtonWithContainerOrange({
@@ -15,6 +17,8 @@ export function ButtonWithContainerOrange({
     background,
     color,
     padding,
+    submit,
+    onClick,
 }: ButtonProps) {
     return (
         <>
@@ -25,6 +29,7 @@ export function ButtonWithContainerOrange({
             <button
                 type="submit"
                 className={`bntOrange button-font`}
+                onClick={onClick}
                 style={{
                     width: `${largura}`,
                     background: `${background}`,
