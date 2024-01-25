@@ -25,3 +25,17 @@
 .conteudoTexto button {
     margin-top: 24px;
 }
+
+@media screen and (max-width: 450px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        width: 340px;
+        margin: 0 auto;
+        margin-top: 56px;
+    }
+
+    .cardContainer img {
+        margin-bottom: 16px;
+    }
+}
