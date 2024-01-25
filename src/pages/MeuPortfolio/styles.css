@@ -112,3 +112,43 @@
         margin-left: 110px;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .meusProjetosDiv {
+        max-width: 400px;
+    }
+
+    .secaoProjetos {
+        max-width: 400px;
+    }
+
+    .projetoBox {
+        width: 398px;
+    }
+
+    .projetoBoxConteudo {
+        padding: 68px 70px;
+    }
+
+    .projetoBox img {
+        margin-left: 105px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .meusProjetosDiv {
+        max-width: 312px;
+    }
+
+    .secaoProjetos {
+        max-width: 312px;
+    }
+
+    .projetoBox {
+        width: 312px;
+    }
+
+    .projetoBoxConteudo {
+        padding: 68px 25px;
+    }
+}
