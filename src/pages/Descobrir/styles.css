@@ -6,18 +6,21 @@
     align-items: center;
     padding: 0px 30px
 }
-a{
-    width: 100%;
-}
-h4{
+.h4Descobrir{
     width: 744px;
     color: var(--color-principal-90);
     letter-spacing: 0.25px;
     text-align: center;
     margin-top: 112px;
-    margin-bottom: 40px;
+    margin-bottom: 120px;
 }
-input{
-    margin
+.inputDescobrir{
     width: 723px;
+}
+.cardsContainer{
+    width: 100%;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(389px, 389px));
+    justify-content: space-between;
 }

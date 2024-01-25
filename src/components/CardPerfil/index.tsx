@@ -1,4 +1,4 @@
-import { ButtonWithContainer } from "../Buttons/ButtonWithContainer";
+import { ButtonWithContainerGray } from "../Buttons/ButtonWithContainer/GrayButton";
 import "./styles.css";
 
 export function CardPerfil() {
@@ -8,9 +8,9 @@ export function CardPerfil() {
             <div className="conteudoTexto">
                 <h5>Camila Soares</h5>
                 <p className="subtitle-1">Brasil</p>
-                <ButtonWithContainer largura="203px">
+                <ButtonWithContainerGray largura="203px">
                     ADICIONAR PROJETO
-                </ButtonWithContainer>
+                </ButtonWithContainerGray>
             </div>
         </div>
     );

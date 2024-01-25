@@ -24,7 +24,7 @@ input{
     display: flex;
     flex-direction: column;
     width: 100%;
-    hidth: 100%;
+    /* hidth: 100%; */
     justify-content: center;
     align-items: center;
     gap: 18px;

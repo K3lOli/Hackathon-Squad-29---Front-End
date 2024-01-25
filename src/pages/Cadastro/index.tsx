@@ -2,7 +2,7 @@ import "./styles.css";
 import "../Login/styles.css";
 import { CustomInput } from "../../components/Input/index";
 import imgRegister from "../../../public/imagem-pagina-registro.png";
-import { ButtonWithContainer } from "../../components/Buttons/ButtonWithContainer";
+import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithContainer/OrangeButton";
 
 export function Cadastro() {
     return (
@@ -28,10 +28,13 @@ export function Cadastro() {
                         <CustomInput labelName="Password">
                             <input className="password" type="password" />
                         </CustomInput>
-                        <div className="buttonsContainer">
-                            <ButtonWithContainer largura={"100%"}>
+                        <div className="buttonContainer">
+                            <ButtonWithContainerOrange
+                                largura={"100%"}
+                                color={"#fff"}
+                            >
                                 Cadastrar
-                            </ButtonWithContainer>
+                            </ButtonWithContainerOrange>
                         </div>
                     </div>
                 </form>

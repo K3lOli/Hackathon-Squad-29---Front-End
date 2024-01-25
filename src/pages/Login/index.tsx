@@ -1,6 +1,6 @@
 import "./styles.css";
 import "../../index.css";
-import { ButtonWithContainer } from "./../../components/Buttons/ButtonWithContainer/index";
+import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithContainer/OrangeButton/index";
 import { ButtonWithoutContainer } from "../../components/Buttons/ButtonWithoutContainer";
 import { GoogleButton } from "../../components/Buttons/GoogleButton";
 import { CustomInput } from "../../components/Input";
@@ -28,13 +28,18 @@ export function Login() {
                     </div>
                     <div className="buttonsContainer">
                         <Link to="/home" className="link">
-                            <ButtonWithContainer largura={"100%"}>
-                                adicionar projeto
-                            </ButtonWithContainer>
+                            <ButtonWithContainerOrange
+                                largura={"100%"}
+                                color={"#fff"}
+                            >
+                                Entrar
+                            </ButtonWithContainerOrange>
                         </Link>
-                        <ButtonWithoutContainer>
-                            Cadastre-se
-                        </ButtonWithoutContainer>
+                        <Link to="/cadastro">
+                            <ButtonWithoutContainer>
+                                Cadastre-se
+                            </ButtonWithoutContainer>
+                        </Link>
                     </div>
                 </form>
             </div>

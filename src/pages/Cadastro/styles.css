@@ -33,11 +33,6 @@
     right: 12px;
     cursor: pointer;
 }
-
-/* .icon-visibility {
-    /* position: absolute; */
-    /* margin: 0 12px 0 481px; */
-
 .imgRegister {
     height: 100%;
 }
@@ -49,8 +44,8 @@
     margin: 16px 0;
 }
 
-.buttonsContainer {
-    background-color: var( --color-secondary-100);
+.buttonContainer{
+    width: 100%;
 }
 
 @media screen and (max-width: 1050px) {

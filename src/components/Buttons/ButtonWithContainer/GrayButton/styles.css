@@ -1,0 +1,55 @@
+@import '../../../../index.css';
+.bntGray{
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    height: min-content;
+    background: var(--color-neutral-70);
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transform: translate(0%,-0%);
+    overflow: hidden;
+    display: inline-block;
+}
+.bntGray:hover{
+    background: var(--color-neutral-80);
+}
+.bntGray:focus{
+    background: var(--color-neutral-80)
+}
+.bntGray::before{
+    content: '';
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background: var(--color-neutral-100);
+    transition: .5s ease-in-out;
+    z-index: -1;
+}
+.bntGray:focus::before{
+    position: absolute;
+    opacity: 1;
+    transform: scale(2);
+    width: 100%; /* Ajuste a largura conforme necessário */
+    height: 500%;
+    top: 100%;
+    left: 0%;
+    transition: .5s ease-in-out;
+    z-index: -1;
+}
+p{
+    color: white;
+    background: transparent;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+    white-space: nowrap;
+}
+

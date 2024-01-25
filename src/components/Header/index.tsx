@@ -20,7 +20,9 @@ export function Header() {
                     <div className="nav--container">
                         <nav className="nav--content">
                             <ul className="nav--list">
-                                <li>Meus projetos</li>
+                                <Link to="/home">
+                                    <li>Meus projetos</li>
+                                </Link>
                                 <Link to="/descobrir">
                                     <li>Descobrir</li>
                                 </Link>

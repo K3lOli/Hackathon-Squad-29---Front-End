@@ -1,5 +1,5 @@
-@import '../../../index.css';
-.bnt{
+@import '../../../../index.css';
+.bntOrange{
     width: -webkit-min-content;
     width: -moz-min-content;
     width: min-content;
@@ -8,7 +8,6 @@
     color: white;
     border: none;
     border-radius: 4px;
-    /* padding: var(--button-padding-large); */
     text-transform: uppercase;
     cursor: pointer;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.20), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -17,13 +16,13 @@
     overflow: hidden;
     display: inline-block;
 }
-.bnt:hover{
+.bntOrange:hover{
     background: var(--color-secondary-120);
 }
-.bnt:focus{
+.bntOrange:focus{
     background: var(--color-secondary-90)
 }
-.bnt::before{
+.bntOrange::before{
     content: '';
     position: absolute;
     top: -25%;
@@ -36,7 +35,7 @@
     transition: .5s ease-in-out;
     z-index: -1;
 }
-.bnt:focus::before{
+.bntOrange:focus::before{
     position: absolute;
     opacity: 1;
     transform: scale(2);

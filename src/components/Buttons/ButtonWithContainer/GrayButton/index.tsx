@@ -9,7 +9,7 @@ interface ButtonProps {
     padding?: string;
 }
 
-export function ButtonWithContainer({
+export function ButtonWithContainerGray({
     children,
     largura,
     background,
@@ -24,17 +24,17 @@ export function ButtonWithContainer({
             Se ainda precisar de alguma prop me avisem ou fiquem a vontade para alterar */}
             <button
                 type="submit"
-                className="bnt button-font"
+                className={`bntGray button-font`}
                 style={{
                     width: `${largura}`,
                     background: `${background}`,
                     color: `${color}`,
                     padding:
-                        padding === "large"
+                        `${padding}` === "large"
                             ? "8px 22px"
-                            : padding === "medium"
+                            : `${padding}` === "medium"
                               ? "6px 16px"
-                              : padding === "small"
+                              : `${padding}` === "small"
                                 ? "4px 10px"
                                 : "8px 22px",
                 }}
