@@ -26,6 +26,10 @@ header {
     gap: 6.25rem;
 }
 
+.menuMobile {
+    display: none;
+}
+
 .logo--orange {
     width: 111px;
     height: 41px;
@@ -85,4 +89,31 @@ a{
 
 .botao-notificacao {
     cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .menu-esq-content {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu-esq-content {
+        width: 404px;
+    }
+    .menuMobile {
+        display: inline-block;
+        padding-right: 12px;
+        padding-bottom: 13px;
+    }
+
+    .nav--container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .menu-esq-content {
+        width: 304px;
+    }
 }
