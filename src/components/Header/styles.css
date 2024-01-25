@@ -117,3 +117,9 @@ a{
         width: 304px;
     }
 }
+
+@media screen and (max-width: 450px) {
+    .menu-esq-content {
+        width: 215px;
+    }
+}
