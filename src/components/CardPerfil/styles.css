@@ -1,0 +1,25 @@
+.cardContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    width: 364px;
+    margin-top: 112px;
+}
+
+.cardContainer img {
+    border-radius: 50%;
+    width: 122px;
+    height: 122px;
+}
+
+.conteudoTexto h5 {
+    margin-bottom: 16px;
+}
+
+.conteudoTexto p {
+    color: var(--color-neutral-130);
+}
+
+.conteudoTexto button {
+    margin-top: 24px;
+}
