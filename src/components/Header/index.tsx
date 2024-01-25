@@ -2,6 +2,7 @@ import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import fotoPerfil from "../../../public/foto-perfil.png";
 import notificacao from "../../../public/botao-notificacao.svg";
 import { NavLink } from "react-router-dom";
+import MenuMobile from "../../../public/menu-mobile.svg";
 
 import "./styles.css";
 
@@ -11,6 +12,11 @@ export function Header() {
             <div className="header--content">
                 <div className="menu-esq-content">
                     <div>
+                        <img
+                            src={MenuMobile}
+                            alt="Menu Mobile"
+                            className="menuMobile"
+                        />
                         <img
                             src={logoOrange}
                             alt="logo orange portfolio"
