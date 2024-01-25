@@ -5,13 +5,11 @@ import { Home } from "./pages/Home";
 import { Descobrir } from "./pages/Descobrir";
 export function Router() {
     return (
-        <div>
-            <Routes>
-                <Route path="/" element={<Login />}></Route>
-                <Route path="/cadastro" element={<Cadastro />}></Route>
-                <Route path="/home" element={<Home />}></Route>
-                <Route path="/descobrir" element={<Descobrir />}></Route>
-            </Routes>
-        </div>
+        <Routes>
+            <Route path="/" element={<Login />}></Route>
+            <Route path="/cadastro" element={<Cadastro />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/descobrir" element={<Descobrir />}></Route>
+        </Routes>
     );
 }
