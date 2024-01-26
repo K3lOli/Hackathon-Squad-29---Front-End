@@ -3,17 +3,14 @@ header {
 }
 
 .header {
-    display: flex;
     height: 73px;
     padding: 1rem 1.87rem;
-    justify-content: space-between;
 }
 
 .header--content {
     display: flex;
     max-width: 1216px;
     height: 41px;
-    align-items: center;
     justify-content: space-between;
     margin: auto;
 }
@@ -22,7 +19,6 @@ header {
     display: flex;
     width: 712px;
     align-items: center;
-    margin: auto;
     gap: 6.25rem;
 }
 
