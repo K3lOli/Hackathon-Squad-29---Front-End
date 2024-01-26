@@ -11,6 +11,7 @@ import auth from "../../services/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
+import api from "../../api";
 
 export function Login() {
     const navigate = useNavigate();
@@ -20,11 +21,21 @@ export function Login() {
         console.log("entrou");
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-            .then(() => {
+            .then((result) => {
+                const usuario = result.user;
+                const nome = usuario.displayName;
+                const email = usuario.email;
+                const img = usuario.photoURL;
+
+                const user = auth.currentUser;
+                user?.getIdToken(true).then((idToken) => {
+                    console.log({ idToken });
+                    api.post("/usuarios/login/google", {
+                        googleToken: idToken,
+                    });
+                });
+
                 navigate("/meuportfolio");
-                const nome = auth.currentUser?.displayName;
-                const email = auth.currentUser?.email;
-                const img = auth.currentUser?.photoURL;
 
                 dispatch(login({ nome, email, img }));
             })
