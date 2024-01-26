@@ -1,6 +1,6 @@
 import { ButtonWithContainerGray } from "../Buttons/ButtonWithContainer/GrayButton";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/index"
+import { RootState } from "../../store/index";
 import "./styles.css";
 
 export function CardPerfil() {

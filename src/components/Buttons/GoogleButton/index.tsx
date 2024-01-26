@@ -7,7 +7,7 @@ interface ButtonProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export function GoogleButton({ children, onClick, }: ButtonProps) {
+export function GoogleButton({ children, onClick }: ButtonProps) {
     return (
         <>
             <div className="mainBox">

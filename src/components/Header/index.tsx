@@ -1,10 +1,9 @@
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
-import fotoPerfil from "../../../public/foto-perfil.png";
 import notificacao from "../../../public/botao-notificacao.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+
 import MenuMobile from "../../../public/menu-mobile.svg";
 
 import "./styles.css";

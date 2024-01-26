@@ -13,34 +13,27 @@ import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
 
 export function Login() {
-    
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
+
     const authenticator = () => {
         console.log("entrou");
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-          .then(() => {
-            navigate("/home");
-            const nome = auth.currentUser?.displayName;
-            const email = auth.currentUser?.email;
-            const img = auth.currentUser?.photoURL;
-            
-            dispatch(login({nome, email, img}));
-          })
-          .catch((error) => {
-            console.log("deu errado", error);
-          });
+            .then(() => {
+                navigate("/meuportfolio");
+                const nome = auth.currentUser?.displayName;
+                const email = auth.currentUser?.email;
+                const img = auth.currentUser?.photoURL;
 
-        //   console.log({nome, email});
-          
-      };
+                dispatch(login({ nome, email, img }));
+            })
+            .catch((error) => {
+                console.log("deu errado", error);
+            });
+    };
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data: any) => {
-        console.log(data);
-    }
+    const { register } = useForm();
     return (
         <div className="container">
             <div className="imgLogin">
@@ -48,15 +41,17 @@ export function Login() {
             </div>
             <div className="formContainer">
                 <h3>Entre no Orange Portifólio</h3>
-                <GoogleButton onClick={authenticator}>Entrar com Google</GoogleButton>
+                <GoogleButton onClick={authenticator}>
+                    Entrar com Google
+                </GoogleButton>
                 <form>
                     <h5>Faça login com email</h5>
                     <div className="inputContainer">
                         <CustomInput labelName={"Email Adress"}>
-                            <input type="email" {...register("email")}/>
+                            <input type="email" {...register("email")} />
                         </CustomInput>
                         <CustomInput labelName={"Password"}>
-                            <input type="password" {...register("password")}/>
+                            <input type="password" {...register("password")} />
                         </CustomInput>
                     </div>
                     <div className="buttonsContainer">
@@ -64,7 +59,6 @@ export function Login() {
                             <ButtonWithContainerOrange
                                 largura={"100%"}
                                 color={"#fff"}
-                                onClick={()=> handleSubmit(onSubmit)()}
                             >
                                 Entrar
                             </ButtonWithContainerOrange>

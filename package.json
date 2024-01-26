@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@reduxjs/toolkit": "^2.1.0",
     "firebase": "^10.7.2",
     "react": "^18.2.0",
@@ -19,13 +18,6 @@
     "react-icons": "^5.0.1",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3"
-=======
-    "axios": "1.6.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "5.0.1",
-    "react-router-dom": "6.21.3"
->>>>>>> bd52d1de3aaf9c1476a322cf17ec37da48cf0132
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "2.1.0",

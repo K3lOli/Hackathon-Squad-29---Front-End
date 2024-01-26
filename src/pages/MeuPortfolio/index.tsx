@@ -1,10 +1,7 @@
 import { CardPerfil } from "../../components/CardPerfil";
 import { Head } from "../../components/Head";
 import { Header } from "../../components/Header";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/index"
 import "./styles.css";
-
 export function MeuPortfolio() {
     return (
         <div>
