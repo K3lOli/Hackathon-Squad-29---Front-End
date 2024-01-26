@@ -46,7 +46,7 @@
 
 .body-1 {
     color: var(--Neutral-Colors-Neutral-120);
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
     cursor: pointer;
 }
 

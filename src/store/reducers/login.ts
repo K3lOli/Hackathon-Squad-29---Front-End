@@ -28,16 +28,6 @@ const loginSlice = createSlice({
         state[0].nome = null;
         state[0].img = null;
     },
-    // login: (state, action: PayloadAction<Login>) => {
-    //     const email = state.find((item) => item.email === action.payload.email);
-    //     if(email){
-    //       return console.log("Email já cadastrado");
-    //     }
-    //     state.push({ email: action.payload.email, nome: action.payload.nome });
-    // },
-    // logout: (state) => {
-    //   state.pop()
-    // }
   }
 })
 

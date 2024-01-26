@@ -21,8 +21,7 @@ export function Login() {
         console.log("entrou");
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-          .then((result) => {
-            console.log(result);
+          .then(() => {
             navigate("/home");
             const nome = auth.currentUser?.displayName;
             const email = auth.currentUser?.email;

@@ -4,8 +4,12 @@ import { CardProjects } from "../../components/ProjectCard";
 import imgPerfil from "../../assets/foto-perfil.png";
 import imgProjeto1 from "../../assets/projeto1.png";
 import { Header } from "../../components/Header";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 export function Descobrir() {
+    const nome = useSelector((state: RootState) => state.login[0].nome);
+    const img = useSelector((state: RootState) => state.login[0].img);
     return (
         <>
             <Header />
@@ -19,39 +23,39 @@ export function Descobrir() {
                 </CustomInput>
                 <div className="cardsContainer">
                     <CardProjects
-                        imgPerfil={imgPerfil}
+                        imgPerfil={`${img}`}
                         imgProjeto={imgProjeto1}
-                        nome="Amanda"
+                        nome={`${nome}`}
                         data="01/24"
                     />
                     <CardProjects
-                        imgPerfil={imgPerfil}
+                        imgPerfil={`${img}`}
                         imgProjeto={imgProjeto1}
-                        nome="Amanda"
+                        nome={`${nome}`}
                         data="01/24"
                     />
                     <CardProjects
-                        imgPerfil={imgPerfil}
+                        imgPerfil={`${img}`}
                         imgProjeto={imgProjeto1}
-                        nome="Amanda"
+                        nome={`${nome}`}
                         data="01/24"
                     />
                     <CardProjects
-                        imgPerfil={imgPerfil}
+                        imgPerfil={`${img}`}
                         imgProjeto={imgProjeto1}
-                        nome="Amanda"
+                        nome={`${nome}`}
                         data="01/24"
                     />
                     <CardProjects
-                        imgPerfil={imgPerfil}
+                        imgPerfil={`${img}`}
                         imgProjeto={imgProjeto1}
-                        nome="Amanda"
+                        nome={`${nome}`}
                         data="01/24"
                     />
                     <CardProjects
-                        imgPerfil={imgPerfil}
+                        imgPerfil={`${img}`}
                         imgProjeto={imgProjeto1}
-                        nome="Amanda"
+                        nome={`${nome}`}
                         data="01/24"
                     />
                 </div>
