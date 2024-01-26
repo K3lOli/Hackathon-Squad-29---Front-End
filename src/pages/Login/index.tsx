@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import auth from "../../services/firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
 
 export function Login() {

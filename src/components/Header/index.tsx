@@ -4,6 +4,9 @@ import notificacao from "../../../public/botao-notificacao.svg";
 import { Link } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import MenuMobile from "../../../public/menu-mobile.svg";
+
 import "./styles.css";
 
 export function Header() {
@@ -14,6 +17,11 @@ export function Header() {
                 <div className="menu-esq-content">
                     <div>
                         <img
+                            src={MenuMobile}
+                            alt="Menu Mobile"
+                            className="menuMobile"
+                        />
+                        <img
                             src={logoOrange}
                             alt="logo orange portfolio"
                             className="logo--orange"
@@ -22,12 +30,12 @@ export function Header() {
                     <div className="nav--container">
                         <nav className="nav--content">
                             <ul className="nav--list">
-                                <Link to="/home">
+                                <NavLink to="/meuportfolio">
                                     <li>Meus projetos</li>
-                                </Link>
-                                <Link to="/descobrir">
+                                </NavLink>
+                                <NavLink to="/descobrir">
                                     <li>Descobrir</li>
-                                </Link>
+                                </NavLink>
                             </ul>
                         </nav>
                     </div>

@@ -3,17 +3,14 @@ header {
 }
 
 .header {
-    display: flex;
     height: 73px;
     padding: 1rem 1.87rem;
-    justify-content: space-between;
 }
 
 .header--content {
     display: flex;
     max-width: 1216px;
     height: 41px;
-    align-items: center;
     justify-content: space-between;
     margin: auto;
 }
@@ -22,8 +19,11 @@ header {
     display: flex;
     width: 712px;
     align-items: center;
-    margin: auto;
     gap: 6.25rem;
+}
+
+.menuMobile {
+    display: none;
 }
 
 .logo--orange {
@@ -85,4 +85,37 @@ a{
 
 .botao-notificacao {
     cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .menu-esq-content {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .menu-esq-content {
+        width: 404px;
+    }
+    .menuMobile {
+        display: inline-block;
+        padding-right: 12px;
+        padding-bottom: 13px;
+    }
+
+    .nav--container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .menu-esq-content {
+        width: 304px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .menu-esq-content {
+        width: 215px;
+    }
 }

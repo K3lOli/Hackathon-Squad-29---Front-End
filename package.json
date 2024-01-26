@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@reduxjs/toolkit": "^2.1.0",
     "firebase": "^10.7.2",
     "react": "^18.2.0",
@@ -18,18 +19,26 @@
     "react-icons": "^5.0.1",
     "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.3"
+=======
+    "axios": "1.6.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "5.0.1",
+    "react-router-dom": "6.21.3"
+>>>>>>> bd52d1de3aaf9c1476a322cf17ec37da48cf0132
   },
   "devDependencies": {
-    "@rocketseat/eslint-config": "^2.1.0",
-    "@types/react": "^18.2.43",
-    "@types/react-dom": "^18.2.17",
-    "@typescript-eslint/eslint-plugin": "^6.14.0",
-    "@typescript-eslint/parser": "^6.14.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "@rocketseat/eslint-config": "2.1.0",
+    "@types/node": "20.11.6",
+    "@types/react": "18.2.43",
+    "@types/react-dom": "18.2.17",
+    "@typescript-eslint/eslint-plugin": "6.14.0",
+    "@typescript-eslint/parser": "6.14.0",
+    "@vitejs/plugin-react": "4.2.1",
+    "eslint": "8.56.0",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.5",
+    "typescript": "5.2.2",
+    "vite": "5.0.8"
   }
 }

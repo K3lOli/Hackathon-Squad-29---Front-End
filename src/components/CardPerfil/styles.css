@@ -1,3 +1,5 @@
+@import "../../index.css";
+
 .cardContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -17,9 +19,23 @@
 }
 
 .conteudoTexto p {
-    color: var(--color-neutral-130);
+    color: var(--color-neutral-130-opacity2);
 }
 
 .conteudoTexto button {
     margin-top: 24px;
+}
+
+@media screen and (max-width: 450px) {
+    .cardContainer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        width: 340px;
+        margin: 0 auto;
+        margin-top: 56px;
+    }
+
+    .cardContainer img {
+        margin-bottom: 16px;
+    }
 }
