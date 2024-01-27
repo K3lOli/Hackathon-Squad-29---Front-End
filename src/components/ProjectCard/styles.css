@@ -14,6 +14,7 @@
     flex-shrink: 0;
     overflow: hidden;
     margin-bottom: 40px;
+    border-radius: var(--borderRadius, 4px);
 }
 .imgProjeto{
     width: 389px;
@@ -37,4 +38,48 @@ p{
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+@media screen and (max-width: 375px) {
+    .cardProjetos {
+        width: 312px;
+        height: 258px;
+    }
+
+    .infUsuario{
+        display: flex;
+        height: var(--4, 32px);
+        
+        padding: var(--none, 0px);
+        
+        align-items: center;
+        gap: var(--1, 8px);
+    }
+
+    .imgProjeto{
+        width: 312px;
+        height: 258px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .cardProjetos {
+        width: 280px;
+        height: 230px;
+    }
+
+    .infUsuario{
+        display: flex;
+        height: var(--4, 32px);
+        
+        padding: var(--none, 0px);
+        
+        align-items: center;
+        gap: var(--1, 8px);
+    }
+
+    .imgProjeto{
+        width: 312px;
+        height: 258px;
+    }
 }
