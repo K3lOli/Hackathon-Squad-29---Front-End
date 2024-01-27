@@ -6,6 +6,8 @@ import "../Login/styles.css";
 import { CustomInput } from "../../components/Input/index";
 import imgRegister from "../../../public/imagem-pagina-registro.png";
 import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithContainer/OrangeButton";
+import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
+import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 
 interface FormValues {
     nome: string;
@@ -38,6 +40,12 @@ export function Cadastro() {
         } catch (error) {
             console.error("Erro ao cadastrar usuário: ", error);
         }
+    };
+
+    const [mostrarSenha, setMostrarSenha] = React.useState(false);
+
+    const toggleVisibilidadeSenha = () => {
+        setMostrarSenha(!mostrarSenha);
     };
 
     return (
@@ -75,13 +83,27 @@ export function Cadastro() {
                         <CustomInput labelName="Password">
                             <input
                                 className="password"
-                                type="password"
+                                type={mostrarSenha ? "text" : "password"}
+                                id="senha"
                                 {...register("senha", {
                                     required: true,
                                     minLength: 6,
                                 })}
                             />
                         </CustomInput>
+                        <div
+                            className="iconeVisibilidadeCadastro"
+                            onClick={toggleVisibilidadeSenha}
+                        >
+                            <img
+                                src={
+                                    mostrarSenha
+                                        ? iconeVisibilidadeSenha
+                                        : visibilidadeSenhaInativo
+                                }
+                                alt="Icone Visibilidade Senha"
+                            />
+                        </div>
                         <div className="buttonContainer">
                             <ButtonWithContainerOrange
                                 largura={"100%"}
