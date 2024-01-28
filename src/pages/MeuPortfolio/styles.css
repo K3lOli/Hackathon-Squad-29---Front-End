@@ -44,8 +44,8 @@
 }
 
 .body-1 {
-    color: var(--Neutral-Colors-Neutral-120);
-    cursor: pointer;
+    color: var(--color-neutral-120-opacity);
+    margin-bottom: 16px;
 }
 
 .body-2 {
