@@ -13,6 +13,7 @@ header {
     height: 41px;
     justify-content: space-between;
     margin: auto;
+    position: relative;
 }
 
 .menu-esq-content {
@@ -87,6 +88,10 @@ a{
     cursor: pointer;
 }
 
+.headerMobileNav {
+    display: none;
+}
+
 @media screen and (max-width: 1000px) {
     .menu-esq-content {
         width: 600px;
@@ -106,6 +111,23 @@ a{
     .nav--container {
         display: none;
     }
+
+    .headerMobileNav {
+        display: block;
+        position: absolute;
+        top: 57px;
+        left: -30px;
+        background-color: #fff;
+        padding: 14px 27px 15px 16px;
+        border-radius: 4px;
+    }
+
+    .headerMobileNav li {
+        color: rgba(0, 0, 0, 0.87);
+        padding-bottom: 12px;
+        font-size: 1rem;
+        font-weight: 400;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -117,5 +139,11 @@ a{
 @media screen and (max-width: 450px) {
     .menu-esq-content {
         width: 215px;
+    }
+}
+
+@media screen and (min-width: 751px) {
+    .headerMobileNav {
+        display: none !important;
     }
 }
