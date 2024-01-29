@@ -12,6 +12,20 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
 import api from "../../api";
+import { z } from "zod";
+import { useState } from "react";
+
+// interface FormData {
+//     email: string;
+//     password: string;
+// }
+
+const schema = z.object({
+    email: z.string().email(),
+    password: z.string().min(6),
+});
+
+type FormData = z.infer<typeof schema>;
 
 export function Login() {
     const navigate = useNavigate();
@@ -44,7 +58,40 @@ export function Login() {
             });
     };
 
-    const { register } = useForm();
+    const {
+        register,
+        handleSubmit,
+        setError,
+        formState: { errors },
+    } = useForm<FormData>();
+
+    const [incorrectPassword, setIncorrectPassword] = useState(false); // Estado para controlar se a senha está incorreta
+    const handleInputClick = () => {
+        setIncorrectPassword(false);
+    };
+    const onSubmit = (data: FormData) => {
+        console.log(data);
+        setError("email", {
+            type: "custom",
+            message: "Email ou senha incorretos",
+        });
+        console.log(errors.email?.message);
+        try {
+            api.post("/usuarios/login", {
+                email: data.email,
+                senha_hash: data.password,
+            })
+                .then(() => {
+                    navigate("/meuportfolio");
+                })
+                .catch((err) => {
+                    setIncorrectPassword(true);
+                    console.log(err);
+                });
+        } catch (err) {
+            console.log(err);
+        }
+    };
     return (
         <div className="container">
             <div className="imgLogin">
@@ -55,25 +102,53 @@ export function Login() {
                 <GoogleButton onClick={authenticator}>
                     Entrar com Google
                 </GoogleButton>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <h5>Faça login com email</h5>
                     <div className="inputContainer">
                         <CustomInput labelName={"Email Adress"}>
-                            <input type="email" {...register("email")} />
+                            <input
+                                type="email"
+                                className={
+                                    incorrectPassword
+                                        ? "incorrect-password"
+                                        : ""
+                                }
+                                {...(register("email"), { required: true })}
+                                onClick={handleInputClick}
+                            />
                         </CustomInput>
                         <CustomInput labelName={"Password"}>
-                            <input type="password" {...register("password")} />
+                            <input
+                                type="password"
+                                {...register("password", { required: true })}
+                                className={
+                                    incorrectPassword
+                                        ? "incorrect-password"
+                                        : ""
+                                }
+                                onClick={handleInputClick}
+                            />
                         </CustomInput>
                     </div>
+                    <div
+                        className={
+                            incorrectPassword
+                                ? "incorrect-div"
+                                : "incorrect-none"
+                        }
+                    >
+                        <p className="caption incorrect">
+                            {errors.email?.message}
+                        </p>
+                    </div>
                     <div className="buttonsContainer">
-                        <Link to="/home" className="link">
-                            <ButtonWithContainerOrange
-                                largura={"100%"}
-                                color={"#fff"}
-                            >
-                                Entrar
-                            </ButtonWithContainerOrange>
-                        </Link>
+                        <ButtonWithContainerOrange
+                            largura={"100%"}
+                            color={"#fff"}
+                            type="submit"
+                        >
+                            Entrar
+                        </ButtonWithContainerOrange>
                         <Link to="/cadastro">
                             <ButtonWithoutContainer>
                                 Cadastre-se

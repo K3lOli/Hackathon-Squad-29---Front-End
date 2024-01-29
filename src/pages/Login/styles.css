@@ -60,6 +60,18 @@ form{
 p{
     color: black;
 }
+.incorrect-password {
+    border: 2px solid #D32F2F;
+}
+.incorrect-password:hover {
+    border: 2px solid #D32F2F;
+}
+.incorrect-none{
+    display: none;
+}
+.incorrect{
+    color: #D32F2F;
+}
 
 @media screen and (max-width: 1050px) {
    

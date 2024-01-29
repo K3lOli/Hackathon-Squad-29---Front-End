@@ -7,7 +7,7 @@ interface ButtonProps {
     background?: string;
     color?: string;
     padding?: string;
-    submit?: React.MouseEventHandler<HTMLButtonElement>;
+    type?: "submit" | "reset" | "button" | undefined;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -17,8 +17,8 @@ export function ButtonWithContainerOrange({
     background,
     color,
     padding,
-    submit,
     onClick,
+    type,
 }: ButtonProps) {
     return (
         <>
@@ -27,9 +27,9 @@ export function ButtonWithContainerOrange({
             mas acredito que só um width min-content já resolva.
             Se ainda precisar de alguma prop me avisem ou fiquem a vontade para alterar */}
             <button
-                type="submit"
                 className={`bntOrange button-font`}
                 onClick={onClick}
+                type={type}
                 style={{
                     width: `${largura}`,
                     background: `${background}`,
