@@ -8,6 +8,7 @@ import imgRegister from "../../../public/imagem-pagina-registro.png";
 import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithContainer/OrangeButton";
 import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
 import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
+import { Head } from "../../components/Head";
 
 interface FormValues {
     nome: string;
@@ -50,6 +51,7 @@ export function Cadastro() {
 
     return (
         <div className="container--register">
+            <Head title="Cadastre-se" description="Faça o seu cadastro." />
             <div className="imgRegister">
                 <img src={imgRegister} alt="Imagem da página de Registro" />
             </div>
