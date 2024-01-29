@@ -7,6 +7,8 @@ interface ButtonProps {
     background?: string;
     color?: string;
     padding?: string;
+    type?: "submit" | "reset" | "button" | undefined;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export function ButtonWithContainerGray({
