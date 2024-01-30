@@ -17,6 +17,7 @@ import { z } from "zod";
 
 import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
 import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
+import { Head } from "../../components/Head";
 
 const schema = z.object({
     email: z.string().email(),
@@ -95,11 +96,12 @@ export function Login() {
 
     return (
         <div className="container">
+            <Head title="Login" description="Entre no Orange Portfólio." />
             <div className="imgLogin">
                 <img src={imglogin} alt="" />
             </div>
             <div className="formContainer">
-                <h3>Entre no Orange Portifólio</h3>
+                <h3>Entre no Orange Portfólio</h3>
                 <GoogleButton onClick={authenticator}>
                     Entrar com Google
                 </GoogleButton>

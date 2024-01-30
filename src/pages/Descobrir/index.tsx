@@ -6,12 +6,17 @@ import imgProjeto1 from "../../assets/projeto1.png";
 import { Header } from "../../components/Header";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { Head } from "../../components/Head";
 
 export function Descobrir() {
     const nome = useSelector((state: RootState) => state.login[0].nome);
     const img = useSelector((state: RootState) => state.login[0].img);
     return (
         <>
+            <Head
+                title="Descobrir"
+                description="Junte-se à comunidade de inovação, inspiração e descobertas, transformando experiências em conexões inesquecíveis."
+            />
             <Header />
             <div className="containerDescobrir">
                 <h4 className="h4Descobrir">
