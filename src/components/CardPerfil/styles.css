@@ -170,3 +170,90 @@
 }
 
 
+@media screen and (max-width: 768px) {
+    .modalContainer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 400px;
+        height: 700px;
+        margin: 100px auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .container-content {
+        flex-direction: column;
+    }
+
+    .content-dir {
+        position: absolute;
+        margin-top: 1rem;
+    }
+
+    .content-esq {
+        margin-top: 20rem;
+    }
+
+    .container-description {
+        width: 330px;
+    }
+
+    .content-image {
+        width: 330px;
+        height: 270px;
+    }
+
+    .footer-projeto {
+        width: 400px;
+        margin-top: 300px;
+        margin-bottom: 20px;
+    }
+
+    .input-form {
+        width: 330px;
+    }
+
+    .descrição-imagem {
+        display: flex;
+        font-size: 14px;
+        max-width: 330px;
+    }
+
+    .background-imagem {
+        width: 330px;
+        height: 280px;
+    }
+
+    .salvar-e-cancelar-btn {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .modalContainer {
+        width: 266px;
+    }
+
+    .container-description {
+        width: 230px;
+    }
+
+    .content-image {
+        width: 200px;
+        height: 270px;
+    }
+
+    .input-form {
+        width: 200px;
+    }
+
+    .descrição-imagem {
+        margin: 0 auto;
+        width: 200px;
+    }
+
+    .content-esq {
+        width: 266px
+    }
+}

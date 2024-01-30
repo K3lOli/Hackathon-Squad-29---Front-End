@@ -49,7 +49,7 @@ export function CardPerfil() {
                 </div>
                 <div className="container-content">
                     <div className="content-esq">
-                        <p className="descrição-imagem">
+                        <p className="descrição-imagem quebra-txt">
                             Selecione o conteúdo que você deseja fazer upload
                         </p>
                         <div className="background-imagem">
