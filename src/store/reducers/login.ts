@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import imgDefault from "../../../public/foto-perfil.png";
 
 interface Login {
     email: string | null | undefined;
-    nome: string | null | undefined;
-    img: string | null | undefined;
+    nome?: string | null | undefined;
+    img?: string | null | undefined;
     isAuth: boolean;
 }
 
@@ -24,7 +25,9 @@ const loginSlice = createSlice({
             // Atualiza o estado com os dados do usuário logado
             state[0].email = action.payload.email;
             state[0].nome = action.payload.nome;
-            state[0].img = action.payload.img;
+            state[0].img = action.payload.img = action.payload.img
+                ? action.payload.img
+                : imgDefault;
             state[0].isAuth = true;
         },
         logout: (state) => {

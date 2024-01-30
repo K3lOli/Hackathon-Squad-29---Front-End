@@ -21,8 +21,8 @@ export function Cadastro() {
     const {
         register,
         handleSubmit,
-        setValue,
-        formState: { errors },
+        // setValue,
+        // formState: { errors },
     } = useForm<FormValues>();
 
     const cadastrarUsuario = async (data: FormValues) => {
@@ -78,7 +78,6 @@ export function Cadastro() {
                             <input
                                 type="email"
                                 id="email"
-                                name="email"
                                 {...register("email", { required: true })}
                             />
                         </CustomInput>

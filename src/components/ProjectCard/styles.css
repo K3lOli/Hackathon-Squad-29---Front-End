@@ -57,6 +57,16 @@ p .body-1{
     gap: 8px;
 }
 
+.modalContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 24px 32px;
+    border-radius: 4px;
+    background-color: var(--color-neutral-60);
+};
+
 @media screen and (max-width: 375px) {
     .cardProjetos {
         width: 312px;
