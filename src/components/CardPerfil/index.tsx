@@ -44,62 +44,89 @@ export function CardPerfil() {
                 className="modalContainer"
                 contentLabel="Example Modal"
             >
-                <h4 className="titulo-modal">Adicionar projeto</h4>
-
+                <div className="container-title">
+                    <h5 className="titulo-modal">Adicionar projeto</h5>
+                </div>
                 <div className="container-content">
                     <div className="content-esq">
-                        <p>Selecione o conteúdo que você deseja fazer upload</p>
+                        <p className="descrição-imagem">
+                            Selecione o conteúdo que você deseja fazer upload
+                        </p>
                         <div className="background-imagem">
-                            <div className="content-image">
-                                <input className="input-imagem" type="file" />
-                                <img
-                                    src={iconeImagem}
-                                    alt="ícone para inserir imagem"
-                                />
-                                <p>
-                                    Compartilhe seu talento com milhares de
-                                    pessoas
-                                </p>
+                            <div className="container-description">
+                                <label
+                                    htmlFor="input-imagem"
+                                    className="content-image"
+                                >
+                                    <input
+                                        id="input-imagem"
+                                        className="input-imagem"
+                                        type="file"
+                                    />
+                                    <img
+                                        className="icone-imagem"
+                                        src={iconeImagem}
+                                        alt="ícone para inserir imagem"
+                                    />
+                                    <p className="description-imagem">
+                                        Compartilhe seu talento com milhares de
+                                        pessoas
+                                    </p>
+                                </label>
                             </div>
                         </div>
                     </div>
                     <div className="content-dir">
                         <form className="formulario-projeto" action="">
                             <CustomInput>
-                                <input type="text" placeholder="Título" />
+                                <input
+                                    className="input-form"
+                                    type="text"
+                                    placeholder="Título"
+                                />
                             </CustomInput>
                             <CustomInput>
-                                <input type="text" placeholder="Tags" />
+                                <input
+                                    className="input-form"
+                                    type="text"
+                                    placeholder="Tags"
+                                />
                             </CustomInput>
                             <CustomInput>
-                                <input type="text" placeholder="Link" />
+                                <input
+                                    className="input-form"
+                                    type="text"
+                                    placeholder="Link"
+                                />
                             </CustomInput>
                             <CustomInput>
-                                <textarea placeholder="Descrição " />
+                                <textarea
+                                    className="input-form description"
+                                    placeholder="Descrição"
+                                />
                             </CustomInput>
                         </form>
                     </div>
-                    <div className="footer-projeto">
-                        <p>Visualizar publicação</p>
-                        <div className="salvar-e-cancelar-btn">
-                            <ButtonWithContainerOrange
-                                largura={"100%"}
-                                color={"#fff"}
-                            >
-                                Salvar
-                            </ButtonWithContainerOrange>
-                            <ButtonWithContainerGray
-                                largura={"100%"}
-                                color={"#fff"}
-                            >
-                                <button
-                                    className="btn-cancelar"
-                                    onClick={fecharModal}
-                                >
-                                    Cancelar
-                                </button>
-                            </ButtonWithContainerGray>
-                        </div>
+                </div>
+                <div className="footer-projeto">
+                    <p className="description-visualizar">
+                        Visualizar publicação
+                    </p>
+                    <div className="salvar-e-cancelar-btn">
+                        <ButtonWithContainerOrange
+                            largura={"18%"}
+                            color={"#fff"}
+                        >
+                            Salvar
+                        </ButtonWithContainerOrange>
+                        <ButtonWithContainerGray
+                            largura={"18%"}
+                            color={"#00000061"}
+                        >
+                            <div className="btn-cancelar" onClick={fecharModal}>
+                                Cancelar
+                            </div>
+                        </ButtonWithContainerGray>
                     </div>
                 </div>
             </Modal>
