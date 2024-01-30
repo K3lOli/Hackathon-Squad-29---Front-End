@@ -13,23 +13,21 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
 import api from "../../api";
-import { z } from "zod";
 import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
 import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 import { Head } from "../../components/Head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const schema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
-});
-
-type FormData = z.infer<typeof schema>;
+interface FormData {
+    email: string;
+    senha_hash: string;
+}
 
 export function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [isAuth, setIsAuth] = useState(false);
 
     const authenticator = () => {
         console.log("entrou");
@@ -39,7 +37,8 @@ export function Login() {
                 const usuario = result.user;
                 const nome = usuario.displayName;
                 const email = usuario.email;
-                const img = usuario.photoURL;
+                const img = usuario?.photoURL;
+                setIsAuth(true);
 
                 const user = auth.currentUser;
                 user?.getIdToken(true).then((idToken) => {
@@ -51,7 +50,7 @@ export function Login() {
 
                 navigate("/meuportfolio");
 
-                dispatch(login({ nome, email, img }));
+                dispatch(login({ nome, email, img, isAuth }));
             })
             .catch((error) => {
                 console.log("deu errado", error);
@@ -78,15 +77,25 @@ export function Login() {
         console.log(errors.email?.message);
         api.post("/usuarios/login", {
             email: data.email,
-            senha_hash: data.password,
+            senha_hash: data.senha_hash,
         })
-            .then(() => {
+            .then((response) => {
                 toast.success("Login feito com sucesso!", {
                     theme: "colored",
                 });
+                const usuario = response.data.usuario;
+                const email = usuario.email;
+                const nome = (usuario.nome + " " + usuario.sobrenome)
+                    .split(" ")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ");
+                setIsAuth(true);
                 navigate("/meuportfolio");
+                dispatch(login({ email, nome, isAuth }));
             })
             .catch((err) => {
+                setIsAuth(false);
+                console.log(isAuth);
                 setIncorrectPassword(true);
                 console.log(err);
             });
@@ -121,14 +130,14 @@ export function Login() {
                                         ? "incorrect-password"
                                         : ""
                                 }
-                                {...(register("email"), { required: true })}
+                                {...register("email", { required: true })}
                                 onClick={handleInputClick}
                             />
                         </CustomInput>
                         <CustomInput labelName={"Password"}>
                             <input
                                 type={mostrarSenha ? "text" : "password"}
-                                {...register("password", { required: true })}
+                                {...register("senha_hash", { required: true })}
                                 className={
                                     incorrectPassword
                                         ? "incorrect-password"

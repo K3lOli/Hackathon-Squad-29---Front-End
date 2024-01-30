@@ -1,7 +1,6 @@
 import "./styles.css";
 import { CustomInput } from "./../../components/Input/index";
 import { CardProjects } from "../../components/ProjectCard";
-
 import imgProjeto1 from "../../assets/projeto1.png";
 import { Header } from "../../components/Header";
 import { useSelector } from "react-redux";

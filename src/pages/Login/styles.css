@@ -24,7 +24,6 @@ input{
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* hidth: 100%; */
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -74,12 +73,12 @@ p{
 }
 
 .iconeVisibilidadeLogin {
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: transparent;
     position: absolute;
     bottom: 13px;
     right: 14px;
     cursor: pointer;
+    border: none;
 }
 
 @media screen and (max-width: 1050px) {
