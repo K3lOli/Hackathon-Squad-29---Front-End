@@ -6,6 +6,7 @@ import { ButtonWithContainerGray } from "../Buttons/ButtonWithContainer/GrayButt
 import { ButtonWithContainerOrange } from "./../Buttons/ButtonWithContainer/OrangeButton/index";
 import { CustomInput } from "./../Input/index";
 import iconeImagem from "../../../public/icone-inserir-imagem.svg";
+import imgDefault from "../../../public/foto-perfil.png";
 
 interface CardProjectsProps {
     readonly imgPerfil?: React.ImgHTMLAttributes<HTMLImageElement>["src"];
@@ -35,7 +36,13 @@ export function CardProjects({
                 </div>
                 <div className="infUsuario">
                     <div className="imgUsuario">
-                        <img src={imgPerfil} alt="" />
+                        <img
+                            src={imgPerfil}
+                            onError={(e) => {
+                                e.currentTarget.src = imgDefault;
+                            }}
+                            alt=""
+                        />
                     </div>
                     <p className="body-1">
                         {nome} - {data}

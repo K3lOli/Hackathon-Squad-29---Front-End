@@ -4,6 +4,7 @@ import notificacao from "../../../public/botao-notificacao.svg";
 import { NavLink } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
+import imgDefault from "../../../public/foto-perfil.png";
 
 import MenuMobile from "../../../public/menu-mobile.svg";
 
@@ -63,6 +64,9 @@ export function Header() {
                     <div className="menu-dir-content">
                         <img
                             src={`${img}`}
+                            onError={(e) => {
+                                e.currentTarget.src = imgDefault;
+                            }}
                             alt="Foto de perfil"
                             className="perfil-foto"
                         />

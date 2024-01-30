@@ -35,7 +35,7 @@ export function Login() {
                 const usuario = result.user;
                 const nome = usuario.displayName;
                 const email = usuario.email;
-                const img = usuario.photoURL;
+                const img = usuario?.photoURL;
                 setIsAuth(true);
 
                 const user = auth.currentUser;
