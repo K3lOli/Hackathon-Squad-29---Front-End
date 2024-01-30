@@ -7,6 +7,7 @@ interface ButtonProps {
     background?: string;
     color?: string;
     padding?: string;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export function ButtonWithContainerGray({
@@ -15,6 +16,7 @@ export function ButtonWithContainerGray({
     background,
     color,
     padding,
+    onClick,
 }: ButtonProps) {
     return (
         <>
@@ -23,6 +25,7 @@ export function ButtonWithContainerGray({
             mas acredito que só um width min-content já resolva.
             Se ainda precisar de alguma prop me avisem ou fiquem a vontade para alterar */}
             <button
+                onClick={onClick}
                 type="submit"
                 className={`bntGray button-font`}
                 style={{
