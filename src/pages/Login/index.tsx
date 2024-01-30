@@ -1,5 +1,6 @@
 import "./styles.css";
 import "../../index.css";
+import React, { useState } from "react";
 import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithContainer/OrangeButton/index";
 import { ButtonWithoutContainer } from "../../components/Buttons/ButtonWithoutContainer";
 import { GoogleButton } from "../../components/Buttons/GoogleButton";
@@ -13,12 +14,9 @@ import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
 import api from "../../api";
 import { z } from "zod";
-import { useState } from "react";
 
-// interface FormData {
-//     email: string;
-//     password: string;
-// }
+import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
+import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 
 const schema = z.object({
     email: z.string().email(),
@@ -76,22 +74,25 @@ export function Login() {
             message: "Email ou senha incorretos",
         });
         console.log(errors.email?.message);
-        try {
-            api.post("/usuarios/login", {
-                email: data.email,
-                senha_hash: data.password,
+        api.post("/usuarios/login", {
+            email: data.email,
+            senha_hash: data.password,
+        })
+            .then(() => {
+                navigate("/meuportfolio");
             })
-                .then(() => {
-                    navigate("/meuportfolio");
-                })
-                .catch((err) => {
-                    setIncorrectPassword(true);
-                    console.log(err);
-                });
-        } catch (err) {
-            console.log(err);
-        }
+            .catch((err) => {
+                setIncorrectPassword(true);
+                console.log(err);
+            });
     };
+
+    const [mostrarSenha, setMostrarSenha] = React.useState(false);
+
+    const toggleVisibilidadeSenha = () => {
+        setMostrarSenha(!mostrarSenha);
+    };
+
     return (
         <div className="container">
             <div className="imgLogin">
@@ -119,7 +120,7 @@ export function Login() {
                         </CustomInput>
                         <CustomInput labelName={"Password"}>
                             <input
-                                type="password"
+                                type={mostrarSenha ? "text" : "password"}
                                 {...register("password", { required: true })}
                                 className={
                                     incorrectPassword
@@ -129,6 +130,19 @@ export function Login() {
                                 onClick={handleInputClick}
                             />
                         </CustomInput>
+                        <button
+                            className="iconeVisibilidadeLogin"
+                            onClick={toggleVisibilidadeSenha}
+                        >
+                            <img
+                                src={
+                                    mostrarSenha
+                                        ? iconeVisibilidadeSenha
+                                        : visibilidadeSenhaInativo
+                                }
+                                alt="Icone Visibilidade Senha"
+                            />
+                        </button>
                     </div>
                     <div
                         className={

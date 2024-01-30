@@ -73,6 +73,15 @@ p{
     color: #D32F2F;
 }
 
+.iconeVisibilidadeLogin {
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 13px;
+    right: 14px;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1050px) {
    
      .imgLogin{

@@ -1,8 +1,8 @@
 .containerDescobrir{
-    width: 100%;
+    width: 1280px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: start;
     align-items: center;
     padding: 0px 30px
 }
@@ -18,9 +18,149 @@
     width: 723px;
 }
 .cardsContainer{
-    width: 100%;
+    width: 1216px;
     margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(389px, 389px));
+    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
     justify-content: space-between;
+}
+
+@media screen and (max-width: 1280px) {
+    .cardsContainer {
+        width: 916px;
+        grid-template-columns: 0.5fr 0.5fr;
+        justify-items: center;
+        gap: 10px;
+    }
+
+    .inputContainer {
+        width: 723px;
+    }
+
+    .containerDescobrir {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 915px){   
+    .cardsContainer{
+        width: 516px;
+        grid-template-columns: 1fr;
+    }
+
+    .inputDescobrir{
+        width: 516px;
+    }
+
+    .inputContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 516px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    
+    .containerDescobrir {
+        width: 312px;
+    }
+
+    .cardsContainer {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .inputDescobrir{
+        width: 412px;
+    }
+
+    .inputContainer{
+        width: 412px;
+    }
+
+    .h4Descobrir {
+        width: 312px;
+        font-size: 24px;
+        margin: 64px 24px 40px 24px;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    .containerDescobrir {
+        width: 425px;
+    }
+    
+    .h4Descobrir {
+        width: 312px;
+        font-size: 24px;
+        margin: 64px 24px 40px 24px;
+    }
+
+    .cardsContainer{
+        width: 425px;
+        justify-items: center;
+    }
+
+    .inputContainer{
+        width: 380px;
+    }
+
+    .inputDescobrir{
+        width: 380px;
+    }
+    
+    
+}
+
+@media screen and (max-width: 375px) {
+    .containerDescobrir {
+        width: 375px;
+    }
+
+    .h4Descobrir {
+        width: 312px;
+        font-size: 24px;
+        margin: 64px auto;
+    }
+
+    .cardsContainer{
+        width: 312px;
+        padding-bottom: 50px;
+    }
+
+    .inputContainer{
+        width: 350px;
+    }
+
+    .inputDescobrir{
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .containerDescobrir {
+        width: 280px;
+    }
+
+    .h4Descobrir {
+        width: 280px;
+        font-size: 18px;
+        margin: 30px 60px;
+    }
+
+    .cardsContainer{
+        width: 280px;
+        padding-bottom: 50px;
+    }
+
+    .inputContainer{
+        width: 250px;
+    }
+
+    .inputDescobrir{
+        width: 250px;
+    }
 }
