@@ -4,6 +4,7 @@ interface Login {
     email: string | null | undefined;
     nome: string | null | undefined;
     img: string | null | undefined;
+    isAuth: boolean;
 }
 
 const initialState: Login[] = [
@@ -11,6 +12,7 @@ const initialState: Login[] = [
         email: null,
         nome: null,
         img: null,
+        isAuth: false,
     },
 ];
 
@@ -23,12 +25,14 @@ const loginSlice = createSlice({
             state[0].email = action.payload.email;
             state[0].nome = action.payload.nome;
             state[0].img = action.payload.img;
+            state[0].isAuth = true;
         },
         logout: (state) => {
             // Limpa o estado ao fazer logout
             state[0].email = null;
             state[0].nome = null;
             state[0].img = null;
+            state[0].isAuth = false;
         },
     },
 });

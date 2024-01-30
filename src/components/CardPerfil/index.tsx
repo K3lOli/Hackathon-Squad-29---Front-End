@@ -2,17 +2,17 @@ import { ButtonWithContainerGray } from "../Buttons/ButtonWithContainer/GrayButt
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/index";
 import "./styles.css";
-import { useState } from "react";
+// import { useState } from "react";
 
 export function CardPerfil() {
     const nome = useSelector((state: RootState) => state.login[0].nome);
     const img = useSelector((state: RootState) => state.login[0].img);
 
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
-    const handleClick = () => {
-        setIsOpen(false);
-    };
+    // const handleClick = () => {
+    //     setIsOpen(false);
+    // };
     return (
         <div className="cardContainer">
             <img src={`${img}`} alt="Foto de Perfil" />
@@ -23,7 +23,7 @@ export function CardPerfil() {
                 <ButtonWithContainerGray
                     largura="203px"
                     color="rgba(0, 0, 0, 0.38)"
-                    onClick={handleClick}
+                    // onClick={handleClick}
                 >
                     ADICIONAR PROJETO
                 </ButtonWithContainerGray>

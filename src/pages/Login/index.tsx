@@ -29,6 +29,7 @@ type FormData = z.infer<typeof schema>;
 export function Login() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [isAuth, setIsAuth] = useState(false);
 
     const authenticator = () => {
         console.log("entrou");
@@ -39,6 +40,7 @@ export function Login() {
                 const nome = usuario.displayName;
                 const email = usuario.email;
                 const img = usuario.photoURL;
+                setIsAuth(true);
 
                 const user = auth.currentUser;
                 user?.getIdToken(true).then((idToken) => {
@@ -50,7 +52,7 @@ export function Login() {
 
                 navigate("/meuportfolio");
 
-                dispatch(login({ nome, email, img }));
+                dispatch(login({ nome, email, img, isAuth }));
             })
             .catch((error) => {
                 console.log("deu errado", error);
