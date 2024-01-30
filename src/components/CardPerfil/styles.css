@@ -50,5 +50,123 @@
         background-color: var(--color-neutral-60);
 };
 
+.container-title {
+    width: 826px;
+    height: fit-content;
+    align-items: center;
+}
+
+.titulo-modal {
+    padding: 42px 32px 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--Neutral-Colors-Neutral-110);
+}
+
+.container-content {
+    display: flex;
+    height: 336px;
+    margin: 30px 32px 16px;
+    gap: var(--3, 24px);
+}
+
+.content-esq {
+    display: flex;
+    flex-direction: column;
+}
+
+.descrição-imagem {
+    padding-bottom: 1rem;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.15px;
+}
+
+.background-imagem {
+    display: flex;
+    width: 389px;
+    height: 304px;
+    background-color: #E6E9F2;
+}
+
+.input-imagem {
+    display: none;
+}
+
+.content-image {
+    width: 389px;
+    height: 304px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.description-imagem {
+    padding-top: 1rem;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.icone-imagem {
+    width: 46px;
+    height: 46px;
+}
+
+.content-dir {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 413px;
+    align-items: flex-start;
+    gap: var(--2, 16px);
+    align-self: stretch;
+}
+
+.input-form {
+    display: flex;
+    width: 410px;
+    border-radius: 4px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--none, 0px);
+}
+
+.description {
+        color: var(--Neutral-Colors-Neutral-120, #303133);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px; /* 150% */
+        letter-spacing: 0.15px;
+        padding: 16px 12px;
+        align-self: stretch;
+}
+
+.footer-projeto {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 32px;
+    width: 826px;
+}
+
+.description-visualizar {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0.15px;
+}
+
+.salvar-e-cancelar-btn {
+    display: flex;
+    gap: 1rem
+    
+}
 
 
