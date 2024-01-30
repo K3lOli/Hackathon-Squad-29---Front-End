@@ -39,3 +39,16 @@
         margin-bottom: 16px;
     }
 }
+
+
+/* MODAL STYLES */
+
+.modalContainer {
+        width: 890px;
+        height: 522px;
+        margin: 200px auto;
+        background-color: var(--color-neutral-60);
+};
+
+
+

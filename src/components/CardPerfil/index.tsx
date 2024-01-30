@@ -2,19 +2,12 @@ import { ButtonWithContainerGray } from "../Buttons/ButtonWithContainer/GrayButt
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/index";
 import Modal from "react-modal";
+import iconeImagem from "../../../public/icone-inserir-imagem.svg";
 
 import "./styles.css";
 import { useState } from "react";
-const customStyles = {
-    content: {
-        top: "50%",
-        left: "50%",
-        right: "auto",
-        bottom: "auto",
-        marginRight: "-50%",
-        transform: "translate(-50%, -50%)",
-    },
-};
+import { CustomInput } from "../Input";
+import { ButtonWithContainerOrange } from "../Buttons/ButtonWithContainer/OrangeButton";
 
 export function CardPerfil() {
     const nome = useSelector((state: RootState) => state.login[0].nome);
@@ -48,11 +41,67 @@ export function CardPerfil() {
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={fecharModal}
-                style={customStyles}
+                className="modalContainer"
                 contentLabel="Example Modal"
             >
-                <button onClick={fecharModal}>close</button>
-                <div>I am a modal</div>
+                <h4 className="titulo-modal">Adicionar projeto</h4>
+
+                <div className="container-content">
+                    <div className="content-esq">
+                        <p>Selecione o conteúdo que você deseja fazer upload</p>
+                        <div className="background-imagem">
+                            <div className="content-image">
+                                <input className="input-imagem" type="file" />
+                                <img
+                                    src={iconeImagem}
+                                    alt="ícone para inserir imagem"
+                                />
+                                <p>
+                                    Compartilhe seu talento com milhares de
+                                    pessoas
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="content-dir">
+                        <form className="formulario-projeto" action="">
+                            <CustomInput>
+                                <input type="text" placeholder="Título" />
+                            </CustomInput>
+                            <CustomInput>
+                                <input type="text" placeholder="Tags" />
+                            </CustomInput>
+                            <CustomInput>
+                                <input type="text" placeholder="Link" />
+                            </CustomInput>
+                            <CustomInput>
+                                <textarea placeholder="Descrição " />
+                            </CustomInput>
+                        </form>
+                    </div>
+                    <div className="footer-projeto">
+                        <p>Visualizar publicação</p>
+                        <div className="salvar-e-cancelar-btn">
+                            <ButtonWithContainerOrange
+                                largura={"100%"}
+                                color={"#fff"}
+                            >
+                                Salvar
+                            </ButtonWithContainerOrange>
+                            <ButtonWithContainerGray
+                                largura={"100%"}
+                                color={"#fff"}
+                            >
+                                <button
+                                    className="btn-cancelar"
+                                    onClick={fecharModal}
+                                >
+                                    Cancelar
+                                </button>
+                            </ButtonWithContainerGray>
+                        </div>
+                    </div>
+                </div>
             </Modal>
         </div>
     );
