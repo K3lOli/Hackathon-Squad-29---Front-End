@@ -16,6 +16,8 @@ import api from "../../api";
 import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
 import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 import { Head } from "../../components/Head";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface FormData {
     email: string;
@@ -78,6 +80,9 @@ export function Login() {
             senha_hash: data.senha_hash,
         })
             .then((response) => {
+                toast.success("Login feito com sucesso!", {
+                    theme: "colored",
+                });
                 const usuario = response.data.usuario;
                 const email = usuario.email;
                 const nome = (usuario.nome + " " + usuario.sobrenome)
@@ -105,6 +110,7 @@ export function Login() {
     return (
         <div className="container">
             <Head title="Login" description="Entre no Orange Portfólio." />
+            <ToastContainer />
             <div className="imgLogin">
                 <img src={imglogin} alt="" />
             </div>

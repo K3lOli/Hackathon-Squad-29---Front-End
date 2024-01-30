@@ -9,6 +9,9 @@ import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithCo
 import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
 import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 import { Head } from "../../components/Head";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 interface FormValues {
     nome: string;
@@ -18,11 +21,12 @@ interface FormValues {
 }
 
 export function Cadastro() {
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
-        // setValue,
-        // formState: { errors },
+        formState: { errors },
     } = useForm<FormValues>();
 
     const cadastrarUsuario = async (data: FormValues) => {
@@ -38,8 +42,22 @@ export function Cadastro() {
             );
 
             console.log("Usuário cadastrado com sucesso!", response.data);
-        } catch (error) {
-            console.error("Erro ao cadastrar usuário: ", error);
+
+            toast.success("Cadastro feito com sucesso!", {
+                theme: "colored",
+            });
+
+            setTimeout(() => {
+                navigate("/");
+            }, 3000);
+        } catch (error: any) {
+            if (error.response && error.response.status === 400) {
+                toast.error("Email já cadastrado no sistema.", {
+                    theme: "colored",
+                });
+            } else {
+                console.error("Erro ao cadastrar usuário: ", error);
+            }
         }
     };
 
@@ -52,6 +70,7 @@ export function Cadastro() {
     return (
         <div className="container--register">
             <Head title="Cadastre-se" description="Faça o seu cadastro." />
+            <ToastContainer />
             <div className="imgRegister">
                 <img src={imgRegister} alt="Imagem da página de Registro" />
             </div>
@@ -91,6 +110,11 @@ export function Cadastro() {
                                     minLength: 6,
                                 })}
                             />
+                            {errors.senha && (
+                                <p className="error-message-senha">
+                                    A senha deve conter ao menos 6 caracteres.
+                                </p>
+                            )}
                         </CustomInput>
                         <div
                             className="iconeVisibilidadeCadastro"
