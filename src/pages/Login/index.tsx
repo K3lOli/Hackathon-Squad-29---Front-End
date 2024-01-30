@@ -14,10 +14,11 @@ import { useDispatch } from "react-redux";
 import { login } from "../../store/reducers/login";
 import api from "../../api";
 import { z } from "zod";
-
 import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
 import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 import { Head } from "../../components/Head";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const schema = z.object({
     email: z.string().email(),
@@ -80,6 +81,9 @@ export function Login() {
             senha_hash: data.password,
         })
             .then(() => {
+                toast.success("Login feito com sucesso!", {
+                    theme: "colored",
+                });
                 navigate("/meuportfolio");
             })
             .catch((err) => {
@@ -97,6 +101,7 @@ export function Login() {
     return (
         <div className="container">
             <Head title="Login" description="Entre no Orange Portfólio." />
+            <ToastContainer />
             <div className="imgLogin">
                 <img src={imglogin} alt="" />
             </div>
