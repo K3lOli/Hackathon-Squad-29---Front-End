@@ -90,7 +90,9 @@ export function Login() {
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                     .join(" ");
                 setIsAuth(true);
-                navigate("/meuportfolio");
+                setTimeout(() => {
+                    navigate("/meuportfolio");
+                }, 2000);
                 dispatch(login({ email, nome, isAuth }));
             })
             .catch((err) => {
@@ -146,7 +148,7 @@ export function Login() {
                                 onClick={handleInputClick}
                             />
                         </CustomInput>
-                        <button
+                        <div
                             className="iconeVisibilidadeLogin"
                             onClick={toggleVisibilidadeSenha}
                         >
@@ -158,7 +160,7 @@ export function Login() {
                                 }
                                 alt="Icone Visibilidade Senha"
                             />
-                        </button>
+                        </div>
                     </div>
                     <div
                         className={
