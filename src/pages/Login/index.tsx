@@ -5,7 +5,7 @@ import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithCo
 import { ButtonWithoutContainer } from "../../components/Buttons/ButtonWithoutContainer";
 import { GoogleButton } from "../../components/Buttons/GoogleButton";
 import { CustomInput } from "../../components/Input";
-import imglogin from "../../assets/img_login.png";
+import imglogin from "../../../public/img_login.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import auth from "../../services/firebase";

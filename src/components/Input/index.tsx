@@ -2,8 +2,8 @@ import React from "react";
 import "./styles.css";
 
 interface InputProps {
-    children?: React.ReactNode;
-    labelName?: string;
+    readonly children?: React.ReactNode;
+    readonly labelName?: string;
 }
 
 export function CustomInput({ children, labelName }: InputProps) {

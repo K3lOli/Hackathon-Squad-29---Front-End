@@ -12,7 +12,6 @@
     flex-shrink: 0;
     overflow: hidden;
     margin-bottom: 40px;
-    border-radius: var(--borderRadius, 4px);
 }
 .imgProjeto{
     width: 389px;
@@ -65,7 +64,7 @@ p .body-1{
     padding: 24px 32px;
     border-radius: 4px;
     background-color: var(--color-neutral-60);
-};
+}
 
 @media screen and (max-width: 375px) {
     .cardProjetos {

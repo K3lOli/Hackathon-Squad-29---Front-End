@@ -24,6 +24,8 @@
     top: 100px;
     right: 14px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
 .imgRegister {
@@ -76,7 +78,6 @@
 
     .icon-visibility {
         position: absolute;
-        /* margin: 0 8px 0 0; */
     }
 
     .register-title {

@@ -20,7 +20,7 @@ export function CardProjects({
     data,
     imgProjeto,
 }: CardProjectsProps) {
-    const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
     const openModal = () => {
         setIsOpen(true);
     };
