@@ -18,6 +18,7 @@ import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 import { Head } from "../../components/Head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { setItem } from "../../utils/storage";
 
 interface FormData {
     email: string;
@@ -69,7 +70,6 @@ export function Login() {
         setIncorrectPassword(false);
     };
     const onSubmit = (data: FormData) => {
-        console.log(data);
         setError("email", {
             type: "custom",
             message: "Email ou senha incorretos",
@@ -83,6 +83,9 @@ export function Login() {
                 toast.success("Login feito com sucesso!", {
                     theme: "colored",
                 });
+                const token = response.data.token;
+                console.log(response.data.token);
+                setItem("tokenUsuario", token);
                 const usuario = response.data.usuario;
                 const email = usuario.email;
                 const nome = (usuario.nome + " " + usuario.sobrenome)
@@ -119,10 +122,14 @@ export function Login() {
                 <GoogleButton onClick={authenticator}>
                     Entrar com Google
                 </GoogleButton>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="formLogin">
                     <h5>Faça login com email</h5>
-                    <div className="inputContainer">
-                        <CustomInput labelName={"Email Adress"}>
+                    <div className="inputLogin">
+                        <CustomInput
+                            labelName={"Email Adress"}
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 type="email"
                                 className={
@@ -134,7 +141,11 @@ export function Login() {
                                 onClick={handleInputClick}
                             />
                         </CustomInput>
-                        <CustomInput labelName={"Password"}>
+                        <CustomInput
+                            labelName={"Password"}
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 type={mostrarSenha ? "text" : "password"}
                                 {...register("senha_hash", { required: true })}

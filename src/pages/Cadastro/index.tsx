@@ -76,15 +76,22 @@ export function Cadastro() {
             </div>
             <div className="formContainer">
                 <h3 className="register-title">Cadastre-se</h3>
-                <form onSubmit={handleSubmit(cadastrarUsuario)}>
+                <form
+                    onSubmit={handleSubmit(cadastrarUsuario)}
+                    className="formCadastro"
+                >
                     <div className="container--nome-sobrenome">
-                        <CustomInput labelName="Nome *">
+                        <CustomInput
+                            labelName="Nome *"
+                            className="inputNome"
+                            largura={"100%"}
+                        >
                             <input
                                 type="text"
                                 {...register("nome", { required: true })}
                             />
                         </CustomInput>
-                        <CustomInput>
+                        <CustomInput className="inputNome" largura={"100%"}>
                             <input
                                 type="text"
                                 placeholder="Sobrenome *"
@@ -92,15 +99,23 @@ export function Cadastro() {
                             />
                         </CustomInput>
                     </div>
-                    <div className="inputContainer register">
-                        <CustomInput labelName="Email Address">
+                    <div className="register">
+                        <CustomInput
+                            labelName="Email Address"
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 type="email"
                                 id="email"
                                 {...register("email", { required: true })}
                             />
                         </CustomInput>
-                        <CustomInput labelName="Password">
+                        <CustomInput
+                            labelName="Password"
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 className="password"
                                 type={mostrarSenha ? "text" : "password"}

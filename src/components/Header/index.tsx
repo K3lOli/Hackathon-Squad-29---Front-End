@@ -5,18 +5,33 @@ import { NavLink } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
+import { getItem } from "../../utils/storage";
 
 import MenuMobile from "../../../public/menu-mobile.svg";
 
 import "./styles.css";
+import api from "../../api";
 
 export function Header() {
     const img = useSelector((state: RootState) => state.login[0].img);
 
     const [menuMobileOpen, setMenuMobileOpen] = React.useState(false);
 
+    const token = getItem("tokenUsuario");
+    console.log(token);
+
     const toggleMenuMobile = () => {
         setMenuMobileOpen(!menuMobileOpen);
+    };
+    const getProjects = () => {
+        console.log("descobrir");
+        api.get("/projetos/")
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     return (
@@ -56,6 +71,9 @@ export function Header() {
                                 <NavLink to="/descobrir">
                                     <li>Descobrir</li>
                                 </NavLink>
+                                <button onClick={getProjects}>
+                                    clique aqui
+                                </button>
                             </ul>
                         </nav>
                     </div>
