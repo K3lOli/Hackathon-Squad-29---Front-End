@@ -44,11 +44,15 @@
 /* MODAL STYLES */
 
 .modalContainer {
-        width: 890px;
-        height: 522px;
-        margin: 200px auto;
-        background-color: var(--color-neutral-60);
-};
+    width: 950px;
+    height: 600px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 40px;
+    bottom: 40px;
+    background-color: #fefefe;
+}
 
 .container-title {
     width: 826px;
@@ -169,21 +173,19 @@
     
 }
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
     .modalContainer {
-        display: flex;
-        flex-direction: column;
+        display: grid;
         position: relative;
-        width: 400px;
+        width: 450px;
         height: 700px;
         margin: 100px auto;
         overflow-y: auto;
         overflow-x: hidden;
     }
-
+    
     .container-content {
-        flex-direction: column;
+        display: grid;
     }
 
     .content-dir {
@@ -230,27 +232,76 @@
     }
 }
 
+@media screen and (max-width: 450px) {
+    .modalContainer {
+        width: 390px;
+    }
+
+    .container-content {
+        margin: 30px 0px 0px;
+        padding-left: 0px;
+        width: 330px;
+    }
+
+    .titulo-modal {
+        padding-left: 0;
+    }
+
+    .description-visualizar {
+        margin-top: 23px;
+        position: absolute;
+        left: 34px;
+    }
+
+    .salvar-e-cancelar-btn {
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        width: 700px;
+        left: 31.7px;
+        padding: 65px 0px 120px 0px;
+    }
+
+    .button-font:nth-child(1), .button-font:nth-child(2) {
+        max-width: 120px;
+    }
+}
+
 @media screen and (max-width: 375px) {
     .modalContainer {
-        width: 266px;
+        width: 312px;
     }
 
     .container-description {
-        width: 230px;
+        width: 250px;
     }
 
     .content-image {
-        width: 200px;
+        width: 250px;
         height: 270px;
     }
 
     .input-form {
-        width: 200px;
+        width: 250px;
+    }
+
+    .background-imagem {
+        width: 250px;
+    }
+
+    .description-visualizar {
+        margin-top: 30px;
+        position: absolute;
+        left: 34px;
+    }
+
+    .description-imagem {
+        padding-left: 5px;
     }
 
     .descrição-imagem {
         margin: 0 auto;
-        width: 200px;
+        width: 250px;
     }
 
     .content-esq {
