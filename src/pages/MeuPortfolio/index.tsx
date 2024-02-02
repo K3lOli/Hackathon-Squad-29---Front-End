@@ -1,8 +1,11 @@
 import { CardPerfil } from "../../components/CardPerfil";
 import { Head } from "../../components/Head";
 import { Header } from "../../components/Header";
+import { getItem } from "../../utils/storage";
 import "./styles.css";
 export function MeuPortfolio() {
+    const token = getItem("token"); // cadastro de projetos
+    console.log(token);
     return (
         <div>
             <Head

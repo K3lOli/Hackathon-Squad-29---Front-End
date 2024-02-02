@@ -18,6 +18,7 @@ import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
 import { Head } from "../../components/Head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { setItem } from "../../utils/storage";
 
 interface FormData {
     email: string;
@@ -85,6 +86,7 @@ export function Login() {
                 });
                 const usuario = response.data.usuario;
                 const email = usuario.email;
+                setItem("token", response.data.token); // login
                 const nome = (usuario.nome + " " + usuario.sobrenome)
                     .split(" ")
                     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
