@@ -31,7 +31,6 @@ export function Login() {
     const [isAuth, setIsAuth] = useState(false);
 
     const authenticator = () => {
-        console.log("entrou");
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -43,7 +42,6 @@ export function Login() {
 
                 const user = auth.currentUser;
                 user?.getIdToken(true).then((idToken) => {
-                    console.log({ idToken });
                     api.post("/usuarios/login/google", {
                         googleToken: idToken,
                     });
@@ -98,7 +96,6 @@ export function Login() {
             })
             .catch((err) => {
                 setIsAuth(false);
-                console.log(isAuth);
                 setIncorrectPassword(true);
                 console.log(err);
             });

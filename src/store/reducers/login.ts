@@ -29,7 +29,6 @@ const loginSlice = createSlice({
                 ? action.payload.img
                 : imgDefault;
             state[0].isAuth = true;
-            console.log(action.payload.img);
         },
         logout: (state) => {
             // Limpa o estado ao fazer logout

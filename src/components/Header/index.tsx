@@ -6,11 +6,9 @@ import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
 import { getItem } from "../../utils/storage";
-
-import MenuMobile from "../../../public/menu-mobile.svg";
-
 import "./styles.css";
 import api from "../../api";
+import MenuMobile from "../../../public/menu-mobile.svg";
 
 export function Header() {
     const img = useSelector((state: RootState) => state.login[0].img);
@@ -24,8 +22,11 @@ export function Header() {
         setMenuMobileOpen(!menuMobileOpen);
     };
     const getProjects = () => {
-        console.log("descobrir");
-        api.get("/projetos/")
+        api.get("/projetos/", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
             .then((response) => {
                 console.log(response.data);
             })
