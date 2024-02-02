@@ -131,7 +131,7 @@ export function Cadastro() {
                                 </p>
                             )}
                         </CustomInput>
-                        <button
+                        <div
                             className="iconeVisibilidadeCadastro"
                             onClick={toggleVisibilidadeSenha}
                         >
@@ -143,7 +143,7 @@ export function Cadastro() {
                                 }
                                 alt="Icone Visibilidade Senha"
                             />
-                        </button>
+                        </div>
                         <div className="buttonContainer">
                             <ButtonWithContainerOrange
                                 largura={"100%"}
