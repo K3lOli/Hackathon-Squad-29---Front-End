@@ -1,13 +1,13 @@
 import { ButtonWithContainerGray } from "../Buttons/ButtonWithContainer/GrayButton";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/index";
-import Modal from "react-modal";
-import iconeImagem from "../../../public/icone-inserir-imagem.svg";
-
+import imgDefault from "../../../public/foto-perfil.png";
 import "./styles.css";
 import { useState } from "react";
 import { CustomInput } from "../Input";
 import { ButtonWithContainerOrange } from "../Buttons/ButtonWithContainer/OrangeButton";
+import Modal from "react-modal";
+import iconeImagem from "../../../public/icone-inserir-imagem.svg";
 
 export function CardPerfil() {
     const nome = useSelector((state: RootState) => state.login[0].nome);
@@ -25,8 +25,13 @@ export function CardPerfil() {
 
     return (
         <div className="cardContainer">
-            <img src={`${img}`} alt="Foto de Perfil" />
-            {/* <img src="../../../public/foto-perfil.png" alt="Foto de Perfil" /> */}
+            <img
+                src={`${img}`}
+                alt="Foto de Perfil"
+                onError={(e) => {
+                    e.currentTarget.src = imgDefault;
+                }}
+            />
             <div className="conteudoTexto">
                 <h5>{nome}</h5>
                 <p className="subtitle-1">Brasil</p>

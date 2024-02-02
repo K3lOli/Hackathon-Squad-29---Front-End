@@ -6,6 +6,12 @@ import "../Login/styles.css";
 import { CustomInput } from "../../components/Input/index";
 import imgRegister from "../../../public/imagem-pagina-registro.png";
 import { ButtonWithContainerOrange } from "../../components/Buttons/ButtonWithContainer/OrangeButton";
+import iconeVisibilidadeSenha from "../../../public/icon-visibility.svg";
+import visibilidadeSenhaInativo from "../../../public/visibilidade-inativo.svg";
+import { Head } from "../../components/Head";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 interface FormValues {
     nome: string;
@@ -15,10 +21,11 @@ interface FormValues {
 }
 
 export function Cadastro() {
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
-        setValue,
         formState: { errors },
     } = useForm<FormValues>();
 
@@ -35,13 +42,35 @@ export function Cadastro() {
             );
 
             console.log("Usuário cadastrado com sucesso!", response.data);
-        } catch (error) {
-            console.error("Erro ao cadastrar usuário: ", error);
+
+            toast.success("Cadastro feito com sucesso!", {
+                theme: "colored",
+            });
+
+            setTimeout(() => {
+                navigate("/");
+            }, 3000);
+        } catch (error: any) {
+            if (error.response && error.response.status === 400) {
+                toast.error("Email já cadastrado no sistema.", {
+                    theme: "colored",
+                });
+            } else {
+                console.error("Erro ao cadastrar usuário: ", error);
+            }
         }
+    };
+
+    const [mostrarSenha, setMostrarSenha] = React.useState(false);
+
+    const toggleVisibilidadeSenha = () => {
+        setMostrarSenha(!mostrarSenha);
     };
 
     return (
         <div className="container--register">
+            <Head title="Cadastre-se" description="Faça o seu cadastro." />
+            <ToastContainer />
             <div className="imgRegister">
                 <img src={imgRegister} alt="Imagem da página de Registro" />
             </div>
@@ -68,20 +97,38 @@ export function Cadastro() {
                             <input
                                 type="email"
                                 id="email"
-                                name="email"
                                 {...register("email", { required: true })}
                             />
                         </CustomInput>
                         <CustomInput labelName="Password">
                             <input
                                 className="password"
-                                type="password"
+                                type={mostrarSenha ? "text" : "password"}
+                                id="senha"
                                 {...register("senha", {
                                     required: true,
                                     minLength: 6,
                                 })}
                             />
+                            {errors.senha && (
+                                <p className="error-message-senha">
+                                    A senha deve conter ao menos 6 caracteres.
+                                </p>
+                            )}
                         </CustomInput>
+                        <button
+                            className="iconeVisibilidadeCadastro"
+                            onClick={toggleVisibilidadeSenha}
+                        >
+                            <img
+                                src={
+                                    mostrarSenha
+                                        ? iconeVisibilidadeSenha
+                                        : visibilidadeSenhaInativo
+                                }
+                                alt="Icone Visibilidade Senha"
+                            />
+                        </button>
                         <div className="buttonContainer">
                             <ButtonWithContainerOrange
                                 largura={"100%"}

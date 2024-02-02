@@ -17,22 +17,17 @@
     gap: 1rem;
 }
 
-.register {
-    position: relative;
-}
-
-.register::after {
-    background: url(../../../public/icon-visibility.svg);
+.iconeVisibilidadeCadastro {
     background-repeat: no-repeat;
     background-size: cover;
-    content: "";
     position: absolute;
-    width: 24px;
-    height: 24px;
-    bottom: 73px;
-    right: 12px;
+    top: 100px;
+    right: 14px;
     cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
+
 .imgRegister {
     height: 100%;
 }
@@ -46,6 +41,13 @@
 
 .buttonContainer{
     width: 100%;
+}
+
+.error-message-senha {
+    font-size: 12px;
+    font-weight: 400;
+    color: #D32F2F;
+    align-self: self-start;
 }
 
 @media screen and (max-width: 1050px) {
@@ -76,7 +78,6 @@
 
     .icon-visibility {
         position: absolute;
-        /* margin: 0 8px 0 0; */
     }
 
     .register-title {

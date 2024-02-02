@@ -24,7 +24,6 @@ input{
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* hidth: 100%; */
     justify-content: center;
     align-items: center;
     gap: 2rem;
@@ -59,6 +58,27 @@ form{
 }
 p{
     color: black;
+}
+.incorrect-password {
+    border: 2px solid #D32F2F;
+}
+.incorrect-password:hover {
+    border: 2px solid #D32F2F;
+}
+.incorrect-none{
+    display: none;
+}
+.incorrect{
+    color: #D32F2F;
+}
+
+.iconeVisibilidadeLogin {
+    background: transparent;
+    position: absolute;
+    bottom: 13px;
+    right: 14px;
+    cursor: pointer;
+    border: none;
 }
 
 @media screen and (max-width: 1050px) {

@@ -2,13 +2,23 @@ import { ReactNode } from "react";
 import "./styles.css";
 
 interface ButtonProps {
-    children: ReactNode;
-    largura?: string;
-    background?: string;
-    color?: string;
-    padding?: string;
-    submit?: React.MouseEventHandler<HTMLButtonElement>;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    readonly children: ReactNode;
+    readonly largura?: string;
+    readonly background?: string;
+    readonly color?: string;
+    readonly padding?: string;
+    readonly type?: "submit" | "reset" | "button";
+    readonly onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+function obterTamanhoDoPadding(padding: string | undefined): string {
+    switch (padding) {
+        case "medium":
+            return "6px 16px";
+        case "small":
+            return "4px 10px";
+        default:
+            return "8px 22px";
+    }
 }
 
 export function ButtonWithContainerOrange({
@@ -17,9 +27,10 @@ export function ButtonWithContainerOrange({
     background,
     color,
     padding,
-    submit,
     onClick,
+    type,
 }: ButtonProps) {
+    const tamanhoDoPadding = obterTamanhoDoPadding(padding);
     return (
         <>
             {/* aqui no botão tu pode colocar os atributos de largura do botão, background do botão, color da fonte e padding(large, medium e small).
@@ -27,21 +38,14 @@ export function ButtonWithContainerOrange({
             mas acredito que só um width min-content já resolva.
             Se ainda precisar de alguma prop me avisem ou fiquem a vontade para alterar */}
             <button
-                type="submit"
                 className={`bntOrange button-font`}
                 onClick={onClick}
+                type={type}
                 style={{
                     width: `${largura}`,
                     background: `${background}`,
                     color: `${color}`,
-                    padding:
-                        `${padding}` === "large"
-                            ? "8px 22px"
-                            : `${padding}` === "medium"
-                              ? "6px 16px"
-                              : `${padding}` === "small"
-                                ? "4px 10px"
-                                : "8px 22px",
+                    padding: tamanhoDoPadding,
                 }}
             >
                 <p
