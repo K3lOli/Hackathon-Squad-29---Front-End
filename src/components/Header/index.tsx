@@ -1,7 +1,7 @@
 import React from "react";
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import notificacao from "../../../public/botao-notificacao.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
@@ -10,6 +10,8 @@ import MenuMobile from "../../../public/menu-mobile.svg";
 
 import "./styles.css";
 
+import { clear } from "../../utils/storage";
+
 export function Header() {
     const img = useSelector((state: RootState) => state.login[0].img);
 
@@ -17,6 +19,13 @@ export function Header() {
 
     const toggleMenuMobile = () => {
         setMenuMobileOpen(!menuMobileOpen);
+    };
+
+    const navigate = useNavigate();
+
+    const handleClickLogout = () => {
+        clear();
+        navigate("/");
     };
 
     return (
@@ -75,6 +84,7 @@ export function Header() {
                             alt="Foto de perfil"
                             className="botao-notificacao"
                         />
+                        <button onClick={handleClickLogout}>LogOut</button>
                     </div>
                 </div>
             </div>
