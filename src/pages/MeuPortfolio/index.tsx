@@ -4,7 +4,7 @@ import { Header } from "../../components/Header";
 import { getItem } from "../../utils/storage";
 import "./styles.css";
 export function MeuPortfolio() {
-    const token = getItem("token"); // cadastro de projetos
+    getItem("token"); // cadastro de projetos
     return (
         <div>
             <Head
