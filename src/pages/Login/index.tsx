@@ -81,7 +81,6 @@ export function Login() {
                 toast.success("Login feito com sucesso!", {
                     theme: "colored",
                 });
-                console.log(response.data.token);
                 const usuario = response.data.usuario;
                 const email = usuario.email;
                 setItem("token", response.data.token); // login

@@ -31,15 +31,12 @@ export function Cadastro() {
 
     const cadastrarUsuario = async (data: FormValues) => {
         try {
-            const response = await axios.post(
-                "http://localhost:8000/api/usuarios/cadastrar",
-                {
-                    nome: data.nome,
-                    sobrenome: data.sobrenome,
-                    email: data.email,
-                    senha_hash: data.senha,
-                },
-            );
+            const response = await axios.post("usuarios/cadastrar", {
+                nome: data.nome,
+                sobrenome: data.sobrenome,
+                email: data.email,
+                senha_hash: data.senha,
+            });
 
             console.log("Usuário cadastrado com sucesso!", response.data);
 

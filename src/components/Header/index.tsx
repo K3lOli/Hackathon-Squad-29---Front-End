@@ -56,6 +56,7 @@ export function Header() {
             },
         })
             .then((response) => {
+                console.log(response.data);
                 response.data.map((projeto: Projetos) => {
                     return dispatch(getProjetos([projeto]));
                 });

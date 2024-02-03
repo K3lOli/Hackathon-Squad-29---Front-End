@@ -18,8 +18,6 @@ export function Descobrir() {
     const img = useSelector((state: RootState) => state.login[0].img);
     const projetos = useSelector((state: RootState) => state.projetos);
     const imgProjetoss = "http://localhost:8000/imagens/1706622502902.png";
-    console.log(imgProjetoss);
-    console.log(projetos);
     return (
         <>
             <Head
