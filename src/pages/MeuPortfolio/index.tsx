@@ -5,7 +5,6 @@ import { getItem } from "../../utils/storage";
 import "./styles.css";
 export function MeuPortfolio() {
     const token = getItem("token"); // cadastro de projetos
-    console.log(token);
     return (
         <div>
             <Head

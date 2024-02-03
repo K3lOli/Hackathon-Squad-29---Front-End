@@ -2,7 +2,7 @@ import "./styles.css";
 import "../../index.css";
 import { useState } from "react";
 import imgDefault from "../../../public/foto-perfil.png";
-import { ModalProjeto } from "./../../pages/MeuPortfolio/Modal/index";
+import { ModalProjeto } from "../../pages/Descobrir/Modal/index";
 
 interface CardProjectsProps {
     readonly imgPerfil?: React.ImgHTMLAttributes<HTMLImageElement>["src"];
@@ -10,6 +10,8 @@ interface CardProjectsProps {
     readonly nome?: string;
     readonly data?: string;
     readonly className?: string;
+    readonly index?: number;
+    readonly titulo?: string;
 }
 export function CardProjects({
     imgPerfil,
@@ -17,6 +19,8 @@ export function CardProjects({
     data,
     imgProjeto,
     className,
+    index,
+    titulo,
 }: CardProjectsProps) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const openModal = () => {
@@ -25,7 +29,11 @@ export function CardProjects({
 
     return (
         <>
-            <div className={`cardProjetos ${className}`} onClick={openModal}>
+            <div
+                className={`cardProjetos ${className}`}
+                onClick={openModal}
+                key={index}
+            >
                 <div className="imgProjeto">
                     <img src={imgProjeto} alt="" />
                 </div>
@@ -45,7 +53,15 @@ export function CardProjects({
                 </div>
             </div>
             <div className="modal">
-                <ModalProjeto modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
+                <ModalProjeto
+                    modalIsOpen={modalIsOpen}
+                    setIsOpen={setIsOpen}
+                    imgPerfil={imgDefault}
+                    imgProjeto={imgProjeto}
+                    nome={nome}
+                    data={data}
+                    titulo={titulo}
+                />
             </div>
         </>
     );

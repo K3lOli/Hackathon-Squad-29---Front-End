@@ -1,15 +1,23 @@
 import "./styles.css";
 import { CustomInput } from "./../../components/Input/index";
 import { CardProjects } from "../../components/ProjectCard";
-import imgProjeto1 from "../../../public/Projeto1.png";
 import { Header } from "../../components/Header";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Head } from "../../components/Head";
 
+const formatarData = (dataCompleta: string) => {
+    const dataObjeto = new Date(dataCompleta);
+    const dia = ("0" + dataObjeto.getDate()).slice(-2); // Adiciona um zero à esquerda, se necessário
+    const mes = ("0" + (dataObjeto.getMonth() + 1)).slice(-2); // Adiciona um zero à esquerda, se necessário
+    const ano = dataObjeto.getFullYear().toString().slice(-2); // Pega os últimos dois dígitos do ano
+    return `${dia}/${mes}/${ano}`;
+};
+
 export function Descobrir() {
-    const nome = useSelector((state: RootState) => state.login[0].nome);
     const img = useSelector((state: RootState) => state.login[0].img);
+    const projetos = useSelector((state: RootState) => state.projetos);
+    const imgProjetoss = "http://localhost:8000/imagens/1706622502902.png";
     return (
         <>
             <Head
@@ -31,44 +39,19 @@ export function Descobrir() {
                         />
                     </CustomInput>
                 </div>
-
                 <div className="cardsContainer">
-                    <CardProjects
-                        imgPerfil={`${img}`}
-                        imgProjeto={imgProjeto1}
-                        nome={`${nome}`}
-                        data="01/24"
-                    />
-                    <CardProjects
-                        imgPerfil={`${img}`}
-                        imgProjeto={imgProjeto1}
-                        nome={`${nome}`}
-                        data="01/24"
-                    />
-                    <CardProjects
-                        imgPerfil={`${img}`}
-                        imgProjeto={imgProjeto1}
-                        nome={`${nome}`}
-                        data="01/24"
-                    />
-                    <CardProjects
-                        imgPerfil={`${img}`}
-                        imgProjeto={imgProjeto1}
-                        nome={`${nome}`}
-                        data="01/24"
-                    />
-                    <CardProjects
-                        imgPerfil={`${img}`}
-                        imgProjeto={imgProjeto1}
-                        nome={`${nome}`}
-                        data="01/24"
-                    />
-                    <CardProjects
-                        imgPerfil={`${img}`}
-                        imgProjeto={imgProjeto1}
-                        nome={`${nome}`}
-                        data="01/24"
-                    />
+                    {projetos.map((projeto, index) => {
+                        return (
+                            <CardProjects
+                                key={index}
+                                imgPerfil={`${img}`}
+                                imgProjeto={imgProjetoss}
+                                nome={`${projeto.usuario.nome}`}
+                                data={formatarData(projeto.createdAt)}
+                                titulo={`${projeto.titulo}`}
+                            />
+                        );
+                    })}
                 </div>
             </div>
         </>

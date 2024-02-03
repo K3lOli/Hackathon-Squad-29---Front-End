@@ -11,7 +11,6 @@ import { Head } from "../../components/Head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import api from "../../api";
 
 interface FormValues {
     nome: string;
@@ -31,12 +30,15 @@ export function Cadastro() {
 
     const cadastrarUsuario = async (data: FormValues) => {
         try {
-            await api.post("/usuarios/cadastrar", {
+            const response = await axios.post("usuarios/cadastrar", {
                 nome: data.nome,
                 sobrenome: data.sobrenome,
                 email: data.email,
                 senha_hash: data.senha,
             });
+
+            console.log("Usuário cadastrado com sucesso!", response.data);
+
             toast.success("Cadastro feito com sucesso!", {
                 theme: "colored",
             });
