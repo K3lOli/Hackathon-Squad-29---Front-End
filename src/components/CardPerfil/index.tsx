@@ -17,7 +17,7 @@ interface FormData {
     tags: string;
     link: string;
     descricao: string;
-    imagem_url?: string;
+    file?: FileList;
 }
 
 export function CardPerfil() {
@@ -36,23 +36,21 @@ export function CardPerfil() {
         setIsOpen(false);
     }
 
-    const {
-        register,
-        handleSubmit,
-        // setError,
-        // formState: { errors },
-    } = useForm<FormData>();
+    const { register, handleSubmit } = useForm<FormData>();
 
     const onSubmit = (data: FormData) => {
-        // setError("email", {
-        //     type: "custom",
-        //     message: "Email ou senha incorretos",
-        // });
-        // console.log(errors.email?.message);
-        console.log(data);
-        api.post("projetos/cadastrar", {
+        const formData = new FormData();
+        formData.append("titulo", data.titulo);
+        formData.append("tags", data.tags);
+        formData.append("link", data.link);
+        formData.append("descricao", data.descricao);
+        if (data.file) {
+            formData.append("file", data.file[0]);
+        }
+        api.post("projetos/cadastrar", formData, {
             headers: {
-                authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "multipart/form-data",
             },
         })
             .then((response) => {
@@ -107,7 +105,7 @@ export function CardPerfil() {
                                         id="input-imagem"
                                         className="input-imagem"
                                         type="file"
-                                        {...register("imagem_url")}
+                                        {...register("file")}
                                     />
                                     <img
                                         className="icone-imagem"
