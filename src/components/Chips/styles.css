@@ -1,0 +1,6 @@
+@import "../../index.css";
+
+.containerChip{
+    border-radius: 100px;
+    background-color: var(--color-principal-70);
+}

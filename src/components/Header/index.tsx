@@ -3,24 +3,52 @@ import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import notificacao from "../../../public/botao-notificacao.svg";
 import { NavLink } from "react-router-dom";
 import { RootState } from "../../store";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
 import { getItem } from "../../utils/storage";
 import "./styles.css";
 import api from "../../api";
 import MenuMobile from "../../../public/menu-mobile.svg";
+import { getProjetos } from "../../store/reducers/projetos";
+
+interface Usuario {
+    _id: string;
+    createdAt: string;
+    email: string;
+    nome: string;
+    updatedAt: string;
+    __v: number;
+}
+
+interface Projetos {
+    _id: string;
+    createdAt: string;
+    descricao: string;
+    imagem_mimeType: string;
+    imagem_name: string;
+    imagem_url: string;
+    link: string;
+    tags: string[];
+    titulo: string;
+    updatedAt: string;
+    usuario_id: string;
+    __v: number;
+    usuario: Usuario;
+}
 
 export function Header() {
+    const dispatch = useDispatch();
     const img = useSelector((state: RootState) => state.login[0].img);
 
     const [menuMobileOpen, setMenuMobileOpen] = React.useState(false);
 
-    const token = getItem("tokenUsuario");
+    const token = getItem("token");
     console.log(token);
 
     const toggleMenuMobile = () => {
         setMenuMobileOpen(!menuMobileOpen);
     };
+
     const getProjects = () => {
         api.get("/projetos/", {
             headers: {
@@ -28,7 +56,9 @@ export function Header() {
             },
         })
             .then((response) => {
-                console.log(response.data);
+                response.data.map((projeto: Projetos) => {
+                    return dispatch(getProjetos([projeto]));
+                });
             })
             .catch((error) => {
                 console.log(error);
@@ -70,11 +100,8 @@ export function Header() {
                                     <li>Meus projetos</li>
                                 </NavLink>
                                 <NavLink to="/descobrir">
-                                    <li>Descobrir</li>
+                                    <li onClick={getProjects}>Descobrir</li>
                                 </NavLink>
-                                <button onClick={getProjects}>
-                                    clique aqui
-                                </button>
                             </ul>
                         </nav>
                     </div>

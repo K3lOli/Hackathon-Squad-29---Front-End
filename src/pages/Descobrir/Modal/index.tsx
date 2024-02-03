@@ -1,22 +1,35 @@
 import Modal from "react-modal";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store";
+// import { useSelector } from "react-redux";
+// import { RootState } from "../../../store";
 import "./styles.css";
 import "../../../index.css";
-import imgProjeto from "../../../../public/Projeto1.png";
-import { CardProjects } from "./../../../components/ProjectCard/index";
+// import imgProjeto from "../../../../public/Projeto1.png";
+import { CardProjects } from "../../../components/ProjectCard/index";
 
 interface ModalProjetoProps {
     readonly modalIsOpen: boolean;
     setIsOpen: (isOpen: boolean) => void;
+    readonly imgProjeto?: string;
+    readonly imgPerfil?: string;
+    readonly nome?: string;
+    readonly data?: string;
+    readonly titulo?: string;
 }
 
-export function ModalProjeto({ modalIsOpen, setIsOpen }: ModalProjetoProps) {
+export function ModalProjeto({
+    modalIsOpen,
+    setIsOpen,
+    imgProjeto,
+    imgPerfil,
+    nome,
+    data,
+    titulo,
+}: ModalProjetoProps) {
     const fecharModal = () => {
         setIsOpen(false);
     };
-    const nome = useSelector((state: RootState) => state.login[0].nome);
-    const img = useSelector((state: RootState) => state.login[0].img);
+    // const nome = useSelector((state: RootState) => state.projetos);
+    // const img = useSelector((state: RootState) => state.login[0].img);
     return (
         <div>
             <Modal
@@ -35,14 +48,14 @@ export function ModalProjeto({ modalIsOpen, setIsOpen }: ModalProjetoProps) {
                     <div className="headerContainer">
                         <div className="infUsuario">
                             <div className="fotoPerfil">
-                                <img src={img} alt="" />
+                                <img src={imgPerfil} alt="" />
                             </div>
                             <div className="nameAndData subtitle-1">
                                 <p className="nome">{nome}</p>
-                                <p className="data">01/2024</p>
+                                <p className="data">{data}</p>
                             </div>
                         </div>
-                        <h4>Titulo</h4>
+                        <h4>{titulo}</h4>
                         <p>UX WEB</p>
                         {/* <tags tags={tags} /> */}
                     </div>
@@ -62,7 +75,7 @@ export function ModalProjeto({ modalIsOpen, setIsOpen }: ModalProjetoProps) {
                 <div className="modalMobile">
                     <h4 className="tituloProjeto">Titulo</h4>
                     <CardProjects
-                        imgPerfil={img}
+                        imgPerfil={imgPerfil}
                         imgProjeto={imgProjeto}
                         nome={nome}
                         data="01/12"
