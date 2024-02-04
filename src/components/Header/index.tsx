@@ -53,85 +53,85 @@ export function Header() {
     const handleClickLogout = () => {
         clear();
         navigate("/");
+    };
 
-        const getProjects = () => {
-            api.get("/projetos/", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((response) => {
-                    dispatch(clearProjetos());
-                    response.data.map((projeto: Projetos) => {
-                        return dispatch(getProjetos([projeto]));
-                    });
-                })
-                .catch((error) => {
-                    console.log(error);
+    const getProjects = () => {
+        api.get("/projetos/", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((response) => {
+                dispatch(clearProjetos());
+                response.data.map((projeto: Projetos) => {
+                    return dispatch(getProjetos([projeto]));
                 });
-        };
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
-        return (
-            <header className="header">
-                <div className="header--content">
-                    <div
-                        className="headerMobileNav"
-                        style={{ display: menuMobileOpen ? "block" : "none" }}
-                    >
-                        <NavLink to="/meuportfolio">
-                            <li>Meus projetos</li>
-                        </NavLink>
-                        <NavLink to="/descobrir">
-                            <li>Descobrir</li>
-                        </NavLink>
-                    </div>
-                    <div className="menu-esq-content">
-                        <div>
-                            <img
-                                src={MenuMobile}
-                                alt="Menu Mobile"
-                                className="menuMobile"
-                                onClick={toggleMenuMobile}
-                            />
-                            <img
-                                src={logoOrange}
-                                alt="logo orange portfolio"
-                                className="logo--orange"
-                            />
-                        </div>
-                        <div className="nav--container">
-                            <nav className="nav--content">
-                                <ul className="nav--list">
-                                    <NavLink to="/meuportfolio">
-                                        <li>Meus projetos</li>
-                                    </NavLink>
-                                    <NavLink to="/descobrir">
-                                        <li onClick={getProjects}>Descobrir</li>
-                                    </NavLink>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+    return (
+        <header className="header">
+            <div className="header--content">
+                <div
+                    className="headerMobileNav"
+                    style={{ display: menuMobileOpen ? "block" : "none" }}
+                >
+                    <NavLink to="/meuportfolio">
+                        <li>Meus projetos</li>
+                    </NavLink>
+                    <NavLink to="/descobrir">
+                        <li>Descobrir</li>
+                    </NavLink>
+                </div>
+                <div className="menu-esq-content">
                     <div>
-                        <div className="menu-dir-content">
-                            <img
-                                src={`${img}`}
-                                onError={(e) => {
-                                    e.currentTarget.src = imgDefault;
-                                }}
-                                alt="Foto de perfil"
-                                className="perfil-foto"
-                            />
-                            <img
-                                src={notificacao}
-                                alt="Foto de perfil"
-                                className="botao-notificacao"
-                            />
-                            <button onClick={handleClickLogout}>LogOut</button>
-                        </div>
+                        <img
+                            src={MenuMobile}
+                            alt="Menu Mobile"
+                            className="menuMobile"
+                            onClick={toggleMenuMobile}
+                        />
+                        <img
+                            src={logoOrange}
+                            alt="logo orange portfolio"
+                            className="logo--orange"
+                        />
+                    </div>
+                    <div className="nav--container">
+                        <nav className="nav--content">
+                            <ul className="nav--list">
+                                <NavLink to="/meuportfolio">
+                                    <li>Meus projetos</li>
+                                </NavLink>
+                                <NavLink to="/descobrir">
+                                    <li onClick={getProjects}>Descobrir</li>
+                                </NavLink>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-            </header>
-        );
-    };
+                <div>
+                    <div className="menu-dir-content">
+                        <img
+                            src={`${img}`}
+                            onError={(e) => {
+                                e.currentTarget.src = imgDefault;
+                            }}
+                            alt="Foto de perfil"
+                            className="perfil-foto"
+                        />
+                        <img
+                            src={notificacao}
+                            alt="Foto de perfil"
+                            className="botao-notificacao"
+                        />
+                        <button onClick={handleClickLogout}>LogOut</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    );
 }
