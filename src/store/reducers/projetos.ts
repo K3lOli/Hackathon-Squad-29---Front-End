@@ -17,7 +17,7 @@ interface Projetos {
     imagem_name: string;
     imagem_url: string;
     link: string;
-    tags: string[];
+    tags: string[] | string;
     titulo: string;
     updatedAt: string;
     usuario_id: string;
@@ -32,10 +32,18 @@ const projetosSlice = createSlice({
     initialState,
     reducers: {
         getProjetos: (state, action: PayloadAction<Projetos[]>) => {
+            action.payload.forEach((projeto) => {
+                if (typeof projeto.tags === "string") {
+                    projeto.tags = projeto.tags.split(",");
+                }
+            });
             state.push(...action.payload);
+        },
+        clearProjetos: (state) => {
+            state.splice(0, state.length);
         },
     },
 });
 
-export const { getProjetos } = projetosSlice.actions;
+export const { getProjetos, clearProjetos } = projetosSlice.actions;
 export default projetosSlice.reducer;

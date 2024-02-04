@@ -51,7 +51,6 @@ export function MeuPortfolio() {
                     <h6>Meus projetos</h6>
                     <input type="text" placeholder="Buscar tags" />
                 </div>
-
                 {projetos.length === 0 ? (
                     <div className="adicionarProjetos">
                         <div className="projetoBox">
@@ -60,7 +59,7 @@ export function MeuPortfolio() {
                                     src="../../../public/collections.svg"
                                     alt="Project Collections Logo"
                                 />
-                                <p className="body-1">
+                                <p className="body-1 primeiroProjeto">
                                     Adicione seu primeiro projeto
                                 </p>
                                 <p className="body-2">

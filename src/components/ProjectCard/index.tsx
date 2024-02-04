@@ -3,6 +3,7 @@ import "../../index.css";
 import { useState } from "react";
 import imgDefault from "../../../public/foto-perfil.png";
 import { ModalProjeto } from "../../pages/Descobrir/Modal/index";
+import { Chips } from "../Chips/index";
 
 interface CardProjectsProps {
     readonly imgPerfil?: React.ImgHTMLAttributes<HTMLImageElement>["src"];
@@ -12,6 +13,8 @@ interface CardProjectsProps {
     readonly className?: string;
     readonly index?: number;
     readonly titulo?: string;
+    readonly descricao?: string;
+    readonly tags?: string[] | string | undefined;
 }
 export function CardProjects({
     imgPerfil,
@@ -21,6 +24,8 @@ export function CardProjects({
     className,
     index,
     titulo,
+    descricao,
+    tags,
 }: CardProjectsProps) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const openModal = () => {
@@ -37,19 +42,30 @@ export function CardProjects({
                 <div className="imgProjeto">
                     <img src={imgProjeto} alt="" />
                 </div>
-                <div className="infUsuario">
-                    <div className="imgUsuario">
-                        <img
-                            src={imgPerfil}
-                            onError={(e) => {
-                                e.currentTarget.src = imgDefault;
-                            }}
-                            alt=""
-                        />
+                <div className="infProjeto">
+                    <div className="infUsuario">
+                        <div className="imgUsuario">
+                            <img
+                                src={imgPerfil}
+                                onError={(e) => {
+                                    e.currentTarget.src = imgDefault;
+                                }}
+                                alt=""
+                            />
+                        </div>
+                        <p className="body-1 nomeData">
+                            {nome} - {data}
+                        </p>
                     </div>
-                    <p className="body-1">
-                        {nome} - {data}
-                    </p>
+                    <div className="tagContainer">
+                        {Array.isArray(tags) &&
+                        tags.every((item) => typeof item === "string")
+                            ? (console.log(tags),
+                              tags.map((tag, index) => (
+                                  <Chips key={index}>{tag}</Chips>
+                              )))
+                            : null}
+                    </div>
                 </div>
             </div>
             <div className="modal">
@@ -61,6 +77,8 @@ export function CardProjects({
                     nome={nome}
                     data={data}
                     titulo={titulo}
+                    descricao={descricao}
+                    tags={tags}
                 />
             </div>
         </>

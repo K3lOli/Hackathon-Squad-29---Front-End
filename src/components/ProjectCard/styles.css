@@ -3,7 +3,7 @@
 .cardProjetos{
     display: flex;
     width: 389px;
-    height: 290px;
+    height: 294ssspx;
     padding: 0;
     flex-direction: column;
     align-items: flex-start;
@@ -49,11 +49,22 @@ p{
     color: var(--color-neutral-110);
 }
 
-p .body-1{
+.nameData {
     margin-bottom: 0;
 }
 .infUsuario{
+    width: auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.infProjeto{
     width: 100%;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+.tagContainer{
     display: flex;
     gap: 8px;
 }

@@ -2,5 +2,12 @@
 
 .containerChip{
     border-radius: 100px;
+    height: max-content;
     background-color: var(--color-principal-70);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    text-transform: uppercase;
+    
 }

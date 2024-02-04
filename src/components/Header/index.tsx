@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import notificacao from "../../../public/botao-notificacao.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
-import { getItem } from "../../utils/storage";
+import { clear, getItem } from "../../utils/storage";
 import "./styles.css";
 import api from "../../api";
 import MenuMobile from "../../../public/menu-mobile.svg";
-import { getProjetos } from "../../store/reducers/projetos";
+import { clearProjetos, getProjetos } from "../../store/reducers/projetos";
 
 interface Usuario {
     _id: string;
@@ -45,11 +45,11 @@ export function Header() {
     const [menuMobileOpen, setMenuMobileOpen] = React.useState(false);
 
     const token = getItem("token");
-    console.log(token);
 
     const toggleMenuMobile = () => {
         setMenuMobileOpen(!menuMobileOpen);
     };
+
 
 
     const navigate = useNavigate();
@@ -65,7 +65,7 @@ export function Header() {
             },
         })
             .then((response) => {
-                
+                dispatch(clearProjetos());
                 response.data.map((projeto: Projetos) => {
                     return dispatch(getProjetos([projeto]));
                 });

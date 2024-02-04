@@ -8,12 +8,25 @@ import { CustomInput } from "../Input";
 import { ButtonWithContainerOrange } from "../Buttons/ButtonWithContainer/OrangeButton";
 import Modal from "react-modal";
 import iconeImagem from "../../../public/icone-inserir-imagem.svg";
+import { useForm } from "react-hook-form";
+import api from "../../api/index";
+import { getItem } from "../../utils/storage";
+
+interface FormData {
+    titulo: string;
+    tags: string;
+    link: string;
+    descricao: string;
+    file?: FileList;
+}
 
 export function CardPerfil() {
     const nome = useSelector((state: RootState) => state.login[0].nome);
     const img = useSelector((state: RootState) => state.login[0].img);
 
     const [modalIsOpen, setIsOpen] = useState<boolean>(false);
+    const token = getItem("token");
+    console.log(token);
 
     function abrirModal() {
         setIsOpen(true);
@@ -22,6 +35,31 @@ export function CardPerfil() {
     function fecharModal() {
         setIsOpen(false);
     }
+
+    const { register, handleSubmit } = useForm<FormData>();
+
+    const onSubmit = (data: FormData) => {
+        const formData = new FormData();
+        formData.append("titulo", data.titulo);
+        formData.append("tags", data.tags);
+        formData.append("link", data.link);
+        formData.append("descricao", data.descricao);
+        if (data.file) {
+            formData.append("file", data.file[0]);
+        }
+        api.post("projetos/cadastrar", formData, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "multipart/form-data",
+            },
+        })
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
 
     return (
         <div className="cardContainer">
@@ -67,6 +105,7 @@ export function CardPerfil() {
                                         id="input-imagem"
                                         className="input-imagem"
                                         type="file"
+                                        {...register("file")}
                                     />
                                     <img
                                         className="icone-imagem"
@@ -82,12 +121,17 @@ export function CardPerfil() {
                         </div>
                     </div>
                     <div className="content-dir">
-                        <form className="formulario-projeto" action="">
+                        <form
+                            className="formulario-projeto"
+                            action=""
+                            onSubmit={handleSubmit(onSubmit)}
+                        >
                             <CustomInput>
                                 <input
                                     className="input-form"
                                     type="text"
                                     placeholder="Título"
+                                    {...register("titulo", { required: true })}
                                 />
                             </CustomInput>
                             <CustomInput>
@@ -95,6 +139,7 @@ export function CardPerfil() {
                                     className="input-form"
                                     type="text"
                                     placeholder="Tags"
+                                    {...register("tags", { required: true })}
                                 />
                             </CustomInput>
                             <CustomInput>
@@ -102,14 +147,25 @@ export function CardPerfil() {
                                     className="input-form"
                                     type="text"
                                     placeholder="Link"
+                                    {...register("link")}
                                 />
                             </CustomInput>
                             <CustomInput>
                                 <textarea
                                     className="input-form description"
                                     placeholder="Descrição"
+                                    {...register("descricao", {
+                                        required: true,
+                                    })}
                                 />
                             </CustomInput>
+                            <ButtonWithContainerOrange
+                                largura={"18%"}
+                                color={"#fff"}
+                                type="submit"
+                            >
+                                Salvar
+                            </ButtonWithContainerOrange>
                         </form>
                     </div>
                 </div>
@@ -118,12 +174,6 @@ export function CardPerfil() {
                         Visualizar publicação
                     </p>
                     <div className="salvar-e-cancelar-btn">
-                        <ButtonWithContainerOrange
-                            largura={"18%"}
-                            color={"#fff"}
-                        >
-                            Salvar
-                        </ButtonWithContainerOrange>
                         <ButtonWithContainerGray
                             largura={"18%"}
                             color={"#00000061"}
