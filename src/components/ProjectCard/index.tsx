@@ -14,7 +14,7 @@ interface CardProjectsProps {
     readonly index?: number;
     readonly titulo?: string;
     readonly descricao?: string;
-    readonly tags?: string[] | string | undefined;
+    readonly tags?: string[] | string | undefined | Array<string>;
 }
 export function CardProjects({
     imgPerfil,

@@ -29,13 +29,15 @@ export function Descobrir() {
             return;
         }
         const projetosPorTag = projetos.filter((projeto) => {
-            const tagsFiltradas = projeto.tags.filter((tag) =>
-                tag.toLowerCase().includes(busca.toLowerCase()),
-            );
+            if (Array.isArray(projeto.tags)) {
+                const tagsFiltradas = projeto.tags.filter((tag: string) =>
+                    tag.toLowerCase().includes(busca.toLowerCase()),
+                );
 
-            return tagsFiltradas.length > 0;
+                return tagsFiltradas.length > 0;
+            }
+            return false;
         });
-
         if (projetosPorTag.length > 0) {
             setProjetosFiltrados(projetosPorTag);
         } else {
@@ -67,7 +69,6 @@ export function Descobrir() {
                             className="inputDescobrir"
                             value={busca}
                             onChange={(e) => dispatch(setText(e.target.value))}
-                            // onChange={handleChange}
                         />
                     </CustomInput>
                 </div>

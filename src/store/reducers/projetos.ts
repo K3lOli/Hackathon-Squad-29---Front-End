@@ -17,7 +17,7 @@ interface Projetos {
     imagem_name: string;
     imagem_url: string;
     link: string;
-    tags: string[] | string;
+    tags: string[] | string | Array<string>;
     titulo: string;
     updatedAt: string;
     usuario_id: string;
