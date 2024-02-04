@@ -4,7 +4,7 @@ const textInputSlice = createSlice({
     name: "textInput",
     initialState: "",
     reducers: {
-        setText: (state, action: PayloadAction<string>) => {
+        setText: (_state, action: PayloadAction<string>) => {
             if (action.payload === "") {
                 return ""; // Redefina a pesquisa para um valor vazio
             } else {

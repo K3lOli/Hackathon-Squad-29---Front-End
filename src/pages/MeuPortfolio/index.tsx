@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 import { CardPerfil } from "../../components/CardPerfil";
 import { Head } from "../../components/Head";
 import { Header } from "../../components/Header";
@@ -13,21 +12,17 @@ interface Projeto {
 }
 
 export function MeuPortfolio() {
-
-    const token = getItem("token"); 
+    const token = getItem("token");
     const [projetos, setProjetos] = useState<Projeto[]>([]);
 
     useEffect(() => {
         const buscarProjetos = async () => {
             try {
-                const response = await api.get(
-                    "/projetos/meus-projetos",
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
+                const response = await api.get("/projetos/meus-projetos", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
                     },
-                );
+                });
                 setProjetos(response.data);
             } catch (error) {
                 console.error("Erro ao buscar projetos: ", error);
