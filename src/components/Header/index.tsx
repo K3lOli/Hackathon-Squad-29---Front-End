@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import notificacao from "../../../public/botao-notificacao.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
@@ -36,6 +36,8 @@ interface Projetos {
     usuario: Usuario;
 }
 
+import { clear } from "../../utils/storage";
+
 export function Header() {
     const dispatch = useDispatch();
     const img = useSelector((state: RootState) => state.login[0].img);
@@ -43,17 +45,18 @@ export function Header() {
     const [menuMobileOpen, setMenuMobileOpen] = React.useState(false);
 
     const token = getItem("token");
-    console.log(token);
 
     const toggleMenuMobile = () => {
         setMenuMobileOpen(!menuMobileOpen);
     };
 
-    const logout = () => {
-        localStorage.clear();
-        window.location.reload();
+
+
+    const navigate = useNavigate();
+
+    const handleClickLogout = () => {
         clear();
-    };
+        navigate("/");
 
     const getProjects = () => {
         api.get("/projetos/", {
@@ -62,7 +65,6 @@ export function Header() {
             },
         })
             .then((response) => {
-                console.log(response.data);
                 dispatch(clearProjetos());
                 response.data.map((projeto: Projetos) => {
                     return dispatch(getProjetos([projeto]));
@@ -71,6 +73,7 @@ export function Header() {
             .catch((error) => {
                 console.log(error);
             });
+
     };
 
     return (
@@ -129,7 +132,7 @@ export function Header() {
                             alt="Foto de perfil"
                             className="botao-notificacao"
                         />
-                        <p onClick={logout}>Sair</p>
+                        <button onClick={handleClickLogout}>LogOut</button>
                     </div>
                 </div>
             </div>
