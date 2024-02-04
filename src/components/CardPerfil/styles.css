@@ -262,9 +262,6 @@
         padding: 65px 0px 120px 0px;
     }
 
-    .button-font:nth-child(1), .button-font:nth-child(2) {
-        max-width: 120px;
-    }
 }
 
 @media screen and (max-width: 375px) {

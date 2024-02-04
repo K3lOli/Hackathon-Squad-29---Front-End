@@ -63,13 +63,15 @@
 @media screen and (max-width: 750px) {
     
     .containerDescobrir {
-        width: 312px;
+        width: 100%;
     }
 
     .cardsContainer {
         display: flex;
         align-items: center;
         flex-direction: column;
+        width: 100%;
+        justify-items: center;
     }
 
     .inputDescobrir{
@@ -90,7 +92,7 @@
 
 @media screen and (max-width: 425px) {
     .containerDescobrir {
-        width: 410px;
+        width: 100vw;
     }
     
     .h4Descobrir {
@@ -100,16 +102,16 @@
     }
 
     .cardsContainer{
-        width: 425px;
+        width: 100%;
         justify-items: center;
     }
 
     .inputContainer{
-        width: 380px;
+        width: 100%;
     }
 
     .inputDescobrir{
-        width: 380px;
+        width: 100%;
     }
     
     
@@ -117,7 +119,7 @@
 
 @media screen and (max-width: 375px) {
     .containerDescobrir {
-        width: 375px;
+        width: 100vw;
     }
 
     .h4Descobrir {
@@ -132,17 +134,18 @@
     }
 
     .inputContainer{
-        width: 350px;
+        width: 100%
+        ;
     }
 
     .inputDescobrir{
-        width: 350px;
+        width: 100%;
     }
 }
 
 @media screen and (max-width: 320px) {
     .containerDescobrir {
-        width: 280px;
+        width: 100vw;
     }
 
     .h4Descobrir {
@@ -154,6 +157,7 @@
     .cardsContainer{
         width: 280px;
         padding-bottom: 50px;
+        gap: 50px;
     }
 
     .inputContainer{

@@ -90,6 +90,12 @@
         width: 100%;
         height: 400px;
     }
+    .infUsuarioModal h4{
+        width: min-content;
+    }
+    .tituloProjeto{
+        width: min-content;
+    }
 }
 
 @media (max-width: 1000px){
@@ -104,6 +110,17 @@
     .imgContainer{
         width: 370px;
         height: 350px;
+    }
+    .tituloProjeto{
+        width: min-content;
+    }
+    .tagContainerModal{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .infUsuarioModal{
+        flex-direction: column;
     }
 
 }
@@ -126,11 +143,66 @@
         flex-direction: column;
         gap: 8px;
     }
+    .infUsuarioModal{
+        flex-direction: column;
+    }
+    .tituloProjeto{
+        width: min-content;
+    }
 }
 
 @media (max-width: 550px) {
     .modalContainer {
         max-width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0px 30px;
+        display: flex;
+        justify-content: start;
+        padding-top: 20px;
+        align-items: center;
+    }
+    .tituloProjeto{
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    .modalDesktop{
+        display: none;
+    }
+    .modalMobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .imgContainer{
+        height: 280px;
+    }
+    .containerDescricao{
+        max-width: 320px;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+    .headerContainer{
+        margin-top: 100px;
+    }
+    .cardProjetoModal{
+        width: 320px;
+        border-radius: 10px;
+    }
+    .bt-fechar-modal {
+        all: unset;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}
+@media (max-width: 390px){
+    .modalContainer {
+        min-width: 100%;
         min-height: 100vh;
         position: fixed;
         top: 40%;

@@ -3,21 +3,20 @@
 .cardProjetos{
     display: flex;
     width: 389px;
-    height: 294ssspx;
+    height: 294px;
     padding: 0;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     border-radius: 4px;
     flex-shrink: 0;
-    overflow: hidden;
-    margin-bottom: 22px;
+    margin-bottom: 50px;
 }
 .modal{
     display: none;
 }
 .imgProjeto{
-    width: 389px;
+    width: 100%;
     height: 258px;
     flex-shrink: 0;
     background-color: gray;
@@ -71,9 +70,9 @@ p{
 
 
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 450px) {
     .cardProjetos {
-        width: 312px;
+        width: 100%;
         height: 258px;
     }
 
@@ -88,14 +87,14 @@ p{
     }
 
     .imgProjeto{
-        width: 312px;
+        width: 100%;
         height: 258px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .cardProjetos {
-        width: 280px;
+        width: 100%;
         height: 230px;
     }
 
@@ -110,7 +109,7 @@ p{
     }
 
     .imgProjeto{
-        width: 312px;
+        width: 100%;
         height: 258px;
     }
 }

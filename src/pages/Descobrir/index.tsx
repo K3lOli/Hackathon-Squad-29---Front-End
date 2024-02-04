@@ -73,10 +73,10 @@ export function Descobrir() {
                     </CustomInput>
                 </div>
                 <div className="cardsContainer">
-                    {projetosFiltrados.map((projeto, index) => {
+                    {projetosFiltrados.map((projeto) => {
                         return (
                             <CardProjects
-                                key={index}
+                                key={projeto._id}
                                 imgPerfil={`${img}`}
                                 imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
                                 nome={`${projeto.usuario.nome}`}

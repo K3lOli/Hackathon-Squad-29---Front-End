@@ -57,7 +57,7 @@ export function ModalProjeto({
                                 <p className="data">{data}</p>
                             </div>
                         </div>
-                        <h4>{titulo}</h4>
+                        <h4 className="tituloProjeto">{titulo}</h4>
                         <div className="tagContainerModal">
                             {Array.isArray(tags) &&
                             tags.every((item) => typeof item === "string")
@@ -75,6 +75,9 @@ export function ModalProjeto({
                     </div>
                 </div>
                 <div className="modalMobile">
+                    <button className="bt-fechar-modal" onClick={fecharModal}>
+                        <img src={Close} alt="Fechar modal" />
+                    </button>
                     <h4 className="tituloProjeto">Titulo</h4>
                     <CardProjects
                         imgPerfil={imgPerfil}
