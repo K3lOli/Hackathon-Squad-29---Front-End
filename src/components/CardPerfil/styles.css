@@ -61,8 +61,12 @@
     background-color: #fefefe;
 }
 
+.inputModal .inputContainer{
+    width: 100%;
+}
+
 .container-title {
-    width: 826px;
+    width: 100%;
     height: fit-content;
     align-items: center;
 }
@@ -87,6 +91,7 @@
     width: 100%;
     display: flex;
     gap: var(--3, 24px);
+    justify-content: center;
 }
 
 .content-esq {
@@ -153,7 +158,7 @@
     align-self: stretch;
 }
 
-.input-form {
+.input-form-Adicionar-Projetos {
     display: flex;
     width: 100%;
     border-radius: 4px;
@@ -200,18 +205,24 @@
     .modalContainer {
         display: grid;
         position: relative;
-        width: 450px;
+        max-width: 450px;
         height: 700px;
         margin: 100px auto;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
     
     .container-content {
         display: grid;
+        height: auto;
+        margin: 0;
     }
 
     .content-dir {
         position: absolute;
         margin-top: 1rem;
+        width: 330px;
+        margin-bottom: 1rem;
     }
 
     .content-esq {
@@ -228,13 +239,15 @@
     }
 
     .footer-projeto {
+        display: flex;
         width: 400px;
-        margin-top: 300px;
         margin-bottom: 20px;
+        justify-content: center;
+        align-items: center;
     }
 
-    .input-form {
-        width: 330px;
+    .input-form-Adicionar-Projetos {
+        width: 100%;
     }
 
     .descrição-imagem {
@@ -246,82 +259,16 @@
     .background-imagem {
         width: 330px;
         height: 280px;
+        margin-top: 20px;
     }
 
     .salvar-e-cancelar-btn {
-        width: 700px;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .modalContainer {
-        width: 390px;
-    }
-
-    .container-content {
-        margin: 30px 0px 0px;
-        padding-left: 0px;
-        width: 330px;
-    }
-    .titulo-modal {
-        padding-left: 0;
-    }
-
-    .description-visualizar {
-        margin-top: 23px;
-        position: absolute;
-        left: 34px;
-    }
-
-    .salvar-e-cancelar-btn {
+        width: 100%;
         display: flex;
-        gap: 10px;
-        position: absolute;
-        width: 700px;
-        left: 31.7px;
-        padding: 65px 0px 120px 0px;
+        justify-content: center;
     }
-
-}
-
-@media screen and (max-width: 375px) {
-    .modalContainer {
-        width: 312px;
-    }
-
-    .container-description {
-        width: 250px;
-    }
-
-    .content-image {
-        width: 250px;
-        height: 270px;
-    }
-
-    .input-form {
-        width: 250px;
-    }
-
-    .background-imagem {
-        width: 250px;
-    }
-
-    .description-visualizar {
-        margin-top: 30px;
-        position: absolute;
-        left: 34px;
-    }
-
-    .description-imagem {
-        padding-left: 5px;
-    }
-
-    .descrição-imagem {
-        margin: 0 auto;
-        width: 250px;
-    }
-
-    .content-esq {
-        width: 266px
+    .titulo-modal{
+        display: flex;
+        justify-content: center;
     }
 }

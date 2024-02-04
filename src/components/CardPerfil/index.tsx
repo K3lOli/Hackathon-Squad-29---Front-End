@@ -154,9 +154,12 @@ export function CardPerfil() {
                         </div>
                         <div className="content-dir">
                             <div className="formulario-projeto">
-                                <CustomInput>
+                                <CustomInput
+                                    className="inputModal"
+                                    largura="100%"
+                                >
                                     <input
-                                        className="input-form"
+                                        className="input-form-Adicionar-Projetos"
                                         type="text"
                                         placeholder="Título"
                                         {...register("titulo", {
@@ -164,7 +167,10 @@ export function CardPerfil() {
                                         })}
                                     />
                                 </CustomInput>
-                                <CustomInput>
+                                <CustomInput
+                                    className="inputModal"
+                                    largura="100%"
+                                >
                                     <input
                                         className="input-form"
                                         type="text"
@@ -174,7 +180,10 @@ export function CardPerfil() {
                                         })}
                                     />
                                 </CustomInput>
-                                <CustomInput>
+                                <CustomInput
+                                    className="inputModal"
+                                    largura="100%"
+                                >
                                     <input
                                         className="input-form"
                                         type="text"
@@ -182,7 +191,10 @@ export function CardPerfil() {
                                         {...register("link")}
                                     />
                                 </CustomInput>
-                                <CustomInput>
+                                <CustomInput
+                                    className="inputModal"
+                                    largura="100%"
+                                >
                                     <textarea
                                         className="input-form description"
                                         placeholder="Descrição"
@@ -201,14 +213,14 @@ export function CardPerfil() {
                         </p>
                         <div className="salvar-e-cancelar-btn">
                             <ButtonWithContainerOrange
-                                largura={"18%"}
+                                largura={"91px"}
                                 color={"#fff"}
                                 type="submit"
                             >
                                 Salvar
                             </ButtonWithContainerOrange>
                             <ButtonWithContainerGray
-                                largura={"18%"}
+                                largura={"124px"}
                                 color={"#00000061"}
                             >
                                 <div
