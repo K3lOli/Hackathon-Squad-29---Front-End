@@ -1,10 +1,8 @@
 import Modal from "react-modal";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../../store";
 import "./styles.css";
 import "../../../index.css";
-// import imgProjeto from "../../../../public/Projeto1.png";
 import { CardProjects } from "../../../components/ProjectCard/index";
+import { Chips } from "../../../components/Chips/index";
 
 interface ModalProjetoProps {
     readonly modalIsOpen: boolean;
@@ -14,6 +12,8 @@ interface ModalProjetoProps {
     readonly nome?: string;
     readonly data?: string;
     readonly titulo?: string;
+    readonly descricao?: string;
+    readonly tags?: string[] | string | undefined;
 }
 
 export function ModalProjeto({
@@ -24,6 +24,8 @@ export function ModalProjeto({
     nome,
     data,
     titulo,
+    descricao,
+    tags,
 }: ModalProjetoProps) {
     const fecharModal = () => {
         setIsOpen(false);
@@ -46,7 +48,7 @@ export function ModalProjeto({
                 {/* <div>x</div> */}
                 <div className="modalDesktop">
                     <div className="headerContainer">
-                        <div className="infUsuario">
+                        <div className="infUsuarioModal">
                             <div className="fotoPerfil">
                                 <img src={imgPerfil} alt="" />
                             </div>
@@ -56,20 +58,21 @@ export function ModalProjeto({
                             </div>
                         </div>
                         <h4>{titulo}</h4>
-                        <p>UX WEB</p>
-                        {/* <tags tags={tags} /> */}
+                        <div className="tagContainerModal">
+                            {Array.isArray(tags) &&
+                            tags.every((item) => typeof item === "string")
+                                ? (console.log(tags),
+                                  tags.map((tag, index) => (
+                                      <Chips key={index}>{tag}</Chips>
+                                  )))
+                                : null}
+                        </div>
                     </div>
                     <div className="imgContainer">
                         <img src={imgProjeto} alt="" />
                     </div>
                     <div className="containerDescricao">
-                        <p>
-                            Temos o prazer de compartilhar com vocês uma
-                            variação do nosso primeiro recurso gratuito. É um
-                            modelo de IA. Tentamos redesenhar uma versão mais
-                            minimalista do nosso primeiro projeto. Download
-                            https://gumroad.com/products/wxCSL
-                        </p>
+                        <p>{descricao}</p>
                     </div>
                 </div>
                 <div className="modalMobile">
@@ -78,7 +81,7 @@ export function ModalProjeto({
                         imgPerfil={imgPerfil}
                         imgProjeto={imgProjeto}
                         nome={nome}
-                        data="01/12"
+                        data={data}
                         className="cardProjetoModal"
                     />
                     <div className="containerDescricao">

@@ -28,8 +28,10 @@
     margin-top: 48px;
     margin-bottom: 48px;
 }
-.infUsuario{
+.infUsuarioModal{
     width: max-content;
+    display: flex;
+    gap: 12px;
 }
 .nome{
     color: var(--color-neutral-120);
@@ -47,6 +49,10 @@
 }
 .containerDescricao{
     margin-bottom: 48px;
+}
+.tagContainerModal{
+    display: flex;
+    gap: 8px;
 }
 @media (max-width: 1600px) {
     .modalContainer {
@@ -107,6 +113,11 @@
     .imgContainer{
         width: 370px;
         height: 300px;
+    }
+    .tagContainerModal{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 }
 

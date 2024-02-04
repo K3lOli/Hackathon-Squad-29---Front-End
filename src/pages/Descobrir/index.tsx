@@ -2,9 +2,11 @@ import "./styles.css";
 import { CustomInput } from "./../../components/Input/index";
 import { CardProjects } from "../../components/ProjectCard";
 import { Header } from "../../components/Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { Head } from "../../components/Head";
+import { useEffect, useState } from "react";
+import { setText } from "../../store/reducers/textInput";
 
 const formatarData = (dataCompleta: string) => {
     const dataObjeto = new Date(dataCompleta);
@@ -15,9 +17,36 @@ const formatarData = (dataCompleta: string) => {
 };
 
 export function Descobrir() {
+    const busca = useSelector((state: RootState) => state.input);
     const img = useSelector((state: RootState) => state.login[0].img);
     const projetos = useSelector((state: RootState) => state.projetos);
-    const imgProjetoss = "http://localhost:8000/imagens/1706622502902.png";
+    const [projetosFiltrados, setProjetosFiltrados] = useState(projetos);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!busca) {
+            setProjetosFiltrados(projetos);
+            return;
+        }
+        const projetosPorTag = projetos.filter((projeto) => {
+            const tagsFiltradas = projeto.tags.filter((tag) =>
+                tag.toLowerCase().includes(busca.toLowerCase()),
+            );
+
+            return tagsFiltradas.length > 0;
+        });
+
+        if (projetosPorTag.length > 0) {
+            setProjetosFiltrados(projetosPorTag);
+        } else {
+            const projetosPorNome = projetos.filter((projeto) =>
+                projeto.usuario.nome
+                    .toLowerCase()
+                    .includes(busca.toLowerCase()),
+            );
+            setProjetosFiltrados(projetosPorNome);
+        }
+    }, [busca, projetos]);
     return (
         <>
             <Head
@@ -36,19 +65,25 @@ export function Descobrir() {
                             placeholder="Buscar tags"
                             type="text"
                             className="inputDescobrir"
+                            value={busca}
+                            onChange={(e) => dispatch(setText(e.target.value))}
+                            // onChange={handleChange}
                         />
                     </CustomInput>
                 </div>
                 <div className="cardsContainer">
-                    {projetos.map((projeto, index) => {
+                    {projetosFiltrados.map((projeto, index) => {
+                        console.log(projeto.tags);
                         return (
                             <CardProjects
                                 key={index}
                                 imgPerfil={`${img}`}
-                                imgProjeto={imgProjetoss}
+                                imgProjeto={`http://localhost:8000/imagens/${projeto.imagem_url.substring(projeto.imagem_url.lastIndexOf("\\") + 1)}`}
                                 nome={`${projeto.usuario.nome}`}
                                 data={formatarData(projeto.createdAt)}
                                 titulo={`${projeto.titulo}`}
+                                descricao={`${projeto.descricao}`}
+                                tags={projeto.tags}
                             />
                         );
                     })}

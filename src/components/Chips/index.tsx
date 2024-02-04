@@ -1,9 +1,12 @@
 import "../../index.css";
-
-export default function index(tag: string) {
+import "./styles.css";
+interface ChipsProps {
+    readonly children: string | undefined;
+}
+export function Chips({ children }: ChipsProps) {
     return (
-        <div className="containerChip">
-            <p>{tag}</p>
+        <div className="containerChip body-2">
+            <p>{children}</p>
         </div>
     );
 }

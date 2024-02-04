@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import notificacao from "../../../public/botao-notificacao.svg";
 import { NavLink } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
-import { getItem } from "../../utils/storage";
+import { clear, getItem } from "../../utils/storage";
 import "./styles.css";
 import api from "../../api";
 import MenuMobile from "../../../public/menu-mobile.svg";
-import { getProjetos } from "../../store/reducers/projetos";
+import { clearProjetos, getProjetos } from "../../store/reducers/projetos";
 
 interface Usuario {
     _id: string;
@@ -49,6 +49,12 @@ export function Header() {
         setMenuMobileOpen(!menuMobileOpen);
     };
 
+    const logout = () => {
+        localStorage.clear();
+        window.location.reload();
+        clear();
+    };
+
     const getProjects = () => {
         api.get("/projetos/", {
             headers: {
@@ -57,6 +63,7 @@ export function Header() {
         })
             .then((response) => {
                 console.log(response.data);
+                dispatch(clearProjetos());
                 response.data.map((projeto: Projetos) => {
                     return dispatch(getProjetos([projeto]));
                 });
@@ -122,6 +129,7 @@ export function Header() {
                             alt="Foto de perfil"
                             className="botao-notificacao"
                         />
+                        <p onClick={logout}>Sair</p>
                     </div>
                 </div>
             </div>

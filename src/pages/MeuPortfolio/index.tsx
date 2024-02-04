@@ -27,7 +27,7 @@ export function MeuPortfolio() {
                                 src="../../../public/collections.svg"
                                 alt="Project Collections Logo"
                             />
-                            <p className="body-1">
+                            <p className="body-1 primeiroProjeto">
                                 Adicione seu primeiro projeto
                             </p>
                             <p className="body-2">
