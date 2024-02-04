@@ -72,7 +72,7 @@ export function MeuPortfolio() {
                             <div key={projeto.titulo} className="projetoBox">
                                 <div className="projetoBoxConteudoUsuario">
                                     <img
-                                        src={`${api}/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
+                                        src={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
                                         alt=""
                                     />
                                     <div></div>
