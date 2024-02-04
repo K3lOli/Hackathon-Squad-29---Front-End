@@ -203,8 +203,6 @@
         width: 450px;
         height: 700px;
         margin: 100px auto;
-        overflow-y: auto;
-        overflow-x: hidden;
     }
     
     .container-content {
