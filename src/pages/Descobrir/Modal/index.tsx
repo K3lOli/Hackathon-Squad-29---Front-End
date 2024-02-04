@@ -3,6 +3,7 @@ import "./styles.css";
 import "../../../index.css";
 import { CardProjects } from "../../../components/ProjectCard/index";
 import { Chips } from "../../../components/Chips/index";
+import Close from "../../../../public/close.svg";
 
 interface ModalProjetoProps {
     readonly modalIsOpen: boolean;
@@ -13,7 +14,7 @@ interface ModalProjetoProps {
     readonly data?: string;
     readonly titulo?: string;
     readonly descricao?: string;
-    readonly tags?: string[] | string | undefined;
+    readonly tags?: string[] | string;
 }
 
 export function ModalProjeto({
@@ -30,13 +31,10 @@ export function ModalProjeto({
     const fecharModal = () => {
         setIsOpen(false);
     };
-    // const nome = useSelector((state: RootState) => state.projetos);
-    // const img = useSelector((state: RootState) => state.login[0].img);
     return (
         <div>
             <Modal
                 isOpen={modalIsOpen}
-                onRequestClose={fecharModal}
                 style={{
                     overlay: {
                         backgroundColor: "rgba(0, 0, 0, 0.75)",
@@ -45,8 +43,10 @@ export function ModalProjeto({
                 className="modalContainer"
                 contentLabel="Example Modal"
             >
-                {/* <div>x</div> */}
                 <div className="modalDesktop">
+                    <button className="bt-fechar-modal" onClick={fecharModal}>
+                        <img src={Close} alt="Fechar modal" />
+                    </button>
                     <div className="headerContainer">
                         <div className="infUsuarioModal">
                             <div className="fotoPerfil">
