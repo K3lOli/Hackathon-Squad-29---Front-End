@@ -15,6 +15,7 @@ interface CardProjectsProps {
     readonly titulo?: string;
     readonly descricao?: string;
     readonly tags?: string[] | string | undefined | Array<string>;
+    readonly largura?: string;
 }
 export function CardProjects({
     imgPerfil,
@@ -26,6 +27,7 @@ export function CardProjects({
     titulo,
     descricao,
     tags,
+    largura,
 }: CardProjectsProps) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const openModal = () => {
@@ -38,6 +40,9 @@ export function CardProjects({
                 className={`cardProjetos ${className}`}
                 onClick={openModal}
                 key={index}
+                style={{
+                    width: `${largura}`,
+                }}
             >
                 <div className="imgProjeto">
                     <img src={imgProjeto} alt="" />

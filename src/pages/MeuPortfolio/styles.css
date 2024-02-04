@@ -15,10 +15,11 @@
 }
 
 .adicionarProjetos {
+    width: 1216px;
     margin-top: 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+    justify-content: space-between;
 }
 
 .projetoBox {
@@ -60,8 +61,15 @@
 }
 
 @media screen and (max-width: 1440px) {
+    .adicionarProjetos {
+        width: 100%;
+        grid-template-columns: -0.5fr 0.5fr;
+        justify-items: center;
+        gap: 10px;
+    }
     .secaoProjetos {
         max-width: 1116px;
+        padding: 24px;
     }
 
     .projetoBox {
@@ -92,17 +100,12 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .meusProjetosDiv {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    
     .secaoProjetos {
         max-width: 716px;
     }
 
     .adicionarProjetos {
-        grid-template-columns: 1fr;
+        grid-template-columns: 510px;
         justify-items: center;
     }
 
@@ -122,6 +125,10 @@
 @media screen and (max-width: 550px) {
     .meusProjetosDiv {
         max-width: 400px;
+    }
+    .adicionarProjetos {
+        grid-template-columns: 100%;
+        justify-items: center;
     }
 
     .secaoProjetos {
@@ -146,12 +153,12 @@
         max-width: 312px;
     }
 
-    .secaoProjetos {
-        max-width: 312px;
-    }
-
     .projetoBox {
         width: 312px;
+    }
+    .adicionarProjetos {
+        grid-template-columns: 100%;
+        justify-items: center;
     }
 
     .projetoBoxConteudo {
