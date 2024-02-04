@@ -74,7 +74,6 @@ export function Descobrir() {
                 </div>
                 <div className="cardsContainer">
                     {projetosFiltrados.map((projeto, index) => {
-                        console.log(projeto.tags);
                         return (
                             <CardProjects
                                 key={index}

@@ -42,6 +42,7 @@ export function Login() {
 
                 const user = auth.currentUser;
                 user?.getIdToken(true).then((idToken) => {
+                    setItem("token", idToken);
                     api.post("/usuarios/login/google", {
                         googleToken: idToken,
                     });

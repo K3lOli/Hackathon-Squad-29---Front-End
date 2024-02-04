@@ -61,10 +61,9 @@ export function ModalProjeto({
                         <div className="tagContainerModal">
                             {Array.isArray(tags) &&
                             tags.every((item) => typeof item === "string")
-                                ? (console.log(tags),
-                                  tags.map((tag, index) => (
+                                ? tags.map((tag, index) => (
                                       <Chips key={index}>{tag}</Chips>
-                                  )))
+                                  ))
                                 : null}
                         </div>
                     </div>
