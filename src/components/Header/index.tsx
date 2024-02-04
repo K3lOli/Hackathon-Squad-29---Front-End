@@ -1,7 +1,7 @@
 import React from "react";
 import logoOrange from "../../../public/logo-orange-portfolio.svg";
 import notificacao from "../../../public/botao-notificacao.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { RootState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
 import imgDefault from "../../../public/foto-perfil.png";
@@ -36,6 +36,8 @@ interface Projetos {
     usuario: Usuario;
 }
 
+import { clear } from "../../utils/storage";
+
 export function Header() {
     const dispatch = useDispatch();
     const img = useSelector((state: RootState) => state.login[0].img);
@@ -49,6 +51,13 @@ export function Header() {
         setMenuMobileOpen(!menuMobileOpen);
     };
 
+
+    const navigate = useNavigate();
+
+    const handleClickLogout = () => {
+        clear();
+        navigate("/");
+
     const getProjects = () => {
         api.get("/projetos/", {
             headers: {
@@ -56,7 +65,7 @@ export function Header() {
             },
         })
             .then((response) => {
-                console.log(response.data);
+                
                 response.data.map((projeto: Projetos) => {
                     return dispatch(getProjetos([projeto]));
                 });
@@ -64,6 +73,7 @@ export function Header() {
             .catch((error) => {
                 console.log(error);
             });
+
     };
 
     return (
@@ -122,6 +132,7 @@ export function Header() {
                             alt="Foto de perfil"
                             className="botao-notificacao"
                         />
+                        <button onClick={handleClickLogout}>LogOut</button>
                     </div>
                 </div>
             </div>
