@@ -10,6 +10,7 @@ import "./styles.css";
 import api from "../../api";
 import MenuMobile from "../../../public/menu-mobile.svg";
 import { clearProjetos, getProjetos } from "../../store/reducers/projetos";
+import SingOut from "../../../public/sign-out.svg";
 
 interface Usuario {
     _id: string;
@@ -128,7 +129,16 @@ export function Header() {
                             alt="Foto de perfil"
                             className="botao-notificacao"
                         />
-                        <button onClick={handleClickLogout}>LogOut</button>
+                        <button
+                            onClick={handleClickLogout}
+                            className="bt-logout"
+                        >
+                            <img
+                                src={SingOut}
+                                alt="Botão para deslogar"
+                                width={25}
+                            />
+                        </button>
                     </div>
                 </div>
             </div>
