@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/index";
 import imgDefault from "../../../public/foto-perfil.png";
 import "./styles.css";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { CustomInput } from "../Input";
 import { ButtonWithContainerOrange } from "../Buttons/ButtonWithContainer/OrangeButton";
 import Modal from "react-modal";
@@ -23,6 +23,14 @@ interface FormData {
 export function CardPerfil() {
     const nome = useSelector((state: RootState) => state.login[0].nome);
     const img = useSelector((state: RootState) => state.login[0].img);
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            setSelectedFile(file);
+        }
+    };
 
     const [modalIsOpen, setIsOpen] = useState<boolean>(false);
     const token = getItem("token");
@@ -34,9 +42,11 @@ export function CardPerfil() {
 
     function fecharModal() {
         setIsOpen(false);
+        reset();
+        setSelectedFile(null);
     }
 
-    const { register, handleSubmit } = useForm<FormData>();
+    const { register, handleSubmit, reset } = useForm<FormData>();
 
     const onSubmit = (data: FormData) => {
         const formData = new FormData();
@@ -86,79 +96,110 @@ export function CardPerfil() {
                 onRequestClose={fecharModal}
                 className="modalContainer"
                 contentLabel="Example Modal"
+                style={{
+                    overlay: {
+                        backgroundColor: "rgba(0, 0, 0, 0.75)",
+                    },
+                }}
             >
                 <div className="container-title">
                     <h5 className="titulo-modal">Adicionar projeto</h5>
                 </div>
-                <div className="container-content">
-                    <div className="content-esq">
-                        <p className="descrição-imagem quebra-txt">
-                            Selecione o conteúdo que você deseja fazer upload
-                        </p>
-                        <div className="background-imagem">
-                            <div className="container-description">
-                                <label
-                                    htmlFor="input-imagem"
-                                    className="content-image"
-                                >
+                <form
+                    className="container-content"
+                    onSubmit={handleSubmit(onSubmit)}
+                >
+                    <div className="containerForm">
+                        <div className="content-esq">
+                            <p className="descrição-imagem quebra-txt">
+                                Selecione o conteúdo que você deseja fazer
+                                upload
+                            </p>
+                            <div className="background-imagem">
+                                <div className="container-description">
+                                    <label
+                                        htmlFor="input-imagem"
+                                        className="content-image"
+                                    >
+                                        <input
+                                            id="input-imagem"
+                                            className="input-imagem"
+                                            type="file"
+                                            {...register("file")}
+                                            onChange={handleFileChange}
+                                        />
+                                        {selectedFile ? (
+                                            <img
+                                                src={URL.createObjectURL(
+                                                    selectedFile,
+                                                )}
+                                                alt="Imagem selecionada"
+                                            />
+                                        ) : (
+                                            <div className="imagemInicial">
+                                                <img
+                                                    className="icone-imagem"
+                                                    src={iconeImagem}
+                                                    alt="ícone para inserir imagem"
+                                                />
+                                                <p className="description-imagem">
+                                                    Compartilhe seu talento com
+                                                    milhares de pessoas
+                                                </p>
+                                            </div>
+                                        )}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="content-dir">
+                            <div className="formulario-projeto">
+                                <CustomInput>
                                     <input
-                                        id="input-imagem"
-                                        className="input-imagem"
-                                        type="file"
-                                        {...register("file")}
+                                        className="input-form"
+                                        type="text"
+                                        placeholder="Título"
+                                        {...register("titulo", {
+                                            required: true,
+                                        })}
                                     />
-                                    <img
-                                        className="icone-imagem"
-                                        src={iconeImagem}
-                                        alt="ícone para inserir imagem"
+                                </CustomInput>
+                                <CustomInput>
+                                    <input
+                                        className="input-form"
+                                        type="text"
+                                        placeholder="Tags"
+                                        {...register("tags", {
+                                            required: true,
+                                        })}
                                     />
-                                    <p className="description-imagem">
-                                        Compartilhe seu talento com milhares de
-                                        pessoas
-                                    </p>
-                                </label>
+                                </CustomInput>
+                                <CustomInput>
+                                    <input
+                                        className="input-form"
+                                        type="text"
+                                        placeholder="Link"
+                                        {...register("link")}
+                                    />
+                                </CustomInput>
+                                <CustomInput>
+                                    <textarea
+                                        className="input-form description"
+                                        placeholder="Descrição"
+                                        {...register("descricao", {
+                                            required: true,
+                                        })}
+                                    />
+                                </CustomInput>
                             </div>
                         </div>
                     </div>
-                    <div className="content-dir">
-                        <form
-                            className="formulario-projeto"
-                            action=""
-                            onSubmit={handleSubmit(onSubmit)}
-                        >
-                            <CustomInput>
-                                <input
-                                    className="input-form"
-                                    type="text"
-                                    placeholder="Título"
-                                    {...register("titulo", { required: true })}
-                                />
-                            </CustomInput>
-                            <CustomInput>
-                                <input
-                                    className="input-form"
-                                    type="text"
-                                    placeholder="Tags"
-                                    {...register("tags", { required: true })}
-                                />
-                            </CustomInput>
-                            <CustomInput>
-                                <input
-                                    className="input-form"
-                                    type="text"
-                                    placeholder="Link"
-                                    {...register("link")}
-                                />
-                            </CustomInput>
-                            <CustomInput>
-                                <textarea
-                                    className="input-form description"
-                                    placeholder="Descrição"
-                                    {...register("descricao", {
-                                        required: true,
-                                    })}
-                                />
-                            </CustomInput>
+
+                    <div className="footer-projeto">
+                        <p className="description-visualizar">
+                            Visualizar publicação
+                        </p>
+                        <div className="salvar-e-cancelar-btn">
                             <ButtonWithContainerOrange
                                 largura={"18%"}
                                 color={"#fff"}
@@ -166,24 +207,20 @@ export function CardPerfil() {
                             >
                                 Salvar
                             </ButtonWithContainerOrange>
-                        </form>
+                            <ButtonWithContainerGray
+                                largura={"18%"}
+                                color={"#00000061"}
+                            >
+                                <div
+                                    className="btn-cancelar"
+                                    onClick={fecharModal}
+                                >
+                                    Cancelar
+                                </div>
+                            </ButtonWithContainerGray>
+                        </div>
                     </div>
-                </div>
-                <div className="footer-projeto">
-                    <p className="description-visualizar">
-                        Visualizar publicação
-                    </p>
-                    <div className="salvar-e-cancelar-btn">
-                        <ButtonWithContainerGray
-                            largura={"18%"}
-                            color={"#00000061"}
-                        >
-                            <div className="btn-cancelar" onClick={fecharModal}>
-                                Cancelar
-                            </div>
-                        </ButtonWithContainerGray>
-                    </div>
-                </div>
+                </form>
             </Modal>
         </div>
     );
