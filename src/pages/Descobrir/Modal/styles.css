@@ -54,6 +54,13 @@
     display: flex;
     gap: 8px;
 }
+.bt-fechar-modal {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 @media (max-width: 1600px) {
     .modalContainer {
         max-width: 900px;
