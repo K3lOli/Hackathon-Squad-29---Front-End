@@ -4,6 +4,7 @@ import { CardPerfil } from "../../components/CardPerfil";
 import { Head } from "../../components/Head";
 import { Header } from "../../components/Header";
 import { getItem } from "../../utils/storage";
+import api from "../../api";
 import "./styles.css";
 
 interface Projeto {
@@ -12,16 +13,15 @@ interface Projeto {
 }
 
 export function MeuPortfolio() {
-    const token = getItem("token"); // cadastro de projetos
-    console.log(token);
 
+    const token = getItem("token"); 
     const [projetos, setProjetos] = useState<Projeto[]>([]);
 
     useEffect(() => {
         const buscarProjetos = async () => {
             try {
-                const response = await axios.get(
-                    "http://localhost:8000/api/projetos/meus-projetos",
+                const response = await api.get(
+                    "/projetos/meus-projetos",
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
@@ -36,11 +36,6 @@ export function MeuPortfolio() {
 
         buscarProjetos();
     }, [token]);
-
-    // const imagemURL = "http://localhost:8000/imagens/1706824778348.png";
-    // console.log(imagemURL);
-
-    console.log(projetos);
 
     return (
         <div>
@@ -83,7 +78,7 @@ export function MeuPortfolio() {
                             <div key={projeto.titulo} className="projetoBox">
                                 <div className="projetoBoxConteudoUsuario">
                                     <img
-                                        src={`http://localhost:8000/imagens/${projeto.imagem_url}`}
+                                        src={`${api}/imagens/${projeto.imagem_url}`}
                                         alt=""
                                     />
                                     <div></div>

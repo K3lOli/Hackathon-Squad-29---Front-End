@@ -10,7 +10,6 @@ interface PrivateRoutesProps {
 export function PrivateRoutes({ children }: PrivateRoutesProps) {
     const navigate = useNavigate();
     const isAuth = useSelector((state: RootState) => state.login[0].isAuth);
-    console.log(isAuth);
     useEffect(() => {
         if (!isAuth) {
             navigate("/");

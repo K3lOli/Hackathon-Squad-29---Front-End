@@ -1,0 +1,154 @@
+@import "../../../index.css";
+
+.modalContainer {
+    max-width: 1042px;
+    max-height: 981px;
+    border-radius: 4px;
+    position: fixed; /* Posiciona o modal em relação à janela do navegador */
+    top: 50%; /* Posiciona o topo do modal no meio da janela do navegador */
+    left: 50%; /* Posiciona a esquerda do modal no meio da janela do navegador */
+    transform: translate(-50%, -50%); /* Desloca o modal para a esquerda e para cima em 50% de sua própria largura e altura, respectivamente, efetivamente centralizando-o */
+    background-color: var(--color-neutral-60);
+    flex-direction: column;
+    padding: 0px 80px;
+    overflow: auto;
+}
+.modalMobile{
+    display: none;
+}
+.fotoPerfil {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+.infUsuario{
+    width: max-content;
+}
+.nome{
+    color: var(--color-neutral-120);
+}
+.data{
+    color: var(--color-neutral-110);
+}
+.imgContainer{
+    display: flex;
+    width: 100%;
+    height: 586px;
+    margin-bottom: 48px;
+    justify-content: center;
+    overflow: hidden;
+}
+.containerDescricao{
+    margin-bottom: 48px;
+}
+@media (max-width: 1600px) {
+    .modalContainer {
+        max-width: 900px;
+        max-height: 650px;
+        padding: 0px 40px;
+        position: fixed; /* Posiciona o modal em relação à janela do navegador */
+        top: 50%; /* Posiciona o topo do modal no meio da janela do navegador */
+        left: 50%; /* Posiciona a esquerda do modal no meio da janela do navegador */
+        transform: translate(-50%, -50%); /* Desloca o modal para a esquerda e para cima em 50% de sua própria largura e altura, respectivamente, efetivamente centralizando-o */
+    }
+    .imgContainer{
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .modalContainer {
+        max-width: 700px;
+        padding: 0px 40px;
+        position: fixed; /* Posiciona o modal em relação à janela do navegador */
+        top: 50%; /* Posiciona o topo do modal no meio da janela do navegador */
+        left: 50%; /* Posiciona a esquerda do modal no meio da janela do navegador */
+        transform: translate(-50%, -50%); /* Desloca o modal para a esquerda e para cima em 50% de sua própria largura e altura, respectivamente, efetivamente centralizando-o */
+    }
+    .imgContainer{
+        width: 100%;
+        height: 400px;
+    }
+}
+
+@media (max-width: 1000px){
+    .modalContainer {
+        max-width: 600px;
+        padding: 0px 40px;
+        position: fixed; /* Posiciona o modal em relação à janela do navegador */
+        top:40%; /* Posiciona o topo do modal no meio da janela do navegador */
+        left: 50%; /* Posiciona a esquerda do modal no meio da janela do navegador */
+        transform: translate(-50%, -50%); /* Desloca o modal para a esquerda e para cima em 50% de sua própria largura e altura, respectivamente, efetivamente centralizando-o */
+    }
+    .imgContainer{
+        width: 370px;
+        height: 350px;
+    }
+
+}
+
+@media (max-width: 980px) {
+    .modalContainer {
+        max-width: 500px;
+        padding: 0px 40px;
+        position: fixed; /* Posiciona o modal em relação à janela do navegador */
+        top: 40%; /* Posiciona o topo do modal no meio da janela do navegador */
+        left: 50%; /* Posiciona a esquerda do modal no meio da janela do navegador */
+        transform: translate(-50%, -50%); /* Desloca o modal para a esquerda e para cima em 50% de sua própria largura e altura, respectivamente, efetivamente centralizando-o */
+    }
+    .imgContainer{
+        width: 370px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 550px) {
+    .modalContainer {
+        max-width: 100%;
+        min-height: 100vh;
+        position: fixed;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0px 30px;
+        display: flex;
+        justify-content: start;
+        padding-top: 20px;
+        align-items: center;
+    }
+    .tituloProjeto{
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+    .modalDesktop{
+        display: none;
+    }
+    .modalMobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .imgContainer{
+        height: 280px;
+    }
+    .containerDescricao{
+        max-width: 320px;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+    .headerContainer{
+        margin-top: 100px;
+    }
+    .cardProjetoModal{
+        width: 320px;
+        border-radius: 10px;
+    }
+}

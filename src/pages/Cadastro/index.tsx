@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 import "../Login/styles.css";
@@ -12,6 +11,7 @@ import { Head } from "../../components/Head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface FormValues {
     nome: string;
@@ -31,15 +31,12 @@ export function Cadastro() {
 
     const cadastrarUsuario = async (data: FormValues) => {
         try {
-            const response = await axios.post(
-                "http://localhost:8000/api/usuarios/cadastrar",
-                {
-                    nome: data.nome,
-                    sobrenome: data.sobrenome,
-                    email: data.email,
-                    senha_hash: data.senha,
-                },
-            );
+            const response = await axios.post("usuarios/cadastrar", {
+                nome: data.nome,
+                sobrenome: data.sobrenome,
+                email: data.email,
+                senha_hash: data.senha,
+            });
 
             console.log("Usuário cadastrado com sucesso!", response.data);
 
@@ -76,15 +73,22 @@ export function Cadastro() {
             </div>
             <div className="formContainer">
                 <h3 className="register-title">Cadastre-se</h3>
-                <form onSubmit={handleSubmit(cadastrarUsuario)}>
+                <form
+                    onSubmit={handleSubmit(cadastrarUsuario)}
+                    className="formCadastro"
+                >
                     <div className="container--nome-sobrenome">
-                        <CustomInput labelName="Nome *">
+                        <CustomInput
+                            labelName="Nome *"
+                            className="inputNome"
+                            largura={"100%"}
+                        >
                             <input
                                 type="text"
                                 {...register("nome", { required: true })}
                             />
                         </CustomInput>
-                        <CustomInput>
+                        <CustomInput className="inputNome" largura={"100%"}>
                             <input
                                 type="text"
                                 placeholder="Sobrenome *"
@@ -92,15 +96,23 @@ export function Cadastro() {
                             />
                         </CustomInput>
                     </div>
-                    <div className="inputContainer register">
-                        <CustomInput labelName="Email Address">
+                    <div className="register">
+                        <CustomInput
+                            labelName="Email Address"
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 type="email"
                                 id="email"
                                 {...register("email", { required: true })}
                             />
                         </CustomInput>
-                        <CustomInput labelName="Password">
+                        <CustomInput
+                            labelName="Password"
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 className="password"
                                 type={mostrarSenha ? "text" : "password"}

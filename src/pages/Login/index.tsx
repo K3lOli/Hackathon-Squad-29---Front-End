@@ -31,7 +31,6 @@ export function Login() {
     const [isAuth, setIsAuth] = useState(false);
 
     const authenticator = () => {
-        console.log("entrou");
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -43,7 +42,6 @@ export function Login() {
 
                 const user = auth.currentUser;
                 user?.getIdToken(true).then((idToken) => {
-                    console.log({ idToken });
                     api.post("/usuarios/login/google", {
                         googleToken: idToken,
                     });
@@ -70,7 +68,6 @@ export function Login() {
         setIncorrectPassword(false);
     };
     const onSubmit = (data: FormData) => {
-        console.log(data);
         setError("email", {
             type: "custom",
             message: "Email ou senha incorretos",
@@ -99,7 +96,6 @@ export function Login() {
             })
             .catch((err) => {
                 setIsAuth(false);
-                console.log(isAuth);
                 setIncorrectPassword(true);
                 console.log(err);
             });
@@ -123,10 +119,14 @@ export function Login() {
                 <GoogleButton onClick={authenticator}>
                     Entrar com Google
                 </GoogleButton>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="formLogin">
                     <h5>Faça login com email</h5>
-                    <div className="inputContainer">
-                        <CustomInput labelName={"Email Adress"}>
+                    <div className="inputLogin">
+                        <CustomInput
+                            labelName={"Email Adress"}
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 type="email"
                                 className={
@@ -138,7 +138,11 @@ export function Login() {
                                 onClick={handleInputClick}
                             />
                         </CustomInput>
-                        <CustomInput labelName={"Password"}>
+                        <CustomInput
+                            labelName={"Password"}
+                            className="passwordInput"
+                            largura={"100%"}
+                        >
                             <input
                                 type={mostrarSenha ? "text" : "password"}
                                 {...register("senha_hash", { required: true })}

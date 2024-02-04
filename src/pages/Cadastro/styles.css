@@ -28,6 +28,16 @@
     background-color: transparent;
 }
 
+.register{
+    width: 517px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 14px;
+}
+
 .imgRegister {
     height: 100%;
 }
@@ -37,6 +47,17 @@
     line-height: 3rem;
     font-weight: 400;
     margin: 16px 0;
+}
+.formCadastro{
+    display: flex;
+    width: 517px;
+    height: 271px;
+    padding-bottom: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 18px;
+    flex-shrink: 0;
 }
 
 .buttonContainer{
@@ -70,7 +91,16 @@
 
    }
 
-   .container--nome-sobrenome {
+   .register{
+    width: 412px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.container--nome-sobrenome {
     display: flex;
     flex-direction: column;
     margin-bottom: 80px;
@@ -86,7 +116,7 @@
 
 
 }
-@media screen and (min-width: 455px) and (max-width: 750px) { 
+@media screen and (min-width: 450px) and (max-width: 750px) { 
 
    .formContainer {
        gap: 2rem;
@@ -96,19 +126,24 @@
        font-size: 2rem; 
        
       }
-   form{
-       width: 312px;
-       height: 271px;
-       padding-bottom: 3px;
-
-      }
+      .formCadastro{
+        display: flex;
+        width: 412px;
+        height: 271px;
+        padding-bottom: 3px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 18px;
+        flex-shrink: 0;
+    }
 
     .register-title {
         font-size: 3rem;
     }
 
 }
-@media screen and (min-width: 360px)and (max-width:450px)  {
+@media screen and (min-width: 200px)and (max-width:450px)  {
   
    .formContainer {
        display: flex;
@@ -123,22 +158,32 @@
    font-size: 1.5rem; 
    
   }
-   
-  form{
-   display: flex;
-   width: 312px;
-   height: 271px;
-   padding-bottom: 3px;
-   flex-direction: column;
-   justify-content: center;
-   align-items: flex-start;
-   gap: 18px;
-   flex-shrink: 0;
-  }
+
+  .formCadastro{
+    display: flex;
+    width: 312px;
+    height: 271px;
+    padding-bottom: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 18px;
+    flex-shrink: 0;
+}
+.register{
+    width: 312px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.container--nome-sobrenome{
+    width: 312px;
+}
 
   .register-title {
     font-size: 3rem;
 }
-
 
 }
