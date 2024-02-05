@@ -78,7 +78,7 @@ export function Descobrir() {
                             <CardProjects
                                 key={projeto._id}
                                 imgPerfil={`${img}`}
-                                imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads\\", "")}`}
+                                imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
                                 // imgProjeto={`http://localhost:8000/imagens/${projeto.imagem_url.replace("uploads\\", "")}`}
                                 nome={`${projeto.usuario.nome}`}
                                 data={formatarData(projeto.createdAt)}

@@ -368,7 +368,7 @@ export function MeuPortfolio() {
                                             className="cardProjectsMeuPortfolio"
                                             imgPerfil={`${img}`}
                                             largura="100%"
-                                            imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads\\", "")}`}
+                                            imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
                                             // imgProjeto={`http://localhost:8000/imagens/${projeto.imagem_url.replace("uploads\\", "")}`}
                                             nome={`${nome}`}
                                             data={formatarData(
