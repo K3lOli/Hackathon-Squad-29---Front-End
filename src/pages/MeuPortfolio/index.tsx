@@ -9,6 +9,7 @@ import { CardProjects } from "../../components/ProjectCard";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
 import { setText } from "../../store/reducers/textInput";
+import editar from "../../../public/Vector.png";
 
 interface Projeto {
     titulo: string;
@@ -35,6 +36,17 @@ export function MeuPortfolio() {
     const [projetosFiltrados, setProjetosFiltrados] = useState(projetos);
     const dispatch = useDispatch();
     const busca = useSelector((state: RootState) => state.input);
+    const [projetoSelecionado, setProjetoSelecionado] =
+        useState<Projeto | null>(null);
+    const isProjetoSelecionado = (id: string) => projetoSelecionado?._id === id;
+
+    const abrirEditar = (projeto: Projeto) => {
+        if (projetoSelecionado?._id === projeto._id) {
+            setProjetoSelecionado(null);
+        } else {
+            setProjetoSelecionado(projeto);
+        }
+    };
 
     useEffect(() => {
         if (!busca) {
@@ -112,18 +124,40 @@ export function MeuPortfolio() {
                             console.log(projeto.tags);
                             const arrayTags = projeto.tags.split(",");
                             return (
-                                <CardProjects
+                                <div
+                                    className="container-card"
                                     key={projeto._id}
-                                    imgPerfil={`${img}`}
-                                    largura="100%"
-                                    // imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
-                                    imgProjeto={`http://localhost:8000/imagens/${projeto.imagem_url.replace("uploads\\", "")}`}
-                                    nome={`${nome}`}
-                                    data={formatarData(projeto.createdAt)}
-                                    tags={arrayTags}
-                                    titulo={`${projeto.titulo}`}
-                                    descricao={`${projeto.descricao}`}
-                                />
+                                >
+                                    {isProjetoSelecionado(projeto._id) && (
+                                        <div className="opcoes">
+                                            <p className="subtitle-1">Editar</p>
+                                            <p className="subtitle-1">
+                                                Excluir
+                                            </p>
+                                        </div>
+                                    )}
+                                    <div className="botao-editar">
+                                        <img
+                                            src={editar}
+                                            alt=""
+                                            onClick={() => abrirEditar(projeto)}
+                                        />
+                                    </div>
+
+                                    <CardProjects
+                                        key={projeto._id}
+                                        className="cardProjectsMeuPortfolio"
+                                        imgPerfil={`${img}`}
+                                        largura="100%"
+                                        // imgProjeto={`https://fcamaradeploy-api.onrender.com/imagens/${projeto.imagem_url.replace("uploads/", "")}`}
+                                        imgProjeto={`http://localhost:8000/imagens/${projeto.imagem_url.replace("uploads\\", "")}`}
+                                        nome={`${nome}`}
+                                        data={formatarData(projeto.createdAt)}
+                                        tags={arrayTags}
+                                        titulo={`${projeto.titulo}`}
+                                        descricao={`${projeto.descricao}`}
+                                    />
+                                </div>
                             );
                         })}
                     </div>
