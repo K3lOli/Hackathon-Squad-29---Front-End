@@ -61,7 +61,7 @@ export function MeuPortfolio() {
 
     const abrirEditar = (projeto: Projeto) => {
         if (projetoSelecionado?._id) {
-            setProjetoSelecionado(null);
+            setProjetoSelecionado(projeto);
         } else {
             setProjetoSelecionado(projeto);
         }
