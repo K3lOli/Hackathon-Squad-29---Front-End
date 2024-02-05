@@ -13,3 +13,12 @@ export function clear() {
 export function removeItem(key: string) {
     localStorage.removeItem(key);
 }
+
+export function setReduxState(key: string, state: any) {
+    localStorage.setItem(key, JSON.stringify(state));
+}
+
+export function getReduxState(key: string) {
+    const stateString = localStorage.getItem(key);
+    return stateString ? JSON.parse(stateString) : null;
+}

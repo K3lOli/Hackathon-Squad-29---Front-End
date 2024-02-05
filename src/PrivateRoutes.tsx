@@ -1,7 +1,6 @@
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { RootState } from "./store";
 import { useEffect } from "react";
+import { getItem } from "../src/utils/storage";
 
 interface PrivateRoutesProps {
     children: React.ReactNode;
@@ -9,11 +8,11 @@ interface PrivateRoutesProps {
 
 export function PrivateRoutes({ children }: PrivateRoutesProps) {
     const navigate = useNavigate();
-    const isAuth = useSelector((state: RootState) => state.login[0].isAuth);
+    const token = getItem("token");
     useEffect(() => {
-        if (!isAuth) {
+        if (!token) {
             navigate("/");
         }
-    }, [isAuth, navigate]);
-    return isAuth ? <>{children}</> : null;
+    }, [token, navigate]);
+    return token ? <>{children}</> : null;
 }

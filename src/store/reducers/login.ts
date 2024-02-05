@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import imgDefault from "../../../public/foto-perfil.png";
+import { setReduxState, getReduxState } from "../../utils/storage";
 
 interface Login {
     email: string | null | undefined;
@@ -8,8 +9,9 @@ interface Login {
     isAuth: boolean;
     id: string | null | undefined;
 }
+const persistedState: Login[] = getReduxState("login");
 
-const initialState: Login[] = [
+const initialState: Login[] = persistedState || [
     {
         email: null,
         nome: null,
@@ -32,6 +34,7 @@ const loginSlice = createSlice({
                 ? action.payload.img
                 : imgDefault;
             state[0].isAuth = true;
+            setReduxState("login", state);
         },
         logout: (state) => {
             // Limpa o estado ao fazer logout
