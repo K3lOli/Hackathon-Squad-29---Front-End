@@ -76,7 +76,7 @@ export function ModalProjeto({
                         <p>{descricao}</p>
                         <a
                             className="link body-2"
-                            href={`https://${link}`}
+                            href={`${link}`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

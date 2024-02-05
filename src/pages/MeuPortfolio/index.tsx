@@ -16,6 +16,7 @@ import { ButtonWithContainerGray } from "../../components/Buttons/ButtonWithCont
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
 import iconeImagem from "../../../public/icone-inserir-imagem.svg";
+import publicCollection from "../../../public/collections.svg";
 
 interface Projeto {
     titulo: string;
@@ -336,7 +337,7 @@ export function MeuPortfolio() {
                             <div className="projetoBox">
                                 <div className="projetoBoxConteudo">
                                     <img
-                                        src="../../../public/collections.svg"
+                                        src={publicCollection}
                                         alt="Project Collections Logo"
                                     />
                                     <p className="body-1 primeiroProjeto">
