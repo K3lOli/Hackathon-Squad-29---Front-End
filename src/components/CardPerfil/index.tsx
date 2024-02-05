@@ -25,13 +25,6 @@ export function CardPerfil() {
     const img = useSelector((state: RootState) => state.login[0].img);
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files.length > 0) {
-            const file = e.target.files[0];
-            setSelectedFile(file);
-        }
-    };
-
     const [modalIsOpen, setIsOpen] = useState<boolean>(false);
     const token = getItem("token");
     console.log(token);
@@ -46,9 +39,22 @@ export function CardPerfil() {
         setSelectedFile(null);
     }
 
-    const { register, handleSubmit, reset } = useForm<FormData>();
+    const { register, handleSubmit, reset, getValues, setValue } =
+        useForm<FormData>();
+    console.log(getValues());
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            const fileList = new DataTransfer();
+            fileList.items.add(file);
+            setValue("file", fileList.files); // Define o valor do campo "file" como FileList
+            setSelectedFile(file); // Atualiza o estado selectedFile
+        }
+    };
 
     const onSubmit = (data: FormData) => {
+        console.log(data.file);
         const formData = new FormData();
         formData.append("titulo", data.titulo);
         formData.append("tags", data.tags);
