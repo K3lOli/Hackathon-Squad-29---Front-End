@@ -16,6 +16,7 @@ interface CardProjectsProps {
     readonly descricao?: string;
     readonly tags?: string[] | string | undefined | Array<string>;
     readonly largura?: string;
+    readonly link?: string | undefined;
 }
 export function CardProjects({
     imgPerfil,
@@ -28,6 +29,7 @@ export function CardProjects({
     descricao,
     tags,
     largura,
+    link,
 }: CardProjectsProps) {
     const [modalIsOpen, setIsOpen] = useState(false);
     const openModal = () => {
@@ -83,6 +85,7 @@ export function CardProjects({
                     titulo={titulo}
                     descricao={descricao}
                     tags={tags}
+                    link={link}
                 />
             </div>
         </>

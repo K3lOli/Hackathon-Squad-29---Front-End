@@ -15,6 +15,7 @@ interface ModalProjetoProps {
     readonly titulo?: string;
     readonly descricao?: string;
     readonly tags?: string[] | string;
+    readonly link?: string;
 }
 
 export function ModalProjeto({
@@ -27,6 +28,7 @@ export function ModalProjeto({
     titulo,
     descricao,
     tags,
+    link,
 }: ModalProjetoProps) {
     const fecharModal = () => {
         setIsOpen(false);
@@ -72,6 +74,14 @@ export function ModalProjeto({
                     </div>
                     <div className="containerDescricao">
                         <p>{descricao}</p>
+                        <a
+                            className="link body-2"
+                            href={`https://${link}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {link}
+                        </a>
                     </div>
                 </div>
                 <div className="modalMobile">

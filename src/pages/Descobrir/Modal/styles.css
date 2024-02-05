@@ -14,7 +14,11 @@
     overflow: auto;
 }
 .modalMobile{
+    width: max-content;
     display: none;
+}
+.link{
+    color: var(--color-info-80);
 }
 .fotoPerfil {
     width: 40px;

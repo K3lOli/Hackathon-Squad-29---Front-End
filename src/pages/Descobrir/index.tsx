@@ -85,6 +85,7 @@ export function Descobrir() {
                                 titulo={`${projeto.titulo}`}
                                 descricao={`${projeto.descricao}`}
                                 tags={projeto.tags}
+                                link={`${projeto.link}`}
                             />
                         );
                     })}
