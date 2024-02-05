@@ -32,6 +32,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    cursor: pointer;
 }
 .opcoes:after{ /*Triangulo*/
     content: "";
