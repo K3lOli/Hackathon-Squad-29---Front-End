@@ -32,7 +32,7 @@ export function Cadastro() {
     const cadastrarUsuario = async (data: FormValues) => {
         try {
             const response = await axios.post(
-                "http://localhost:8000/api/usuarios/cadastrar",
+                "https://fcamaradeploy-api.onrender.com/api/usuarios/cadastrar",
                 {
                     nome: data.nome,
                     sobrenome: data.sobrenome,

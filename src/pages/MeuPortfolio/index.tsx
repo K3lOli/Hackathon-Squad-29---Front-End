@@ -33,7 +33,7 @@ interface FormData {
     link: string;
     descricao: string;
     file?: FileList;
-    id: string | Blob;
+    projetoId: string;
 }
 
 const formatarData = (dataCompleta: string) => {
@@ -69,6 +69,8 @@ export function MeuPortfolio() {
         }
     };
 
+    console.log(projetoSelecionado);
+
     const abrirModal = () => {
         setIsOpen(true);
         setProjetoSelecionado(null);
@@ -91,6 +93,25 @@ export function MeuPortfolio() {
         }
     };
 
+    const onDelete = () => {
+        const idUsuarioLogado = id;
+        const projetoId = projetoSelecionado?._id;
+        console.log(projetoId);
+        api.delete(`projetos/meus-projetos/${idUsuarioLogado}`, {
+            data: { projetoId }, // Aqui você pode passar o ID do projeto no corpo da solicitação
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json", // Se o corpo da solicitação for JSON, você deve definir o Content-Type como application/json
+            },
+        })
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
     const onSubmit = (data: FormData) => {
         const formData = new FormData();
         formData.append("titulo", data.titulo);
@@ -98,12 +119,12 @@ export function MeuPortfolio() {
         formData.append("link", data.link);
         formData.append("descricao", data.descricao);
         if (projetoSelecionado) {
-            formData.append("id", projetoSelecionado._id);
+            formData.append("projetoId", projetoSelecionado._id);
         }
         if (data.file) {
             formData.append("file", data.file[0]);
         }
-        api.put(`projetos/atualizar-projeto/:${id}`, formData, {
+        api.put(`projetos/atualizar-projeto/${id}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
@@ -349,7 +370,10 @@ export function MeuPortfolio() {
                                                 >
                                                     Editar
                                                 </p>
-                                                <p className="subtitle-1">
+                                                <p
+                                                    className="subtitle-1"
+                                                    onClick={onDelete}
+                                                >
                                                     Excluir
                                                 </p>
                                             </div>
