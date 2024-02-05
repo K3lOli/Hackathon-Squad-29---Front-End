@@ -10,7 +10,9 @@ export function PrivateRoutes({ children }: PrivateRoutesProps) {
     const navigate = useNavigate();
     const token = getItem("token");
     useEffect(() => {
+        console.log("Token:", token);
         if (!token) {
+            console.log("Redirecionando para a página de login...");
             navigate("/");
         }
     }, [token, navigate]);
