@@ -48,7 +48,6 @@ export function MeuPortfolio() {
     const dispatch = useDispatch();
     const img = useSelector((state: RootState) => state.login[0].img);
     const nome = useSelector((state: RootState) => state.login[0].nome);
-    const id = useSelector((state: RootState) => state.login[0].id);
     const token = getItem("token");
     const [projetos, setProjetos] = useState<Projeto[]>([]); // projetos do usuário logado
     const [projetosFiltrados, setProjetosFiltrados] = useState(projetos); // filtra por tag
@@ -61,19 +60,15 @@ export function MeuPortfolio() {
     const { register, handleSubmit, reset, setValue } = useForm<FormData>();
 
     const abrirEditar = (projeto: Projeto) => {
-        console.log(projeto._id);
-        if (projetoSelecionado?._id === projeto._id) {
-            setProjetoSelecionado(null);
+        if (projetoSelecionado?._id) {
+            setProjetoSelecionado(projeto);
         } else {
             setProjetoSelecionado(projeto);
         }
     };
 
-    console.log(projetoSelecionado);
-
     const abrirModal = () => {
         setIsOpen(true);
-        setProjetoSelecionado(null);
     };
 
     function fecharModal() {
@@ -92,16 +87,16 @@ export function MeuPortfolio() {
             setSelectedFile(file); // Atualiza o estado selectedFile
         }
     };
+    let projetoId: string;
 
     const onDelete = () => {
-        const idUsuarioLogado = id;
-        const projetoId = projetoSelecionado?._id;
-        console.log(projetoId);
-        api.delete(`projetos/meus-projetos/${idUsuarioLogado}`, {
-            data: { projetoId }, // Aqui você pode passar o ID do projeto no corpo da solicitação
+        if (projetoSelecionado) {
+            projetoId = projetoSelecionado._id;
+        }
+        api.delete(`projetos/meus-projetos/${projetoId}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json", // Se o corpo da solicitação for JSON, você deve definir o Content-Type como application/json
+                "Content-Type": "application/json",
             },
         })
             .then((response) => {
@@ -111,20 +106,22 @@ export function MeuPortfolio() {
                 console.log(err);
             });
     };
-
     const onSubmit = (data: FormData) => {
         const formData = new FormData();
         formData.append("titulo", data.titulo);
         formData.append("tags", data.tags);
         formData.append("link", data.link);
         formData.append("descricao", data.descricao);
-        if (projetoSelecionado) {
-            formData.append("projetoId", projetoSelecionado._id);
-        }
         if (data.file) {
             formData.append("file", data.file[0]);
         }
-        api.put(`projetos/atualizar-projeto/${id}`, formData, {
+        let projetoId;
+
+        if (projetoSelecionado) {
+            projetoId = projetoSelecionado._id;
+        }
+
+        api.put(`projetos/atualizar-projeto/${projetoId}`, formData, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "multipart/form-data",
@@ -139,7 +136,6 @@ export function MeuPortfolio() {
     };
 
     useEffect(() => {
-        // atualiza a renderização durante a busca
         if (!busca) {
             setProjetosFiltrados(projetos);
             return;

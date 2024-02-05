@@ -74,6 +74,7 @@
 
 .container-card{
     position: relative;
+    width: 100%;
 }
 
 .projetoBox {
