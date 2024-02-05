@@ -27,7 +27,6 @@ export function CardPerfil() {
 
     const [modalIsOpen, setIsOpen] = useState<boolean>(false);
     const token = getItem("token");
-    console.log(token);
 
     function abrirModal() {
         setIsOpen(true);
@@ -39,9 +38,7 @@ export function CardPerfil() {
         setSelectedFile(null);
     }
 
-    const { register, handleSubmit, reset, getValues, setValue } =
-        useForm<FormData>();
-    console.log(getValues());
+    const { register, handleSubmit, reset, setValue } = useForm<FormData>();
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files.length > 0) {
@@ -54,7 +51,6 @@ export function CardPerfil() {
     };
 
     const onSubmit = (data: FormData) => {
-        console.log(data.file);
         const formData = new FormData();
         formData.append("titulo", data.titulo);
         formData.append("tags", data.tags);

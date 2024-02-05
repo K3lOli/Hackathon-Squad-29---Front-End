@@ -38,6 +38,7 @@ export function Login() {
                 const nome = usuario.displayName;
                 const email = usuario.email;
                 const img = usuario?.photoURL;
+                const id = usuario.uid;
                 setIsAuth(true);
 
                 const user = auth.currentUser;
@@ -50,7 +51,7 @@ export function Login() {
 
                 navigate("/meuportfolio");
 
-                dispatch(login({ nome, email, img, isAuth }));
+                dispatch(login({ nome, email, img, isAuth, id }));
             })
             .catch((error) => {
                 console.log("deu errado", error);
@@ -84,6 +85,7 @@ export function Login() {
                 });
                 const usuario = response.data.usuario;
                 const email = usuario.email;
+                const id = usuario.id;
                 setItem("token", response.data.token); // login
                 const nome = (usuario.nome + " " + usuario.sobrenome)
                     .split(" ")
@@ -93,7 +95,7 @@ export function Login() {
                 setTimeout(() => {
                     navigate("/meuportfolio");
                 }, 2000);
-                dispatch(login({ email, nome, isAuth }));
+                dispatch(login({ email, nome, isAuth, id }));
             })
             .catch((err) => {
                 setIsAuth(false);

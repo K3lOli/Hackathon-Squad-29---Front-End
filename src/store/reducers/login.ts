@@ -6,6 +6,7 @@ interface Login {
     nome?: string | null | undefined;
     img?: string | null | undefined;
     isAuth: boolean;
+    id: string | null | undefined;
 }
 
 const initialState: Login[] = [
@@ -14,6 +15,7 @@ const initialState: Login[] = [
         nome: null,
         img: null,
         isAuth: false,
+        id: null,
     },
 ];
 
@@ -25,6 +27,7 @@ const loginSlice = createSlice({
             // Atualiza o estado com os dados do usuário logado
             state[0].email = action.payload.email;
             state[0].nome = action.payload.nome;
+            state[0].id = action.payload.id;
             state[0].img = action.payload.img = action.payload.img
                 ? action.payload.img
                 : imgDefault;
