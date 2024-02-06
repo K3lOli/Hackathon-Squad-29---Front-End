@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# Orange Portfólio (Front-end)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto faz parte do Processo Seletivo FCamara 5ª Edição, fase Hackaton.
 
-Currently, two official plugins are available:
+A Orange Portfólio é uma plataforma onde os usuários poderão compartilhar e gerenciar seus projetos na área de tecnologia. Faz parte do ecossistema da Orange Juice, comunidade tech bastante ativa, cujo foco é compartilhar conhecimento e ajudar pessoas a construírem uma carreira de sucesso no segmento tecnológico.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+Deploy: https://hackathon-squad-29-front-end.vercel.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Repositório do back-end: https://github.com/vitoriadeveloper/server-hackathon
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+![Front-end-login](https://github.com/K3lOli/Hackathon-Squad-29---Front-End/assets/104580439/0fd483c3-67cd-481d-9bfe-980643196951)
+
+
+## Como executar a aplicação
+
+Será necessário ter o Node.js, ou o npm, instalados.
+
+Após clonar o repositório, é necessário ir ao diretório raiz desse projeto pelo terminal para poder executar os comandos descritos abaixo:
+
+
+```
+$ npm install
+
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+Este comando instala as dependências/bibliotecas descritas no arquivo package.json. Uma pasta chamada "node_modules" será criada.
+
+Para executar a interface, basta executar o comando:
+
+
+```
+$ npm run dev
+
+```
+
+Abra o localhost no navegador.
+
+
+## Principais tecnologias utilizadas:
+ 
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+
+## Entre em contato
+
+Estamos à disposição para esclarecer dúvidas e oferecer o suporte necessário. Entre em contato pelo e-mail squadfcamara@gmail.com
